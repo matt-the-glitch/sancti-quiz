@@ -299,7 +299,7 @@ body{
   <div class="question-type-badge" id="qTypeBadge"></div>
   <div class="image-frame" id="imageFrame" style="display:none">
     <span class="img-loading" id="imgLoading">Bild wird geladen…</span>
-    <img id="quizImage" alt="Gemälde" onload="this.style.display='block';document.getElementById('imgLoading').style.display='none'" onerror="handleImageError(this)" style="display:none">
+    <img id="quizImage" alt="Gemälde" referrerpolicy="no-referrer" onload="this.style.display='block';document.getElementById('imgLoading').style.display='none'" onerror="handleImageError(this)" style="display:none">
   </div>
   <div class="question-text" id="questionText"></div>
   <div class="options" id="optionsGrid"></div>
@@ -308,7 +308,7 @@ body{
     <div class="feedback-label" id="feedbackLabel"></div>
     <div class="image-frame feedback-frame">
       <span class="img-loading" id="fbImgLoading">Bild wird geladen…</span>
-      <img id="feedbackImage" alt="Heiliger" onload="this.style.display='block';document.getElementById('fbImgLoading').style.display='none'" onerror="document.getElementById('fbImgLoading').textContent=''" style="display:none">
+      <img id="feedbackImage" alt="Heiliger" referrerpolicy="no-referrer" onload="this.style.display='block';document.getElementById('fbImgLoading').style.display='none'" onerror="document.getElementById('fbImgLoading').textContent=''" style="display:none">
     </div>
     <div class="feedback-info" id="feedbackInfo"></div>
   </div>

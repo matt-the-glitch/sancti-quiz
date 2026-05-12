@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#111a2e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Sancti – Heilige in der Kunst erkennen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Alegreya+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #c49a2a;
+  --gold-light: #ddb44e;
+  --gold-pale: #e8d5a8;
+  --ink: #111a2e;
+  --ink-light: #182440;
+  --parchment: #e8e0d0;
+  --parchment-dark: #ebe0cf;
+  --red-oxide: #cf4433;
+  --blue-dark: #1c3150;
+  --green: #2d5a27;
+  --correct: #3a8a34;
+  --wrong: #cf4433;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--ink)}
+body{
+  font-family:'Alegreya Sans',sans-serif;
+  background:var(--ink);
+  color:var(--parchment);
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;
+  overflow-x:hidden;
+}
+.screen{display:none;width:100%;max-width:560px;padding:1rem;flex-direction:column;align-items:center;background:var(--ink);min-height:100vh}
+.screen.active{display:flex}
+
+#startScreen{justify-content:center;min-height:100vh;text-align:center}
+.logo-cross{font-size:2.8rem;color:var(--gold);opacity:.5;margin-bottom:.6rem}
+.logo-title{
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:clamp(2.4rem,7vw,3.6rem);
+  color:var(--gold-light);letter-spacing:.06em;
+  line-height:1.1;margin-bottom:.3rem;
+}
+.logo-subtitle{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.05rem;color:var(--gold-pale);opacity:1;
+  margin-bottom:2rem;
+}
+.name-input{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;text-align:center;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(196,154,42,.45);
+  border-radius:3px;color:#ede5d6;
+  padding:.7rem 1.2rem;width:100%;max-width:300px;
+  outline:none;margin-bottom:1rem;
+  transition:border-color .2s;
+}
+.name-input::placeholder{color:rgba(236,228,212,.4)}
+.name-input:focus{border-color:var(--gold)}
+.start-btn{
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:1.15rem;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--gold);color:var(--ink);
+  border:none;border-radius:3px;
+  padding:.75rem 2.5rem;cursor:pointer;
+  transition:all .2s;
+}
+.start-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
+.start-btn:disabled{opacity:.4;cursor:default;transform:none}
+
+#gameScreen{min-height:100vh;padding-top:.8rem;padding-bottom:1.5rem}
+.hud{
+  display:flex;justify-content:space-between;align-items:center;
+  width:100%;margin-bottom:.8rem;
+  font-size:.85rem;color:var(--gold-pale);
+}
+.hud-score{
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:1.5rem;color:var(--gold-light);text-align:right;
+}
+.hud-question{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.9rem;opacity:.85;
+}
+.question-type-badge{
+  display:inline-block;
+  font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;
+  background:rgba(196,154,42,.25);
+  color:#ddb44e;
+  padding:.2rem .6rem;border-radius:2px;
+  margin-bottom:.6rem;
+}
+.image-frame{
+  width:100%;
+  max-height:380px;
+  border:2px solid rgba(196,154,42,.35);
+  border-radius:3px;
+  overflow:hidden;
+  margin-bottom:.8rem;
+  background:rgba(0,0,0,.4);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  min-height:200px;
+}
+.image-frame img{
+  width:100%;height:100%;
+  max-height:380px;
+  object-fit:contain;
+  display:block;
+}
+.image-frame .img-loading{
+  color:var(--gold-pale);opacity:.7;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:1rem;
+}
+.question-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;font-weight:600;
+  text-align:center;
+  color:#ffffff;
+  margin-bottom:1rem;
+  line-height:1.4;
+}
+.options{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:.6rem;width:100%;
+}
+.option-btn{
+  font-family:'Alegreya Sans',sans-serif;
+  font-size:.95rem;font-weight:500;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(196,154,42,.45);
+  border-radius:3px;
+  color:#e8e0d0;
+  padding:.8rem .6rem;
+  cursor:pointer;
+  transition:all .15s;
+  text-align:center;
+  line-height:1.3;
+}
+.option-btn:hover:not(:disabled){
+  background:rgba(196,154,42,.15);
+  border-color:var(--gold-light);
+}
+.option-btn:disabled{cursor:default}
+.option-btn.correct{
+  background:rgba(45,90,39,.4);
+  border-color:var(--correct);
+  color:#c8eec0;
+}
+.option-btn.wrong{
+  background:rgba(139,37,0,.35);
+  border-color:var(--wrong);
+  color:#f0bfb0;
+}
+.artwork-info{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.85rem;font-style:italic;
+  color:var(--gold-pale);opacity:.85;
+  text-align:center;
+  margin-top:.6rem;
+  min-height:1.2rem;
+}
+.next-area{
+  margin-top:.8rem;
+  text-align:center;
+}
+.next-btn{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;font-size:1rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  background:var(--gold);color:var(--ink);
+  border:none;border-radius:3px;
+  padding:.6rem 2rem;cursor:pointer;
+  display:none;
+}
+.next-btn:hover{background:var(--gold-light)}
+
+#endScreen{justify-content:center;min-height:100vh;text-align:center}
+.end-cross{font-size:2rem;color:var(--red-oxide);opacity:.5;margin-bottom:.5rem}
+.end-title{
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:2rem;color:var(--parchment);margin-bottom:.3rem;
+}
+.end-score{
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:3rem;color:var(--gold-light);margin-bottom:.2rem;
+}
+.end-score-label{
+  font-size:.85rem;color:var(--gold-pale);opacity:.8;
+  margin-bottom:.3rem;
+}
+.end-detail{
+  font-size:.9rem;color:var(--gold-pale);opacity:.85;
+  margin-bottom:1.5rem;
+}
+.leaderboard{
+  width:100%;max-width:360px;
+  margin-bottom:1.5rem;
+}
+.lb-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;font-size:1.1rem;
+  color:var(--gold);margin-bottom:.6rem;
+  text-transform:uppercase;letter-spacing:.08em;
+}
+.lb-row{
+  display:flex;justify-content:space-between;
+  padding:.35rem .6rem;
+  font-size:.9rem;
+  border-bottom:1px solid rgba(196,154,42,.15);
+}
+.lb-row.highlight{
+  background:rgba(196,154,42,.15);
+  border-radius:2px;
+  color:var(--gold-light);
+  font-weight:500;
+}
+.lb-rank{width:2rem;text-align:center;color:var(--gold);opacity:.85}
+.lb-name{flex:1;text-align:left;padding-left:.5rem}
+.lb-pts{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--gold-light)}
+.play-again-btn{
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--gold);color:var(--ink);
+  border:none;border-radius:3px;
+  padding:.7rem 2.2rem;cursor:pointer;
+}
+.play-again-btn:hover{background:var(--gold-light)}
+
+.footer-note{
+  font-size:.72rem;color:rgba(236,228,212,.45);
+  margin-top:1.5rem;text-align:center;
+}
+.footer-note a{color:rgba(236,228,212,.55)}
+
+.hud-lives{
+  font-size:1.3rem;
+  color:var(--wrong);
+  letter-spacing:.15em;
+}
+.hud-score-label{
+  font-size:.72rem;
+  color:var(--gold);
+  opacity:.7;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+
+.feedback-area{
+  width:100%;
+  margin-top:.8rem;
+  text-align:center;
+}
+.feedback-label{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;
+  font-size:1.05rem;
+  color:var(--gold-light);
+  margin-bottom:.5rem;
+}
+.feedback-frame{
+  max-height:280px;
+  margin-bottom:.4rem;
+}
+.feedback-frame img{
+  max-height:280px;
+}
+.feedback-info{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.82rem;
+  font-style:italic;
+  color:var(--gold-pale);
+  opacity:.8;
+}
+</style>
+</head>
+<body>
+
+<div class="screen active" id="startScreen">
+  <div class="logo-cross">✦</div>
+  <div class="logo-title">Sancti</div>
+  <div class="logo-subtitle">Erkenne die Heiligen in der Kunst</div>
+  <input class="name-input" id="nameInput" type="text" placeholder="Dein Name" maxlength="20" autocomplete="off">
+  <button class="start-btn" id="startBtn" disabled onclick="startGame()">Quiz starten</button>
+  <p class="footer-note" style="margin-top:2rem;">Du hast 3 Leben – wie weit kommst du?<br>Bilder via <a href="https://commons.wikimedia.org" target="_blank">Wikimedia Commons</a></p>
+</div>
+
+<div class="screen" id="gameScreen">
+  <div class="hud">
+    <div><span class="hud-question" id="hudQ">Frage 1</span></div>
+    <div class="hud-lives" id="hudLives">♥ ♥ ♥</div>
+    <div style="text-align:right"><div class="hud-score" id="hudScore">0</div><div class="hud-score-label">richtig</div></div>
+  </div>
+  <div class="question-type-badge" id="qTypeBadge"></div>
+  <div class="image-frame" id="imageFrame" style="display:none">
+    <span class="img-loading" id="imgLoading">Bild wird geladen…</span>
+    <img id="quizImage" alt="Gemälde" onload="this.style.display='block';document.getElementById('imgLoading').style.display='none'" onerror="handleImageError(this)" style="display:none">
+  </div>
+  <div class="question-text" id="questionText"></div>
+  <div class="options" id="optionsGrid"></div>
+  <div class="artwork-info" id="artworkInfo"></div>
+  <div class="feedback-area" id="feedbackArea" style="display:none">
+    <div class="feedback-label" id="feedbackLabel"></div>
+    <div class="image-frame feedback-frame">
+      <span class="img-loading" id="fbImgLoading">Bild wird geladen…</span>
+      <img id="feedbackImage" alt="Heiliger" onload="this.style.display='block';document.getElementById('fbImgLoading').style.display='none'" onerror="document.getElementById('fbImgLoading').textContent=''" style="display:none">
+    </div>
+    <div class="feedback-info" id="feedbackInfo"></div>
+  </div>
+  <div class="next-area"><button class="next-btn" id="nextBtn" onclick="nextQuestion()">Weiter</button></div>
+</div>
+
+<div class="screen" id="endScreen">
+  <div class="end-cross">✦</div>
+  <div class="end-title">Spiel vorbei</div>
+  <div class="end-score" id="endScore">0</div>
+  <div class="end-score-label">richtige Antworten</div>
+  <div class="end-detail" id="endDetail"></div>
+  <div class="leaderboard" id="leaderboard">
+    <div class="lb-title">Bestenliste</div>
+    <div id="lbRows"></div>
+  </div>
+  <button class="play-again-btn" onclick="resetGame()">Nochmal spielen</button>
+  <p class="footer-note">Bilder via <a href="https://commons.wikimedia.org" target="_blank">Wikimedia Commons</a></p>
+</div>
+
+<script>
+const SAINTS_DATA = [
+  {
+    saint: "Hl. Petrus",
+    attributes: ["Schlüssel","Hahn","Umgekehrtes Kreuz","Fisch","Papsttiara"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Peter_Paul_Rubens_-_Saint_Peter_-_Google_Art_Project.jpg/400px-Peter_Paul_Rubens_-_Saint_Peter_-_Google_Art_Project.jpg", artist:"Peter Paul Rubens", title:"Hl. Petrus", year:"um 1610–12", museum:"Museo del Prado, Madrid" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Caravaggio_-_Martirio_di_San_Pietro.jpg/400px-Caravaggio_-_Martirio_di_San_Pietro.jpg", artist:"Caravaggio", title:"Kreuzigung Petri", year:"1601", museum:"Santa Maria del Popolo, Rom" },
+    ]
+  },
+  {
+    saint: "Hl. Paulus",
+    attributes: ["Schwert","Buch","Hohe Stirnglatze","Langer Bart"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Albrecht_D%C3%BCrer_-_The_Four_Apostles%2C_Saints_Mark_and_Paul.jpg/300px-Albrecht_D%C3%BCrer_-_The_Four_Apostles%2C_Saints_Mark_and_Paul.jpg", artist:"Albrecht Dürer", title:"Die vier Apostel (Markus und Paulus)", year:"1526", museum:"Alte Pinakothek, München" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Conversion_on_the_Way_to_Damascus-Caravaggio_%28c.1600-1%29.jpg/400px-Conversion_on_the_Way_to_Damascus-Caravaggio_%28c.1600-1%29.jpg", artist:"Caravaggio", title:"Bekehrung des Paulus", year:"1601", museum:"Santa Maria del Popolo, Rom" },
+    ]
+  },
+  {
+    saint: "Hl. Sebastian",
+    attributes: ["Pfeile","An Baum/Säule gebunden","Halbnackt","Palme"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Andrea_Mantegna_-_St._Sebastian_-_Google_Art_Project.jpg/300px-Andrea_Mantegna_-_St._Sebastian_-_Google_Art_Project.jpg", artist:"Andrea Mantegna", title:"Hl. Sebastian", year:"um 1457–59", museum:"KHM, Wien" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Giovanni_Bellini_-_Saint_Sebastian_-_72.PA.26_-_J._Paul_Getty_Museum.jpg/300px-Giovanni_Bellini_-_Saint_Sebastian_-_72.PA.26_-_J._Paul_Getty_Museum.jpg", artist:"Giovanni Bellini", title:"Hl. Sebastian", year:"um 1464", museum:"Getty Museum, LA" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Antonello_da_Messina_-_St._Sebastian_-_Google_Art_Project.jpg/300px-Antonello_da_Messina_-_St._Sebastian_-_Google_Art_Project.jpg", artist:"Antonello da Messina", title:"Hl. Sebastian", year:"um 1478", museum:"Gemäldegalerie, Dresden" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/El_Greco_-_Saint_Sebastian_-_Google_Art_Project.jpg/250px-El_Greco_-_Saint_Sebastian_-_Google_Art_Project.jpg", artist:"El Greco", title:"Hl. Sebastian", year:"um 1577–78", museum:"Catedral de Palencia" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Andrea_del_Castagno_-_Saint_Sebastian_-_Walters_371044.jpg/250px-Andrea_del_Castagno_-_Saint_Sebastian_-_Walters_371044.jpg", artist:"Andrea del Castagno", title:"Hl. Sebastian", year:"um 1450", museum:"Walters Art Museum, Baltimore" },
+    ]
+  },
+  {
+    saint: "Hl. Hieronymus",
+    attributes: ["Löwe","Kardinalstracht","Totenkopf","Stein","Buch","Kruzifix"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Antonello_da_Messina_-_St_Jerome_in_his_study_-_National_Gallery_London.jpg/400px-Antonello_da_Messina_-_St_Jerome_in_his_study_-_National_Gallery_London.jpg", artist:"Antonello da Messina", title:"Hl. Hieronymus im Gehäuse", year:"um 1475", museum:"National Gallery, London" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Albrecht_D%C3%BCrer_-_Saint_Jerome_in_His_Study_%281514%29_-_Google_Art_Project.jpg/400px-Albrecht_D%C3%BCrer_-_Saint_Jerome_in_His_Study_%281514%29_-_Google_Art_Project.jpg", artist:"Albrecht Dürer", title:"Der hl. Hieronymus im Gehäus", year:"1514", museum:"Kupferstich" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Lucas_Cranach_d.%C3%84._-_Kardinal_Albrecht_von_Brandenburg_als_Hl._Hieronymus_im_Geh%C3%A4us_%28Gem%C3%A4ldegalerie_Berlin%29.jpg/350px-Lucas_Cranach_d.%C3%84._-_Kardinal_Albrecht_von_Brandenburg_als_Hl._Hieronymus_im_Geh%C3%A4us_%28Gem%C3%A4ldegalerie_Berlin%29.jpg", artist:"Lucas Cranach d. Ä.", title:"Kardinal Albrecht als Hl. Hieronymus", year:"1527", museum:"Gemäldegalerie, Berlin" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Marinus_Claesz._van_Reymerswaele_-_Saint_Jerome_-_Google_Art_Project.jpg/350px-Marinus_Claesz._van_Reymerswaele_-_Saint_Jerome_-_Google_Art_Project.jpg", artist:"Marinus van Reymerswaele", title:"Hl. Hieronymus", year:"um 1545", museum:"Museo del Prado, Madrid" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Albrecht_D%C3%BCrer_-_Saint_Jerome_-_Google_Art_Project.jpg/300px-Albrecht_D%C3%BCrer_-_Saint_Jerome_-_Google_Art_Project.jpg", artist:"Albrecht Dürer", title:"Büßender Hl. Hieronymus", year:"um 1497", museum:"National Gallery, London" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Colantonio_-_St_Jerome_in_His_Study_-_WGA05115.jpg/300px-Colantonio_-_St_Jerome_in_His_Study_-_WGA05115.jpg", artist:"Colantonio", title:"Hl. Hieronymus im Studierzimmer", year:"um 1445", museum:"Museo di Capodimonte, Neapel" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Joos_Van_Cleve_-_Saint_Jerome_in_His_Study_-_Google_Art_Project.jpg/350px-Joos_Van_Cleve_-_Saint_Jerome_in_His_Study_-_Google_Art_Project.jpg", artist:"Joos van Cleve", title:"Hl. Hieronymus im Studierzimmer", year:"um 1525", museum:"Princeton University Art Museum" },
+    ]
+  },
+  {
+    saint: "Hl. Georg",
+    attributes: ["Drache","Ritterrüstung","Lanze","Weißes Pferd","Kreuzfahne","Prinzessin"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Raffaello_Sanzio_-_St._George_Fighting_the_Dragon_-_Google_Art_Project.jpg/350px-Raffaello_Sanzio_-_St._George_Fighting_the_Dragon_-_Google_Art_Project.jpg", artist:"Raffael", title:"Hl. Georg im Kampf mit dem Drachen", year:"um 1505", museum:"NGA, Washington" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Albrecht_Altdorfer_-_Saint_George_and_the_Dragon_-_Google_Art_Project.jpg/300px-Albrecht_Altdorfer_-_Saint_George_and_the_Dragon_-_Google_Art_Project.jpg", artist:"Albrecht Altdorfer", title:"Hl. Georg im Wald", year:"1510", museum:"Alte Pinakothek, München" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Rogier_van_der_Weyden_-_Saint_George_and_the_Dragon_-_Google_Art_Project.jpg/300px-Rogier_van_der_Weyden_-_Saint_George_and_the_Dragon_-_Google_Art_Project.jpg", artist:"Rogier van der Weyden", title:"Hl. Georg und der Drache", year:"um 1432", museum:"NGA, Washington" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Lucas_Cranach_d.%C3%84._-_Der_heilige_Georg_als_Drachent%C3%B6ter.jpg/250px-Lucas_Cranach_d.%C3%84._-_Der_heilige_Georg_als_Drachent%C3%B6ter.jpg", artist:"Lucas Cranach d. Ä.", title:"Hl. Georg als Drachentöter", year:"um 1514", museum:"Alte Pinakothek, München" },
+    ]
+  },
+  {
+    saint: "Hl. Katharina von Alexandrien",
+    attributes: ["Rad (zerbrochen)","Schwert","Krone","Buch","Ring","Palme"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Caravaggio_-_Saint_Catherine_of_Alexandria_-_Google_Art_Project.jpg/350px-Caravaggio_-_Saint_Catherine_of_Alexandria_-_Google_Art_Project.jpg", artist:"Caravaggio", title:"Hl. Katharina von Alexandrien", year:"1598", museum:"Thyssen-Bornemisza, Madrid" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Raphael_-_Saint_Catherine_of_Alexandria_-_Google_Art_Project.jpg/300px-Raphael_-_Saint_Catherine_of_Alexandria_-_Google_Art_Project.jpg", artist:"Raffael", title:"Hl. Katharina von Alexandrien", year:"um 1507", museum:"National Gallery, London" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Hans_Memling_-_The_Mystic_Marriage_of_St_Catherine_-_WGA14861.jpg/400px-Hans_Memling_-_The_Mystic_Marriage_of_St_Catherine_-_WGA14861.jpg", artist:"Hans Memling", title:"Mystische Vermählung der Hl. Katharina", year:"um 1480", museum:"Metropolitan Museum, New York" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Lucas_Cranach_d._%C3%84._-_The_Martyrdom_of_St_Catherine_-_WGA05651.jpg/350px-Lucas_Cranach_d._%C3%84._-_The_Martyrdom_of_St_Catherine_-_WGA05651.jpg", artist:"Lucas Cranach d. Ä.", title:"Martyrium der Hl. Katharina", year:"um 1506", museum:"Ráday-Bibliothek, Budapest" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Lucas_Cranach_d.%C3%84._-_The_Mystic_Marriage_of_St_Catherine_%28detail%29_-_WGA05663.jpg/350px-Lucas_Cranach_d.%C3%84._-_The_Mystic_Marriage_of_St_Catherine_%28detail%29_-_WGA05663.jpg", artist:"Lucas Cranach d. Ä.", title:"Mystische Vermählung der Hl. Katharina (Detail)", year:"um 1516", museum:"Museum der bildenden Künste, Budapest" },
+    ]
+  },
+  {
+    saint: "Hl. Barbara",
+    attributes: ["Turm mit drei Fenstern","Kelch mit Hostie","Krone","Schwert","Palme"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Jan_van_Eyck_-_Sainte_Barbe_-_1437.jpg/300px-Jan_van_Eyck_-_Sainte_Barbe_-_1437.jpg", artist:"Jan van Eyck", title:"Hl. Barbara", year:"1437", museum:"KMSKA, Antwerpen" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Robert_Campin_-_The_Werl_Altarpiece_%28right_panel%29_-_Google_Art_Project.jpg/300px-Robert_Campin_-_The_Werl_Altarpiece_%28right_panel%29_-_Google_Art_Project.jpg", artist:"Robert Campin", title:"Hl. Barbara (Werl-Altar)", year:"1438", museum:"Museo del Prado, Madrid" },
+    ]
+  },
+  {
+    saint: "Hl. Maria Magdalena",
+    attributes: ["Salbgefäß","Offenes langes Haar","Totenkopf","Kruzifix","Rotes Gewand"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Rogier_van_der_Weyden_-_The_Magdalene_Reading_-_WGA25721.jpg/300px-Rogier_van_der_Weyden_-_The_Magdalene_Reading_-_WGA25721.jpg", artist:"Rogier van der Weyden", title:"Lesende Magdalena", year:"um 1435", museum:"National Gallery, London" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Tizian_094.jpg/300px-Tizian_094.jpg", artist:"Tizian", title:"Büßende Magdalena", year:"um 1533", museum:"Palazzo Pitti, Florenz" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Georges_de_La_Tour_-_The_Magdalen_with_the_Smoking_Flame_-_Google_Art_Project.jpg/350px-Georges_de_La_Tour_-_The_Magdalen_with_the_Smoking_Flame_-_Google_Art_Project.jpg", artist:"Georges de La Tour", title:"Magdalena mit der Flamme", year:"um 1640", museum:"LACMA, Los Angeles" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Quentin_Matsys_-_Mary_Magdalene_-_WGA14325.jpg/250px-Quentin_Matsys_-_Mary_Magdalene_-_WGA14325.jpg", artist:"Quentin Massys", title:"Maria Magdalena", year:"um 1520–25", museum:"Philadelphia Museum of Art" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Carlo_Crivelli_-_Mary_Magdalen_-_WGA5791.jpg/200px-Carlo_Crivelli_-_Mary_Magdalen_-_WGA5791.jpg", artist:"Carlo Crivelli", title:"Maria Magdalena", year:"um 1480", museum:"Rijksmuseum, Amsterdam" },
+    ]
+  },
+  {
+    saint: "Hl. Franziskus von Assisi",
+    attributes: ["Stigmata","Braune Kutte","Strickgürtel","Kruzifix","Tiere (Vögel)","Totenkopf"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Giovanni_Bellini_-_Saint_Francis_in_the_Desert_-_Google_Art_Project.jpg/400px-Giovanni_Bellini_-_Saint_Francis_in_the_Desert_-_Google_Art_Project.jpg", artist:"Giovanni Bellini", title:"Hl. Franziskus in Ekstase", year:"um 1480", museum:"Frick Collection, New York" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Saint_Francis_of_Assisi_by_Jusepe_de_Ribera.jpg/300px-Saint_Francis_of_Assisi_by_Jusepe_de_Ribera.jpg", artist:"Jusepe de Ribera", title:"Hl. Franziskus von Assisi", year:"1643", museum:"Museo Soumaya, Mexiko-Stadt" },
+    ]
+  },
+  {
+    saint: "Hl. Laurentius",
+    attributes: ["Bratrost","Dalmatika","Palme","Geldbeutel","Weihrauchgefäß"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Fra_Angelico_-_Saint_Lawrence_Receiving_the_Treasures_of_the_Church_from_Pope_Sixtus_II_-_WGA00504.jpg/400px-Fra_Angelico_-_Saint_Lawrence_Receiving_the_Treasures_of_the_Church_from_Pope_Sixtus_II_-_WGA00504.jpg", artist:"Fra Angelico", title:"Hl. Laurentius empfängt die Schätze", year:"um 1449", museum:"Cappella Niccolina, Vatikan" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Peter_Paul_Rubens_-_The_Martyrdom_of_St_Lawrence_-_WGA20224.jpg/300px-Peter_Paul_Rubens_-_The_Martyrdom_of_St_Lawrence_-_WGA20224.jpg", artist:"Peter Paul Rubens", title:"Martyrium des Hl. Laurentius", year:"um 1614", museum:"Alte Pinakothek, München" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bernardo_Strozzi_-_St_Lawrence_Distributing_the_Treasures_of_the_Church_-_WGA21908.jpg/350px-Bernardo_Strozzi_-_St_Lawrence_Distributing_the_Treasures_of_the_Church_-_WGA21908.jpg", artist:"Bernardo Strozzi", title:"Hl. Laurentius verteilt die Kirchenschätze", year:"um 1625", museum:"Church of San Nicola, Genua" },
+    ]
+  },
+  {
+    saint: "Hl. Antonius der Große",
+    attributes: ["Schwein","Tau-Kreuz (T)","Flammen","Glocke","Dämonen","Mönchsgewand"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Hieronymus_Bosch_-_Triptych_of_Temptation_of_St_Anthony_-_WGA2585.jpg/400px-Hieronymus_Bosch_-_Triptych_of_Temptation_of_St_Anthony_-_WGA2585.jpg", artist:"Hieronymus Bosch", title:"Versuchung des Hl. Antonius", year:"um 1501", museum:"Museu Nacional, Lissabon" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Isenheimer_Altar_%28Versuchung_des_Hl._Antonius%29.jpg/400px-Isenheimer_Altar_%28Versuchung_des_Hl._Antonius%29.jpg", artist:"Matthias Grünewald", title:"Versuchung des Hl. Antonius (Isenheimer Altar)", year:"um 1512–16", museum:"Musée Unterlinden, Colmar" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Schongauer_Anthony.jpg/300px-Schongauer_Anthony.jpg", artist:"Martin Schongauer", title:"Peinigung des Hl. Antonius", year:"um 1470–75", museum:"Kupferstich" },
+    ]
+  },
+  {
+    saint: "Hl. Martin von Tours",
+    attributes: ["Geteilter Mantel","Pferd","Bettler","Gans","Bischofsstab"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/El_Greco_-_Saint_Martin_and_the_Beggar_-_Google_Art_Project.jpg/300px-El_Greco_-_Saint_Martin_and_the_Beggar_-_Google_Art_Project.jpg", artist:"El Greco", title:"Hl. Martin und der Bettler", year:"1597–99", museum:"NGA, Washington" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Simone_Martini_-_St_Martin_is_Knighted_-_WGA21392.jpg/400px-Simone_Martini_-_St_Martin_is_Knighted_-_WGA21392.jpg", artist:"Simone Martini", title:"Hl. Martin wird zum Ritter geschlagen", year:"um 1317", museum:"San Francesco, Assisi" },
+    ]
+  },
+  {
+    saint: "Hl. Nikolaus von Myra",
+    attributes: ["Drei Goldkugeln","Bischofsstab","Mitra","Drei Kinder im Bottich","Buch"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Fra_Angelico_-_St_Nicholas_saves_the_ship_%28San_Marco%29.jpg/400px-Fra_Angelico_-_St_Nicholas_saves_the_ship_%28San_Marco%29.jpg", artist:"Fra Angelico", title:"Hl. Nikolaus rettet ein Schiff", year:"um 1437", museum:"Vatikanische Pinakothek, Rom" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Gerard_David_-_Legends_of_St._Nicholas.jpg/350px-Gerard_David_-_Legends_of_St._Nicholas.jpg", artist:"Gerard David", title:"Legenden des Hl. Nikolaus", year:"um 1500", museum:"NG Scotland, Edinburgh" },
+    ]
+  },
+  {
+    saint: "Hl. Christophorus",
+    attributes: ["Jesuskind auf der Schulter","Baumstamm als Stab","Fluss","Riesengröße"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Hieronymus_Bosch_-_Saint_Christopher_-_WGA02558.jpg/300px-Hieronymus_Bosch_-_Saint_Christopher_-_WGA02558.jpg", artist:"Hieronymus Bosch", title:"Hl. Christophorus", year:"um 1500", museum:"Museum Boijmans, Rotterdam" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Konrad_Witz_-_Saint_Christophe_-_Kunstmuseum_Basel%2C_Inv._656_-_derivative_work.png/300px-Konrad_Witz_-_Saint_Christophe_-_Kunstmuseum_Basel%2C_Inv._656_-_derivative_work.png", artist:"Konrad Witz", title:"Hl. Christophorus", year:"um 1435", museum:"Kunstmuseum Basel" },
+    ]
+  },
+  {
+    saint: "Hl. Margareta von Antiochia",
+    attributes: ["Drache (besiegt)","Kreuz / Kreuzstab","Palme","Perlen"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Raffael_-_Hl._Margareta_%28KHM%29.jpg/300px-Raffael_-_Hl._Margareta_%28KHM%29.jpg", artist:"Raffael", title:"Hl. Margareta", year:"1518", museum:"KHM, Wien" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Hugo_van_der_Goes_-_Sts_Margaret_and_Mary_Magdalene_with_Maria_Portinari_%28detail%29_-_WGA9714.jpg/300px-Hugo_van_der_Goes_-_Sts_Margaret_and_Mary_Magdalene_with_Maria_Portinari_%28detail%29_-_WGA9714.jpg", artist:"Hugo van der Goes", title:"Hll. Margareta und Maria Magdalena (Portinari-Altar)", year:"um 1477", museum:"Uffizien, Florenz" },
+    ]
+  },
+  {
+    saint: "Hl. Agnes",
+    attributes: ["Lamm","Schwert","Langes Haar","Palme","Ring"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Massimo_Stanzione_-_Saint_Agnes_-_WGA21654.jpg/300px-Massimo_Stanzione_-_Saint_Agnes_-_WGA21654.jpg", artist:"Massimo Stanzione", title:"Hl. Agnes", year:"um 1635", museum:"Museo di Capodimonte, Neapel" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Jusepe_de_Ribera_-_Saint_Agnes_in_Prison_-_WGA19360.jpg/300px-Jusepe_de_Ribera_-_Saint_Agnes_in_Prison_-_WGA19360.jpg", artist:"Jusepe de Ribera", title:"Hl. Agnes im Gefängnis", year:"1641", museum:"Gemäldegalerie, Dresden" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Vicente_Masip_-_Martyrdom_of_St_Agnes_-_WGA14222.jpg/300px-Vicente_Masip_-_Martyrdom_of_St_Agnes_-_WGA14222.jpg", artist:"Vicente Masip", title:"Martyrium der Hl. Agnes", year:"um 1540", museum:"Museo del Prado, Madrid" },
+    ]
+  },
+  {
+    saint: "Hl. Lucia",
+    attributes: ["Augen auf Teller","Öllampe","Schwert / Dolch","Palme"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Francesco_del_Cossa_-_Saint_Lucy_-_Google_Art_Project.jpg/300px-Francesco_del_Cossa_-_Saint_Lucy_-_Google_Art_Project.jpg", artist:"Francesco del Cossa", title:"Hl. Lucia", year:"um 1473–74", museum:"NGA, Washington" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Bernat_Martorell_-_Martyrdom_of_Saint_Lucy_-_Google_Art_Project.jpg/300px-Bernat_Martorell_-_Martyrdom_of_Saint_Lucy_-_Google_Art_Project.jpg", artist:"Bernat Martorell", title:"Martyrium der Hl. Lucia", year:"um 1435–40", museum:"Art Institute of Chicago" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Francisco_de_Zurbar%C3%A1n_-_Saint_Lucy_-_A94_-_Hispanic_Society_of_America.jpg/250px-Francisco_de_Zurbar%C3%A1n_-_Saint_Lucy_-_A94_-_Hispanic_Society_of_America.jpg", artist:"Francisco de Zurbarán", title:"Hl. Lucia", year:"um 1625–30", museum:"Hispanic Society, New York" },
+    ]
+  },
+  {
+    saint: "Hl. Ursula",
+    attributes: ["Pfeile","Krone","Kreuzfahne","Schützender Mantel","Offenes Haar"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Hans_Memling_-_The_Martyrdom_of_Saint_Ursula_and_her_Companions_%28panel_from_the_Reliquary_of_Saint_Ursula%29.jpg/400px-Hans_Memling_-_The_Martyrdom_of_Saint_Ursula_and_her_Companions_%28panel_from_the_Reliquary_of_Saint_Ursula%29.jpg", artist:"Hans Memling", title:"Martyrium der Hl. Ursula (Ursulaschrein)", year:"1489", museum:"Memling-Museum, Brügge" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Vittore_carpaccio%2C_Incontro_dei_fidanzati_e_partenza_dei_pellegrini.jpg/400px-Vittore_carpaccio%2C_Incontro_dei_fidanzati_e_partenza_dei_pellegrini.jpg", artist:"Vittore Carpaccio", title:"Begegnung der Verlobten (Ursula-Zyklus)", year:"um 1495", museum:"Gallerie dell'Accademia, Venedig" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Peter_Paul_Rubens_-_The_Martyrdom_of_St_Ursula_and_the_Eleven_Thousand_Maidens.jpg/300px-Peter_Paul_Rubens_-_The_Martyrdom_of_St_Ursula_and_the_Eleven_Thousand_Maidens.jpg", artist:"Peter Paul Rubens", title:"Martyrium der Hl. Ursula", year:"um 1615–20", museum:"Kimbell Art Museum, Fort Worth" },
+    ]
+  },
+  {
+    saint: "Hl. Augustinus",
+    attributes: ["Flammendes Herz","Bischofsstab","Mitra","Buch","Kind mit Muschel"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Sandro_Botticelli_-_St_Augustin_dans_son_cabinet_de_travail.jpg/350px-Sandro_Botticelli_-_St_Augustin_dans_son_cabinet_de_travail.jpg", artist:"Sandro Botticelli", title:"Hl. Augustinus im Studierzimmer", year:"1480", museum:"Ognissanti, Florenz" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Michael_Pacher_-_Altarpiece_of_the_Church_Fathers_-_St_Augustine_-_Google_Art_Project.jpg/300px-Michael_Pacher_-_Altarpiece_of_the_Church_Fathers_-_St_Augustine_-_Google_Art_Project.jpg", artist:"Michael Pacher", title:"Kirchenväteraltar – Hl. Augustinus", year:"um 1480", museum:"Alte Pinakothek, München" },
+    ]
+  },
+  {
+    saint: "Hl. Dominikus",
+    attributes: ["Hund mit brennender Fackel","Stern","Rosenkranz","Lilie","Schwarz-weißes Ordensgewand"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Fra_Angelico_052.jpg/250px-Fra_Angelico_052.jpg", artist:"Fra Angelico", title:"Hl. Dominikus am Fuß des Kreuzes", year:"um 1440", museum:"San Marco, Florenz" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/El_Greco_-_St_Dominic_in_Prayer_-_WGA10431.jpg/250px-El_Greco_-_St_Dominic_in_Prayer_-_WGA10431.jpg", artist:"El Greco", title:"Hl. Dominikus im Gebet", year:"um 1586–90", museum:"Sammlung Plácido Arango" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Claudio_Coello_-_Saint_Dominic_of_Guzm%C3%A1n_-_Google_Art_Project.jpg/250px-Claudio_Coello_-_Saint_Dominic_of_Guzm%C3%A1n_-_Google_Art_Project.jpg", artist:"Claudio Coello", title:"Hl. Dominikus von Guzmán", year:"um 1685", museum:"Museo del Prado, Madrid" },
+    ]
+  },
+  {
+    saint: "Hl. Elisabeth von Thüringen",
+    attributes: ["Rosen","Brot","Krone","Kanne","Arme / Kranke"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Hans_Holbein_d._%C3%84._005.jpg/300px-Hans_Holbein_d._%C3%84._005.jpg", artist:"Hans Holbein d. Ä.", title:"Hl. Elisabeth", year:"um 1516", museum:"Alte Pinakothek, München" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Francisco_de_Zurbar%C3%A1n_-_Santa_Casilda_-_Google_Art_Project.jpg/250px-Francisco_de_Zurbar%C3%A1n_-_Santa_Casilda_-_Google_Art_Project.jpg", artist:"Francisco de Zurbarán", title:"Hl. Casilda (verwandtes Rosenwunder-Motiv)", year:"um 1630–35", museum:"Museo Thyssen-Bornemisza, Madrid" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Simone_Martini_-_St_Elizabeth_of_Hungary_-_WGA21432.jpg/200px-Simone_Martini_-_St_Elizabeth_of_Hungary_-_WGA21432.jpg", artist:"Simone Martini", title:"Hl. Elisabeth von Ungarn", year:"um 1317", museum:"Cappella di San Martino, Assisi" },
+    ]
+  },
+  {
+    saint: "Hl. Hubertus",
+    attributes: ["Hirsch mit Kreuz im Geweih","Jagdhund","Jagdhorn","Bischofsstab"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Master_of_the_Life_of_the_Virgin_-_The_Conversion_of_Saint_Hubert_-_WGA14589.jpg/350px-Master_of_the_Life_of_the_Virgin_-_The_Conversion_of_Saint_Hubert_-_WGA14589.jpg", artist:"Meister des Marienlebens", title:"Bekehrung des Hl. Hubertus", year:"um 1480", museum:"National Gallery, London" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/La_Visi%C3%B3n_de_San_Huberto_por_Jan_Brueghel_el_Viejo_con_Rubens.jpg/400px-La_Visi%C3%B3n_de_San_Huberto_por_Jan_Brueghel_el_Viejo_con_Rubens.jpg", artist:"Jan Brueghel d. Ä. / Rubens", title:"Vision des Hl. Hubertus", year:"um 1617–20", museum:"Museo del Prado, Madrid" },
+    ]
+  },
+  {
+    saint: "Hl. Florian",
+    attributes: ["Wassereimer","Brennendes Haus","Rüstung","Mühlstein","Fahne"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Albrecht_Altdorfer_-_Legende_des_Hl._Florian%2C_Szene_7_-_Auffindung_der_Leiche_des_hl._Florian.jpg/350px-Albrecht_Altdorfer_-_Legende_des_Hl._Florian%2C_Szene_7_-_Auffindung_der_Leiche_des_hl._Florian.jpg", artist:"Albrecht Altdorfer", title:"Auffindung der Leiche des Hl. Florian", year:"um 1518", museum:"Germanisches Nationalmuseum, Nürnberg" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Albrecht_Altdorfer_-_The_Prayer_of_Saint_Florian_-_Sz%C3%A9pm%C5%B1v%C3%A9szeti_M%C3%BAzeum.jpg/300px-Albrecht_Altdorfer_-_The_Prayer_of_Saint_Florian_-_Sz%C3%A9pm%C5%B1v%C3%A9szeti_M%C3%BAzeum.jpg", artist:"Albrecht Altdorfer", title:"Das Gebet des Hl. Florian", year:"um 1518", museum:"Szépművészeti Múzeum, Budapest" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Francesco_del_Cossa_-_Saint_Florian_-_WGA05396.jpg/200px-Francesco_del_Cossa_-_Saint_Florian_-_WGA05396.jpg", artist:"Francesco del Cossa", title:"Hl. Florian", year:"um 1473", museum:"NGA, Washington" },
+    ]
+  },
+  {
+    saint: "Hl. Stephanus",
+    attributes: ["Steine","Dalmatika","Palme"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Carlo_Crivelli_-_Hl._Stephanus_-_Google_Art_Project.jpg/250px-Carlo_Crivelli_-_Hl._Stephanus_-_Google_Art_Project.jpg", artist:"Carlo Crivelli", title:"Hl. Stephanus", year:"um 1476", museum:"National Gallery, London" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Adam_Elsheimer_-_Steinigung_des_heiligen_Stephanus_%28Edinburgh%29.jpg/300px-Adam_Elsheimer_-_Steinigung_des_heiligen_Stephanus_%28Edinburgh%29.jpg", artist:"Adam Elsheimer", title:"Steinigung des Hl. Stephanus", year:"um 1604", museum:"NG Scotland, Edinburgh" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Giacomo_Cavedone_-_Saint_Stephen_-_WGA04630.jpg/250px-Giacomo_Cavedone_-_Saint_Stephen_-_WGA04630.jpg", artist:"Giacomo Cavedone", title:"Hl. Stephanus", year:"um 1620", museum:"Pinacoteca Nazionale, Bologna" },
+    ]
+  },
+  {
+    saint: "Johannes der Täufer",
+    attributes: ["Fellgewand","Lamm Gottes","Kreuzstab","Taufschale","Wüste"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg/300px-Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg", artist:"Leonardo da Vinci", title:"Johannes der Täufer", year:"um 1513–16", museum:"Louvre, Paris" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Rogier_van_der_Weyden_-_St_John_the_Baptist_altarpiece_-_left_panel_-_WGA25651.jpg/300px-Rogier_van_der_Weyden_-_St_John_the_Baptist_altarpiece_-_left_panel_-_WGA25651.jpg", artist:"Rogier van der Weyden", title:"Johannesaltar (Taufe Christi)", year:"um 1455", museum:"Gemäldegalerie, Berlin" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Caravaggio_Baptist_Galleria_Nazionale.jpg/300px-Caravaggio_Baptist_Galleria_Nazionale.jpg", artist:"Caravaggio", title:"Johannes der Täufer", year:"um 1604", museum:"Galleria Nazionale, Rom" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Geertgen_tot_Sint_Jans_-_John_the_Baptist_in_the_Wilderness_-_Google_Art_Project.jpg/300px-Geertgen_tot_Sint_Jans_-_John_the_Baptist_in_the_Wilderness_-_Google_Art_Project.jpg", artist:"Geertgen tot Sint Jans", title:"Johannes der Täufer in der Wildnis", year:"um 1490", museum:"Gemäldegalerie, Berlin" },
+    ]
+  },
+  {
+    saint: "Hl. Cäcilia",
+    attributes: ["Orgel","Musikinstrumente","Rosen","Palme","Krone"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Raffaello_Sanzio_-_St_Cecilia_-_Google_Art_Project.jpg/350px-Raffaello_Sanzio_-_St_Cecilia_-_Google_Art_Project.jpg", artist:"Raffael", title:"Ekstase der Hl. Cäcilia", year:"1514", museum:"Pinacoteca Nazionale, Bologna" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Carlo_Dolci_-_Saint_Cecilia_at_the_Organ_-_Google_Art_Project.jpg/300px-Carlo_Dolci_-_Saint_Cecilia_at_the_Organ_-_Google_Art_Project.jpg", artist:"Carlo Dolci", title:"Hl. Cäcilia an der Orgel", year:"um 1671", museum:"Hermitage, St. Petersburg" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Domenichino_-_Saint_Cecilia_-_Google_Art_Project.jpg/350px-Domenichino_-_Saint_Cecilia_-_Google_Art_Project.jpg", artist:"Domenichino", title:"Hl. Cäcilia", year:"um 1617–18", museum:"Louvre, Paris" },
+    ]
+  },
+  {
+    saint: "Erzengel Michael",
+    attributes: ["Flügel","Schwert / Flammenschwert","Waage (Seelenwäger)","Rüstung","Besiegter Teufel / Drache"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Guido_Reni_-_The_Archangel_Michael_defeating_Satan_-_Google_Art_Project.jpg/300px-Guido_Reni_-_The_Archangel_Michael_defeating_Satan_-_Google_Art_Project.jpg", artist:"Guido Reni", title:"Erzengel Michael besiegt Satan", year:"1635", museum:"Santa Maria della Concezione, Rom" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Gerard_David_-_The_Archangel_Michael_-_Google_Art_Project.jpg/300px-Gerard_David_-_The_Archangel_Michael_-_Google_Art_Project.jpg", artist:"Gerard David", title:"Erzengel Michael", year:"um 1510", museum:"KHM, Wien" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Bartolom%C3%A9_Esteban_Murillo_-_Archangel_Michael_-_Google_Art_Project.jpg/300px-Bartolom%C3%A9_Esteban_Murillo_-_Archangel_Michael_-_Google_Art_Project.jpg", artist:"Bartolomé Esteban Murillo", title:"Erzengel Michael", year:"um 1665–68", museum:"KHM, Wien" },
+    ]
+  },
+  {
+    saint: "Hl. Apollonia",
+    attributes: ["Zange mit Zahn","Palme","Krone"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Lucas_Cranach_the_Elder_-_Saints_Genevieve_and_Apollonia_-_Google_Art_Project.jpg/300px-Lucas_Cranach_the_Elder_-_Saints_Genevieve_and_Apollonia_-_Google_Art_Project.jpg", artist:"Lucas Cranach d. Ä.", title:"Hll. Genovefa und Apollonia", year:"1506", museum:"National Gallery, London" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Lombard_Master_-_Saint_Apollonia_-_Google_Art_Project.jpg/200px-Lombard_Master_-_Saint_Apollonia_-_Google_Art_Project.jpg", artist:"Lombardischer Meister", title:"Hl. Apollonia", year:"um 1450", museum:"Google Arts & Culture" },
+    ]
+  },
+  {
+    saint: "Hl. Dorothea",
+    attributes: ["Korb mit Rosen und Äpfeln","Blumenkranz","Palme","Schwert"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Cranach%2C_Lucas%2C_d.%C3%84._-_Die_Heilige_Dorothea%2C_Agnes_und_Kunigunde_-_1506.jpg/250px-Cranach%2C_Lucas%2C_d.%C3%84._-_Die_Heilige_Dorothea%2C_Agnes_und_Kunigunde_-_1506.jpg", artist:"Lucas Cranach d. Ä.", title:"Hll. Dorothea, Agnes und Kunigunde", year:"1506", museum:"Nationalgalerie, Prag" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Francisco_de_Zurbar%C3%A1n_-_Santa_Dorotea_-_Google_Art_Project.jpg/250px-Francisco_de_Zurbar%C3%A1n_-_Santa_Dorotea_-_Google_Art_Project.jpg", artist:"Francisco de Zurbarán", title:"Hl. Dorothea", year:"um 1640", museum:"Museo de Bellas Artes, Sevilla" },
+    ]
+  },
+  {
+    saint: "Hl. Veronika",
+    attributes: ["Schweißtuch Christi (Vera Icon)","Abdruck des Antlitzes Christi"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Meister_der_Heiligen_Veronika_-_Hl._Veronika_mit_dem_Schwei%C3%9Ftuch_Christi_-_Alte_Pinakothek.jpg/300px-Meister_der_Heiligen_Veronika_-_Hl._Veronika_mit_dem_Schwei%C3%9Ftuch_Christi_-_Alte_Pinakothek.jpg", artist:"Meister der Hl. Veronika", title:"Hl. Veronika mit dem Schweißtuch", year:"um 1420", museum:"Alte Pinakothek, München" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Hans_Memling_-_St_Veronica_-_WGA14988.jpg/300px-Hans_Memling_-_St_Veronica_-_WGA14988.jpg", artist:"Hans Memling", title:"Hl. Veronika", year:"um 1470–75", museum:"NGA, Washington" },
+    ]
+  },
+  {
+    saint: "Hl. Benedikt von Nursia",
+    attributes: ["Zerbrochenes Glas / Kelch mit Schlange","Rabe mit Brot","Ordensregel (Buch)","Abtsstab","Schwarzes Ordensgewand"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Fra_Angelico_031.jpg/300px-Fra_Angelico_031.jpg", artist:"Fra Angelico", title:"Hl. Benedikt", year:"um 1440", museum:"San Marco, Florenz" },
+    ]
+  },
+  {
+    saint: "Hl. Antonius von Padua",
+    attributes: ["Jesuskind (auf dem Arm)","Lilie","Buch","Flamme","Franziskanerkutte"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Anton_van_Dyck_-_Saint_Anthony_of_Padua_-_Google_Art_Project.jpg/300px-Anton_van_Dyck_-_Saint_Anthony_of_Padua_-_Google_Art_Project.jpg", artist:"Anthonis van Dyck", title:"Hl. Antonius von Padua", year:"um 1629", museum:"Alte Pinakothek, München" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Murillo_-_El_Ni%C3%B1o_Jes%C3%BAs_y_San_Antonio_de_Padua.jpg/300px-Murillo_-_El_Ni%C3%B1o_Jes%C3%BAs_y_San_Antonio_de_Padua.jpg", artist:"Bartolomé Esteban Murillo", title:"Hl. Antonius von Padua mit Jesuskind", year:"um 1665", museum:"Museo de Bellas Artes, Sevilla" },
+    ]
+  },
+  {
+    saint: "Hl. Helena",
+    attributes: ["Großes Kreuz (Kreuzauffindung)","Kaiserkrone","Nägel"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Paolo_Veronese_-_St_Helena_-_WGA24862.jpg/300px-Paolo_Veronese_-_St_Helena_-_WGA24862.jpg", artist:"Paolo Veronese", title:"Vision der Hl. Helena", year:"um 1580", museum:"National Gallery, London" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Lucas_Cranach_d._%C3%84._-_Die_heilige_Helena_mit_dem_Kreuz.jpg/250px-Lucas_Cranach_d._%C3%84._-_Die_heilige_Helena_mit_dem_Kreuz.jpg", artist:"Lucas Cranach d. Ä.", title:"Hl. Helena mit dem Kreuz", year:"um 1525", museum:"Cincinnati Art Museum" },
+    ]
+  },
+  {
+    saint: "Hl. Rochus",
+    attributes: ["Pestbeule am Oberschenkel","Hund mit Brot","Pilgerstab","Pilgermuschel","Engel"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Peter_Paul_Rubens_-_St_Roch_as_Patron_of_the_Plague-stricken_-_WGA20193.jpg/300px-Peter_Paul_Rubens_-_St_Roch_as_Patron_of_the_Plague-stricken_-_WGA20193.jpg", artist:"Peter Paul Rubens", title:"Hl. Rochus als Pest-Patron", year:"um 1623", museum:"Sint-Martinuskerk, Aalst" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Tintoretto_-_San_Rocco_risana_gli_appestati.jpg/400px-Tintoretto_-_San_Rocco_risana_gli_appestati.jpg", artist:"Tintoretto", title:"Hl. Rochus heilt die Pestkranken", year:"1549", museum:"Scuola Grande di San Rocco, Venedig" },
+    ]
+  },
+  {
+    saint: "Hll. Cosmas und Damian",
+    attributes: ["Arztinstrumente","Salbentiegel","Mörser","Rotes Gewand","Palme"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Fra_Angelico_-_Decapitation_of_Saints_Cosmas_and_Damian_-_WGA00517.jpg/400px-Fra_Angelico_-_Decapitation_of_Saints_Cosmas_and_Damian_-_WGA00517.jpg", artist:"Fra Angelico", title:"Enthauptung der Hll. Cosmas und Damian", year:"um 1438–40", museum:"Louvre, Paris" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Fra_Angelico_-_Sts_Cosmas_and_Damian_with_their_Brothers_before_Lycias_-_WGA00515.jpg/400px-Fra_Angelico_-_Sts_Cosmas_and_Damian_with_their_Brothers_before_Lycias_-_WGA00515.jpg", artist:"Fra Angelico", title:"Hll. Cosmas und Damian vor dem Statthalter Lysias", year:"um 1440", museum:"Alte Pinakothek, München" },
+    ]
+  },
+  {
+    saint: "Hl. Eustachius",
+    attributes: ["Hirsch mit Kreuz im Geweih","Jägergewand","Hunde","Eherner Stier"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/D%C3%BCrer_-_Der_heilige_Eustachius.jpg/300px-D%C3%BCrer_-_Der_heilige_Eustachius.jpg", artist:"Albrecht Dürer", title:"Hl. Eustachius", year:"um 1501", museum:"Kupferstich" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Pisanello_024.jpg/350px-Pisanello_024.jpg", artist:"Pisanello", title:"Vision des Hl. Eustachius", year:"um 1438–42", museum:"National Gallery, London" },
+    ]
+  },
+  {
+    saint: "Hl. Jakobus der Ältere",
+    attributes: ["Pilgermuschel","Pilgerstab","Pilgerhut","Kürbisflasche","Buch"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Guido_Reni_-_Saint_James_the_Greater_-_Google_Art_Project.jpg/300px-Guido_Reni_-_Saint_James_the_Greater_-_Google_Art_Project.jpg", artist:"Guido Reni", title:"Hl. Jakobus der Ältere", year:"um 1636–38", museum:"Museum of Fine Arts, Houston" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Andrea_Mantegna_-_St_James_Led_to_his_Execution_-_WGA13964.jpg/400px-Andrea_Mantegna_-_St_James_Led_to_his_Execution_-_WGA13964.jpg", artist:"Andrea Mantegna", title:"Hl. Jakobus wird zur Hinrichtung geführt", year:"um 1453–57", museum:"Eremitani-Kapelle, Padua (zerstört)" },
+    ]
+  },
+  {
+    saint: "Hl. Gereon",
+    attributes: ["Ritterrüstung","Fahne","Kreuz","Schwert","Kölner Stadtpatron"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Stefan_Lochner_-_Altarpiece_of_the_Patron_Saints_of_Cologne_-_WGA13341.jpg/500px-Stefan_Lochner_-_Altarpiece_of_the_Patron_Saints_of_Cologne_-_WGA13341.jpg", artist:"Stefan Lochner", title:"Altar der Kölner Stadtpatrone (Mitte)", year:"um 1442", museum:"Kölner Dom" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Meister_der_Verherrlichung_Mariae_001.jpg/300px-Meister_der_Verherrlichung_Mariae_001.jpg", artist:"Meister der Verherrlichung Mariae", title:"Hl. Gereon mit Stifter", year:"um 1480", museum:"Wallraf-Richartz-Museum, Köln" },
+    ]
+  },
+  {
+    saint: "Hl. Thomas (Apostel)",
+    attributes: ["Lanze","Winkelmaß","Baumeisterattribut","Finger (Ungläubiger Thomas)"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/The_Incredulity_of_Saint_Thomas-Caravaggio_%281601-2%29.jpg/400px-The_Incredulity_of_Saint_Thomas-Caravaggio_%281601-2%29.jpg", artist:"Caravaggio", title:"Der ungläubige Thomas", year:"um 1601–02", museum:"Sanssouci, Potsdam" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Guercino_-_The_Incredulity_of_Saint_Thomas_-_WGA10931.jpg/350px-Guercino_-_The_Incredulity_of_Saint_Thomas_-_WGA10931.jpg", artist:"Guercino", title:"Der ungläubige Thomas", year:"um 1621", museum:"National Gallery, London" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Peter_Paul_Rubens_-_The_Incredulity_of_St_Thomas_-_WGA20193.jpg/300px-Peter_Paul_Rubens_-_The_Incredulity_of_St_Thomas_-_WGA20193.jpg", artist:"Peter Paul Rubens", title:"Der ungläubige Thomas", year:"um 1614", museum:"Koninklijk Museum, Antwerpen" },
+    ]
+  },
+  {
+    saint: "Hl. Erasmus",
+    attributes: ["Winde / Spule mit Gedärmen","Bischofstracht","Mitra","Palme"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Matthias_Gr%C3%BCnewald_-_Meeting_of_St_Erasm_and_St_Maurice_-_WGA10765.jpg/300px-Matthias_Gr%C3%BCnewald_-_Meeting_of_St_Erasm_and_St_Maurice_-_WGA10765.jpg", artist:"Matthias Grünewald", title:"Begegnung des Hl. Erasmus mit dem Hl. Mauritius", year:"um 1520–24", museum:"Alte Pinakothek, München" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Dieric_Bouts_-_Martyrdom_of_St_Erasmus_%28centre_panel%29_-_WGA03011.jpg/350px-Dieric_Bouts_-_Martyrdom_of_St_Erasmus_%28centre_panel%29_-_WGA03011.jpg", artist:"Dieric Bouts", title:"Martyrium des Hl. Erasmus", year:"um 1458", museum:"Sint-Pieterskerk, Löwen" },
+    ]
+  },
+  {
+    saint: "Hl. Mauritius",
+    attributes: ["Ritterrüstung","Fahne","Dunkle Hautfarbe","Lanze","Schild mit Mohrenköpfen"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Matthias_Gr%C3%BCnewald_-_Meeting_of_St_Erasm_and_St_Maurice_-_WGA10765.jpg/300px-Matthias_Gr%C3%BCnewald_-_Meeting_of_St_Erasm_and_St_Maurice_-_WGA10765.jpg", artist:"Matthias Grünewald", title:"Begegnung des Hl. Erasmus mit dem Hl. Mauritius", year:"um 1520–24", museum:"Alte Pinakothek, München" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Lucas_Cranach_d.%C3%84._-_Der_heilige_Mauritius.jpg/250px-Lucas_Cranach_d.%C3%84._-_Der_heilige_Mauritius.jpg", artist:"Lucas Cranach d. Ä.", title:"Hl. Mauritius", year:"um 1520–25", museum:"Metropolitan Museum, New York" },
+    ]
+  },
+  {
+    saint: "Hl. Wolfgang von Regensburg",
+    attributes: ["Beil im Kirchendach","Kirchenmodell","Bischofsstab","Mitra"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Michael_Pacher_-_Altarpiece_of_the_Church_Fathers_-_Vision_of_St_Wolfgang_-_Google_Art_Project.jpg/350px-Michael_Pacher_-_Altarpiece_of_the_Church_Fathers_-_Vision_of_St_Wolfgang_-_Google_Art_Project.jpg", artist:"Michael Pacher", title:"St. Wolfgangsaltar – Teufel und Hl. Wolfgang", year:"1471–81", museum:"St. Wolfgang, Salzkammergut" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Michael_Pacher_004.jpg/300px-Michael_Pacher_004.jpg", artist:"Michael Pacher", title:"Hl. Wolfgang zwingt den Teufel", year:"1471–81", museum:"St. Wolfgang, Salzkammergut" },
+    ]
+  },
+  {
+    saint: "Hl. Anna (Mutter Mariens)",
+    attributes: ["Maria und Jesuskind (Anna Selbdritt)","Buch","Grünes / rotes Gewand","Kopftuch"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Leonardo_da_Vinci_-_Virgin_and_Child_with_St_Anne_C2RMF_retouched.jpg/300px-Leonardo_da_Vinci_-_Virgin_and_Child_with_St_Anne_C2RMF_retouched.jpg", artist:"Leonardo da Vinci", title:"Anna Selbdritt", year:"um 1508–19", museum:"Louvre, Paris" },
+      { img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Albrecht_D%C3%BCrer_-_Virgin_and_Child_with_Saint_Anne_-_Google_Art_Project.jpg/300px-Albrecht_D%C3%BCrer_-_Virgin_and_Child_with_Saint_Anne_-_Google_Art_Project.jpg", artist:"Albrecht Dürer", title:"Anna Selbdritt", year:"1519", museum:"Metropolitan Museum, New York" },
+    ]
+  },
+];
+
+let playerName = '';
+let score = 0;
+let lives = 3;
+let questionNum = 0;
+let usedQuestions = new Set();
+let currentAnswer = null;
+let answered = false;
+let currentQuestion = null;
+
+const nameInput = document.getElementById('nameInput');
+const startBtn = document.getElementById('startBtn');
+nameInput.addEventListener('input', () => {
+  startBtn.disabled = nameInput.value.trim().length === 0;
+});
+nameInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && nameInput.value.trim()) startGame();
+});
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function startGame() {
+  playerName = nameInput.value.trim();
+  if (!playerName) return;
+  score = 0; lives = 3; questionNum = 0;
+  usedQuestions.clear();
+  showScreen('gameScreen');
+  nextQuestion();
+}
+
+function renderLives() {
+  const full = '♥ '.repeat(lives).trim();
+  const empty = '♡ '.repeat(3 - lives).trim();
+  document.getElementById('hudLives').innerHTML =
+    `<span style="color:var(--wrong)">${full}</span>` +
+    (empty ? ` <span style="opacity:.3">${empty}</span>` : '');
+}
+
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function pickRandom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+function handleImageError(img) {
+  const src = img.src;
+  if (src.includes('/thumb/')) {
+    const direct = src.replace(/\/thumb\//, '/').replace(/\/[^/]*$/, '');
+    if (img.dataset.retried !== 'true') {
+      img.dataset.retried = 'true';
+      img.src = direct;
+      return;
+    }
+  }
+  document.getElementById('imgLoading').textContent = 'Bild konnte nicht geladen werden';
+  document.getElementById('imgLoading').style.display = '';
+  img.style.display = 'none';
+}
+
+function getWrongSaints(correctSaint, count) {
+  const names = [...new Set(SAINTS_DATA.map(s => s.saint))].filter(n => n !== correctSaint);
+  return shuffleArray(names).slice(0, count);
+}
+
+function getWrongAttributes(correctAttrs, count) {
+  const allAttrs = new Set();
+  SAINTS_DATA.forEach(s => s.attributes.forEach(a => allAttrs.add(a)));
+  correctAttrs.forEach(a => allAttrs.delete(a));
+  return shuffleArray([...allAttrs]).slice(0, count);
+}
+
+function generateQuestion() {
+  let maxDiff = 1;
+  if (score >= 5) maxDiff = 2;
+  if (score >= 10) maxDiff = 3;
+
+  const questionTypes = ['image_saint', 'attr_to_saint', 'saint_to_attr', 'image_artist'];
+  let pool = SAINTS_DATA.filter(s => s.difficulty <= maxDiff);
+  if (pool.length < 4) pool = SAINTS_DATA;
+
+  let attempts = 0;
+
+  while (attempts < 50) {
+    attempts++;
+    const type = pickRandom(questionTypes);
+    const saint = pickRandom(pool);
+
+    if (type === 'image_saint' || type === 'image_artist') {
+      if (!saint.paintings || saint.paintings.length === 0) continue;
+      const painting = pickRandom(saint.paintings);
+      const qKey = type + ':' + painting.img;
+      if (usedQuestions.has(qKey)) continue;
+      usedQuestions.add(qKey);
+
+      if (type === 'image_saint') {
+        const wrongs = getWrongSaints(saint.saint, 3);
+        const options = shuffleArray([saint.saint, ...wrongs]);
+        return {
+          type: 'Bild-Frage',
+          image: painting.img,
+          text: 'Welcher Heilige ist hier dargestellt?',
+          options, answer: saint.saint,
+          info: `${painting.artist} – ${painting.title}, ${painting.year} · ${painting.museum}`
+        };
+      } else {
+        const allArtists = new Set();
+        SAINTS_DATA.forEach(s => (s.paintings || []).forEach(p => allArtists.add(p.artist)));
+        allArtists.delete(painting.artist);
+        const wrongArtists = shuffleArray([...allArtists]).slice(0, 3);
+        const options = shuffleArray([painting.artist, ...wrongArtists]);
+        return {
+          type: 'Künstler-Frage',
+          image: painting.img,
+          text: 'Wer hat dieses Werk geschaffen?',
+          options, answer: painting.artist,
+          info: `${painting.title} (${saint.saint}), ${painting.year} · ${painting.museum}`
+        };
+      }
+    }
+
+    if (type === 'attr_to_saint') {
+      const attr = pickRandom(saint.attributes);
+      const qKey = 'a2s:' + attr;
+      if (usedQuestions.has(qKey)) continue;
+      usedQuestions.add(qKey);
+      const wrongs = getWrongSaints(saint.saint, 3);
+      const options = shuffleArray([saint.saint, ...wrongs]);
+      return {
+        type: 'Attribut-Frage',
+        image: null,
+        text: `Welcher Heilige wird mit „${attr}" dargestellt?`,
+        options, answer: saint.saint,
+        info: `${saint.saint} – Attribute: ${saint.attributes.join(', ')}`
+      };
+    }
+
+    if (type === 'saint_to_attr') {
+      const correctAttr = pickRandom(saint.attributes);
+      const qKey = 's2a:' + saint.saint + ':' + correctAttr;
+      if (usedQuestions.has(qKey)) continue;
+      usedQuestions.add(qKey);
+      const wrongAttrs = getWrongAttributes(saint.attributes, 3);
+      const options = shuffleArray([correctAttr, ...wrongAttrs]);
+      return {
+        type: 'Zuordnungs-Frage',
+        image: null,
+        text: `Welches Attribut gehört zu ${saint.saint}?`,
+        options, answer: correctAttr,
+        info: `${saint.saint} – Attribute: ${saint.attributes.join(', ')}`
+      };
+    }
+  }
+
+  const saint = pickRandom(SAINTS_DATA);
+  const attr = pickRandom(saint.attributes);
+  const wrongs = getWrongSaints(saint.saint, 3);
+  return {
+    type: 'Attribut-Frage',
+    image: null,
+    text: `Welcher Heilige wird mit „${attr}" dargestellt?`,
+    options: shuffleArray([saint.saint, ...wrongs]),
+    answer: saint.saint,
+    info: `${saint.saint} – Attribute: ${saint.attributes.join(', ')}`
+  };
+}
+
+function nextQuestion() {
+  answered = false;
+  questionNum++;
+  const q = generateQuestion();
+  currentAnswer = q.answer;
+  currentQuestion = q;
+
+  document.getElementById('hudQ').textContent = `Frage ${questionNum}`;
+  document.getElementById('hudScore').textContent = score;
+  renderLives();
+  document.getElementById('qTypeBadge').textContent = q.type;
+  document.getElementById('questionText').textContent = q.text;
+  document.getElementById('artworkInfo').textContent = '';
+  document.getElementById('nextBtn').style.display = 'none';
+  document.getElementById('feedbackArea').style.display = 'none';
+
+  const frame = document.getElementById('imageFrame');
+  const img = document.getElementById('quizImage');
+  const loading = document.getElementById('imgLoading');
+  if (q.image) {
+    frame.style.display = 'flex';
+    img.style.display = 'none';
+    img.dataset.retried = 'false';
+    loading.style.display = '';
+    loading.textContent = 'Bild wird geladen…';
+    img.src = q.image;
+  } else {
+    frame.style.display = 'none';
+    img.src = '';
+  }
+
+  const grid = document.getElementById('optionsGrid');
+  grid.innerHTML = '';
+  q.options.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.textContent = opt;
+    btn.onclick = () => handleAnswer(btn, opt, q);
+    grid.appendChild(btn);
+  });
+}
+
+function handleAnswer(btn, chosen, q) {
+  if (answered) return;
+  answered = true;
+  const correct = chosen === q.answer;
+
+  document.querySelectorAll('.option-btn').forEach(b => {
+    b.disabled = true;
+    if (b.textContent === q.answer) b.classList.add('correct');
+    if (b === btn && !correct) b.classList.add('wrong');
+  });
+
+  document.getElementById('artworkInfo').textContent = q.info;
+
+  if (correct) {
+    score++;
+    document.getElementById('hudScore').textContent = score;
+  } else {
+    lives--;
+    renderLives();
+  }
+
+  showFeedbackImage(q, correct);
+
+  if (lives > 0) {
+    const nextBtn = document.getElementById('nextBtn');
+    nextBtn.style.display = 'inline-block';
+    nextBtn.textContent = correct ? 'Weiter' : `Weiter (noch ${lives} ${lives === 1 ? 'Leben' : 'Leben'})`;
+  } else {
+    document.getElementById('nextBtn').style.display = 'none';
+    setTimeout(() => endGame(), 2000);
+  }
+}
+
+function showFeedbackImage(q, wasCorrect) {
+  const saintName = q.answer;
+  let saintEntries = SAINTS_DATA.filter(s => s.saint === saintName);
+  if (saintEntries.length === 0) {
+    saintEntries = SAINTS_DATA.filter(s => (s.paintings || []).some(p => p.artist === saintName));
+  }
+
+  let feedbackPainting = null;
+  let feedbackSaint = '';
+
+  if (saintEntries.length > 0) {
+    const entry = saintEntries[Math.floor(Math.random() * saintEntries.length)];
+    feedbackSaint = entry.saint;
+    const paintings = entry.paintings || [];
+    if (paintings.length > 0) {
+      const others = paintings.filter(p => p.img !== q.image);
+      feedbackPainting = others.length > 0 ? others[Math.floor(Math.random() * others.length)] : paintings[0];
+    }
+  }
+
+  const area = document.getElementById('feedbackArea');
+  const label = document.getElementById('feedbackLabel');
+  const img = document.getElementById('feedbackImage');
+  const loading = document.getElementById('fbImgLoading');
+  const info = document.getElementById('feedbackInfo');
+
+  if (feedbackPainting) {
+    label.textContent = wasCorrect
+      ? `Richtig! – ${feedbackSaint}`
+      : `Falsch – Die richtige Antwort: ${q.answer}`;
+    label.style.color = wasCorrect ? 'var(--correct)' : 'var(--wrong)';
+    img.style.display = 'none';
+    loading.style.display = '';
+    loading.textContent = 'Bild wird geladen…';
+    img.src = feedbackPainting.img;
+    info.textContent = `${feedbackPainting.artist} – ${feedbackPainting.title}, ${feedbackPainting.year}`;
+    area.style.display = 'block';
+  } else {
+    label.textContent = wasCorrect
+      ? `Richtig! – ${q.answer}`
+      : `Falsch – Die richtige Antwort: ${q.answer}`;
+    label.style.color = wasCorrect ? 'var(--correct)' : 'var(--wrong)';
+    img.style.display = 'none';
+    loading.style.display = 'none';
+    info.textContent = '';
+    area.style.display = 'block';
+  }
+}
+
+function endGame() {
+  document.getElementById('endScore').textContent = score;
+  document.getElementById('endDetail').textContent = `${score} von ${questionNum} Fragen richtig beantwortet`;
+  saveScore(playerName, score, questionNum);
+  renderLeaderboard();
+  showScreen('endScreen');
+}
+
+function resetGame() {
+  showScreen('startScreen');
+  nameInput.value = playerName;
+  startBtn.disabled = false;
+}
+
+function saveScore(name, pts, total) {
+  try {
+    const key = 'sancti-leaderboard';
+    let lb = JSON.parse(localStorage.getItem(key) || '[]');
+    lb.push({ name, score: pts, total, date: new Date().toISOString().slice(0, 10) });
+    lb.sort((a, b) => b.score - a.score);
+    localStorage.setItem(key, JSON.stringify(lb.slice(0, 50)));
+  } catch(e) {}
+}
+
+function renderLeaderboard() {
+  const container = document.getElementById('lbRows');
+  let lb = [];
+  try { lb = JSON.parse(localStorage.getItem('sancti-leaderboard') || '[]'); } catch(e) {}
+
+  if (lb.length === 0) {
+    container.innerHTML = '<div style="opacity:.4;font-size:.85rem;padding:.5rem">Noch keine Einträge</div>';
+    return;
+  }
+
+  container.innerHTML = lb.slice(0, 10).map((entry, i) => {
+    const isMe = entry.name === playerName && entry.score === score;
+    return `<div class="lb-row ${isMe ? 'highlight' : ''}">
+      <span class="lb-rank">${i + 1}</span>
+      <span class="lb-name">${escHtml(entry.name)}</span>
+      <span class="lb-pts">${entry.score}</span>
+    </div>`;
+  }).join('');
+}
+
+function escHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+</script>
+</body>
+</html>

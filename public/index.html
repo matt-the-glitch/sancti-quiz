@@ -979,13 +979,14 @@ function handleAnswer(btn, chosen, q) {
 
   showFeedbackImage(q, correct);
 
+  const nextBtn = document.getElementById('nextBtn');
+  nextBtn.style.display = 'inline-block';
   if (lives > 0) {
-    const nextBtn = document.getElementById('nextBtn');
-    nextBtn.style.display = 'inline-block';
     nextBtn.textContent = correct ? 'Weiter' : `Weiter (noch ${lives} ${lives === 1 ? 'Leben' : 'Leben'})`;
+    nextBtn.onclick = nextQuestion;
   } else {
-    document.getElementById('nextBtn').style.display = 'none';
-    setTimeout(() => endGame(), 2000);
+    nextBtn.textContent = 'Zur Bestenliste';
+    nextBtn.onclick = endGame;
   }
 }
 

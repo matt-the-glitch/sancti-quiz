@@ -856,6 +856,8 @@ function generateQuestion() {
           image: painting.img,
           text: 'Welcher Heilige ist hier dargestellt?',
           options, answer: saint.saint,
+          saintName: saint.saint,
+          shownImg: painting.img,
           info: `${painting.artist} – ${painting.title}, ${painting.year} · ${painting.museum}`
         };
       } else {
@@ -869,6 +871,8 @@ function generateQuestion() {
           image: painting.img,
           text: 'Wer hat dieses Werk geschaffen?',
           options, answer: painting.artist,
+          saintName: saint.saint,
+          shownImg: painting.img,
           info: `${painting.title} (${saint.saint}), ${painting.year} · ${painting.museum}`
         };
       }
@@ -887,6 +891,7 @@ function generateQuestion() {
         image: null,
         text: `Welcher Heilige wird mit „${attr}" dargestellt?`,
         options, answer: saint.saint,
+        saintName: saint.saint,
         info: `${saint.saint} – Attribute: ${saint.attributes.join(', ')}`
       };
     }
@@ -903,6 +908,7 @@ function generateQuestion() {
         image: null,
         text: `Welches Attribut gehört zu ${saint.saint}?`,
         options, answer: correctAttr,
+        saintName: saint.saint,
         info: `${saint.saint} – Attribute: ${saint.attributes.join(', ')}`
       };
     }
@@ -917,6 +923,7 @@ function generateQuestion() {
     text: `Welcher Heilige wird mit „${attr}" dargestellt?`,
     options: shuffleArray([saint.saint, ...wrongs]),
     answer: saint.saint,
+    saintName: saint.saint,
     info: `${saint.saint} – Attribute: ${saint.attributes.join(', ')}`
   };
 }
@@ -995,23 +1002,15 @@ function handleAnswer(btn, chosen, q) {
 }
 
 function showFeedbackImage(q, wasCorrect) {
-  const saintName = q.answer;
-  let saintEntries = SAINTS_DATA.filter(s => s.saint === saintName);
-  if (saintEntries.length === 0) {
-    saintEntries = SAINTS_DATA.filter(s => (s.paintings || []).some(p => p.artist === saintName));
-  }
-
+  const entry = SAINTS_DATA.find(s => s.saint === q.saintName);
   let feedbackPainting = null;
-  let feedbackSaint = '';
+  const feedbackSaint = entry ? entry.saint : '';
 
-  if (saintEntries.length > 0) {
-    const entry = saintEntries[Math.floor(Math.random() * saintEntries.length)];
-    feedbackSaint = entry.saint;
-    const paintings = entry.paintings || [];
-    if (paintings.length > 0) {
-      const others = paintings.filter(p => p.img !== q.image);
-      feedbackPainting = others.length > 0 ? others[Math.floor(Math.random() * others.length)] : paintings[0];
-    }
+  if (entry && entry.paintings && entry.paintings.length > 0) {
+    const others = entry.paintings.filter(p => p.img !== q.shownImg);
+    feedbackPainting = others.length > 0
+      ? others[Math.floor(Math.random() * others.length)]
+      : entry.paintings[0];
   }
 
   const area = document.getElementById('feedbackArea');

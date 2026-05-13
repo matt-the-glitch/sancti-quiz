@@ -726,7 +726,6 @@ const SAINTS_DATA = [
     attributes: ["Ritterrüstung","Fahne","Dunkle Hautfarbe","Lanze","Schild mit Mohrenköpfen"],
     difficulty: 3,
     paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Matthias_Gr%C3%BCnewald_-_Meeting_of_St_Erasm_and_St_Maurice_-_WGA10765.jpg&width=300", artist:"Matthias Grünewald", title:"Begegnung des Hl. Erasmus mit dem Hl. Mauritius", year:"um 1520–24", museum:"Alte Pinakothek, München" },
       { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_d.%C3%84._-_Der_heilige_Mauritius.jpg&width=250", artist:"Lucas Cranach d. Ä.", title:"Hl. Mauritius", year:"um 1520–25", museum:"Metropolitan Museum, New York" },
     ]
   },
@@ -755,9 +754,7 @@ let score = 0;
 let lives = 3;
 let questionNum = 0;
 let usedQuestions = new Set();
-let currentAnswer = null;
 let answered = false;
-let currentQuestion = null;
 
 const nameInput = document.getElementById('nameInput');
 const startBtn = document.getElementById('startBtn');
@@ -809,6 +806,15 @@ function handleImageError(img) {
 
 function getWrongSaints(correctSaint, count) {
   const names = [...new Set(SAINTS_DATA.map(s => s.saint))].filter(n => n !== correctSaint);
+  return shuffleArray(names).slice(0, count);
+}
+
+function getWrongSaintsWithoutAttr(attr, correctSaint, count) {
+  const names = [...new Set(
+    SAINTS_DATA
+      .filter(s => s.saint !== correctSaint && !s.attributes.includes(attr))
+      .map(s => s.saint)
+  )];
   return shuffleArray(names).slice(0, count);
 }
 
@@ -872,8 +878,9 @@ function generateQuestion() {
       const attr = pickRandom(saint.attributes);
       const qKey = 'a2s:' + attr;
       if (usedQuestions.has(qKey)) continue;
+      const wrongs = getWrongSaintsWithoutAttr(attr, saint.saint, 3);
+      if (wrongs.length < 3) continue;
       usedQuestions.add(qKey);
-      const wrongs = getWrongSaints(saint.saint, 3);
       const options = shuffleArray([saint.saint, ...wrongs]);
       return {
         type: 'Attribut-Frage',
@@ -903,7 +910,7 @@ function generateQuestion() {
 
   const saint = pickRandom(SAINTS_DATA);
   const attr = pickRandom(saint.attributes);
-  const wrongs = getWrongSaints(saint.saint, 3);
+  const wrongs = getWrongSaintsWithoutAttr(attr, saint.saint, 3);
   return {
     type: 'Attribut-Frage',
     image: null,
@@ -918,8 +925,6 @@ function nextQuestion() {
   answered = false;
   questionNum++;
   const q = generateQuestion();
-  currentAnswer = q.answer;
-  currentQuestion = q;
 
   document.getElementById('hudQ').textContent = `Frage ${questionNum}`;
   document.getElementById('hudScore').textContent = score;
@@ -936,7 +941,6 @@ function nextQuestion() {
   if (q.image) {
     frame.style.display = 'flex';
     img.style.display = 'none';
-    img.dataset.retried = 'false';
     loading.style.display = '';
     loading.textContent = 'Bild wird geladen…';
     img.src = q.image;
@@ -982,7 +986,7 @@ function handleAnswer(btn, chosen, q) {
   const nextBtn = document.getElementById('nextBtn');
   nextBtn.style.display = 'inline-block';
   if (lives > 0) {
-    nextBtn.textContent = correct ? 'Weiter' : `Weiter (noch ${lives} ${lives === 1 ? 'Leben' : 'Leben'})`;
+    nextBtn.textContent = correct ? 'Weiter' : `Weiter (noch ${lives} Leben)`;
     nextBtn.onclick = nextQuestion;
   } else {
     nextBtn.textContent = 'Zur Bestenliste';

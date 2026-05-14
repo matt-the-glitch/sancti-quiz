@@ -1,0 +1,70 @@
+Q345	Maria (Mutter Jesu)	Maria (Mutter Jesu)
+Q51666	Jesus Christus	Jesus von Nazaret
+Q128267	Hl. Joseph	Josef von Nazaret
+Q314700	Hl. Joachim	Joachim (Heiliger)
+Q235849	Hl. Elisabeth (Mutter Johannes' d. Täufers)	Elisabet
+Q33923	Hl. Petrus	Simon Petrus
+Q9200	Hl. Paulus	Paulus von Tarsus
+Q40662	Johannes der Täufer	Johannes der Täufer
+Q43669	Hl. Thomas (Apostel)	Thomas (Apostel)
+Q43999	Hl. Jakobus der Ältere	Jakobus der Ältere
+Q43399	Hl. Andreas	Andreas (Apostel)
+Q43982	Hl. Bartholomäus	Bartholomäus (Apostel)
+Q44047	Hl. Jakobus der Jüngere	Jakobus, Sohn des Alphäus
+Q43675	Hl. Philippus (Apostel)	Philippus
+Q43945	Hl. Judas Thaddäus	Judas Thaddäus
+Q43600	Hl. Matthäus (Evangelist)	Matthäus (Apostel)
+Q31966	Hl. Markus (Evangelist)	Markus (Evangelist)
+Q128538	Hl. Lukas (Evangelist)	Lukas (Evangelist)
+Q44015	Hl. Johannes (Evangelist)	Johannes (Apostel)
+Q45581	Erzengel Michael	Erzengel Michael
+Q81989	Erzengel Gabriel	Erzengel Gabriel
+Q56951	Erzengel Raphael	Erzengel Raphael
+Q44248	Hl. Hieronymus	Hieronymus (Kirchenvater)
+Q8018	Hl. Augustinus	Augustinus von Hippo
+Q43689	Hl. Ambrosius von Mailand	Ambrosius von Mailand
+Q42827	Hl. Gregor der Große	Gregor der Große
+Q9438	Hl. Thomas von Aquin	Thomas von Aquin
+Q70991	Hl. Hildegard von Bingen	Hildegard von Bingen
+Q188411	Hl. Bernhard von Clairvaux	Bernhard von Clairvaux
+Q676555	Hl. Franziskus von Assisi	Franz von Assisi
+Q191107	Hl. Klara von Assisi	Klara von Assisi
+Q44091	Hl. Dominikus	Dominikus
+Q44265	Hl. Benedikt von Nursia	Benedikt von Nursia
+Q44281	Hl. Ignatius von Loyola	Ignatius von Loyola
+Q174880	Hl. Teresa von Ávila	Teresa von Ávila
+Q170547	Hl. Antonius der Große	Antonius der Große
+Q167477	Hl. Antonius von Padua	Antonius von Padua
+Q183332	Hl. Sebastian	Sebastian (Heiliger)
+Q48438	Hl. Georg	Georg (Heiliger)
+Q179718	Hl. Katharina von Alexandrien	Katharina von Alexandrien
+Q63070	Hl. Maria Magdalena	Maria Magdalena
+Q133704	Hl. Martin von Tours	Martin von Tours
+Q192816	Hl. Barbara	Barbara von Nikomedien
+Q17590	Hl. Laurentius	Laurentius von Rom
+Q44269	Hl. Nikolaus von Myra	Nikolaus von Myra
+Q193507	Hl. Christophorus	Christophorus
+Q297742	Hl. Margareta von Antiochia	Margareta von Antiochia
+Q210096	Hl. Agnes	Agnes von Rom
+Q183240	Hl. Lucia	Lucia von Syrakus
+Q80513	Hl. Cäcilia	Cäcilia von Rom
+Q161775	Hl. Stephanus	Stephanus
+Q159862	Hl. Elisabeth von Thüringen	Elisabeth von Thüringen
+Q164294	Hl. Anna (Mutter Mariens)	Anna (Heilige)
+Q196653	Hl. Veronika	Saint Veronica
+Q369691	Hl. Ursula	Ursula von Köln
+Q232427	Hl. Apollonia	Apollonia von Alexandria
+Q242274	Hl. Dorothea	Dorothea of Caesarea
+Q170164	Hl. Helena (Mutter Konstantins)	Helena (Mutter Konstantins des Großen)
+Q152457	Hl. Rochus	Rochus von Montpellier
+Q218921	Hl. Eustachius	Eustachius
+Q159834	Hl. Hubertus	Hubertus von Lüttich
+Q298845	Hl. Florian	Florian von Lorch
+Q2142772	Hl. Gereon	Gereon von Köln
+Q359878	Hl. Erasmus	Erasmus von Antiochia
+Q316599	Hl. Mauritius	Mauritius (Heiliger)
+Q60889	Hl. Wolfgang von Regensburg	Wolfgang von Regensburg
+Q76486	Hll. Cosmas und Damian	Kosmas und Damian
+Q57520	Hl. Hedwig von Schlesien	Hedwig von Andechs
+Q160445	Hl. Bonifatius	Bonifatius
+Q221522	Hl. Johannes Nepomuk	Johannes Nepomuk

@@ -333,12 +333,70 @@ body{
 <script>
 const SAINTS_DATA = [
   {
+    saint: "Maria (Mutter Jesu)",
+    attributes: ["Blaues Gewand","Mondsichel","Sternenkrone","Lilie","Jesuskind","Rose"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/OurLadyOfAssumption.JPG&width=400", artist:"Unbekannt", title:"OurLadyOfAssumption" },
+    ]
+  },
+  {
+    saint: "Jesus Christus",
+    attributes: ["Kreuznimbus","Dornenkrone","Wunden (Stigmata)","Lamm","Brot und Wein","Hirtenstab"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/2025_Iluminace_v_pontifik%C3%A1lu_Alberta_ze_%C5%A0ternberka.jpg&width=400", artist:"Unbekannt", title:"2025 Iluminace v pontifikálu Alberta ze Šternberka" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Altertavle_(Christianskirken).JPG&width=400", artist:"Unbekannt", title:"Altertavle (Christianskirken)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Angelo_Pavan_-_Cristo_nel_deserto.jpg&width=400", artist:"Angelo Pavan", title:"Cristo nel deserto" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bischheim_Temple38.JPG&width=400", artist:"Unbekannt", title:"Bischheim Temple38" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Chang%C3%A9_-_%C3%A9glise_Saint-Pierre,_int%C3%A9rieur_22.jpg&width=400", artist:"Changé", title:"église Saint-Pierre, intérieur 22" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Domenico_Morelli_-_Ges%C3%B9_fra_gli_ossessi.jpg&width=400", artist:"Domenico Morelli", title:"Gesù fra gli ossessi" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Domenico_Morelli_-_La_Maddalena_ai_piedi_di_Ges%C3%B9.jpg&width=400", artist:"Domenico Morelli", title:"La Maddalena ai piedi di Gesù" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Franz_Sigrist_Jesus_teilt_seinen_J%C3%BCngern_die_Kommunion_aus.jpg&width=400", artist:"Unbekannt", title:"Franz Sigrist Jesus teilt seinen Jüngern die Kommunion aus" },
+    ]
+  },
+  {
+    saint: "Hl. Joseph",
+    attributes: ["Lilie","Zimmermannswerkzeug","Stab mit Blüte","Jesuskind","Älterer Mann"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/2columb1.jpg&width=400", artist:"Unbekannt", title:"2columb1" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/52063_San_Jos%C3%A9_quien_lee_un_libro_y_sostiene_la_vara_florida.jpg&width=400", artist:"Unbekannt", title:"52063 San José quien lee un libro y sostiene la vara florida" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anderson,_Roma_-_n._11240_-_Milano_-_Testa_di_S._Giuseppe_-_Guido_Reni_-_Brera.jpg&width=400", artist:"Anderson, Roma", title:"n. 11240 - Milano - Testa di S. Giuseppe - Guido Reni - Brera" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Antonio_da_fabriano,_sant%27anna_con_la_vergine_bambina,_san_gioacchino_e_san_giuseppe,_01.jpg&width=400", artist:"Unbekannt", title:"Antonio da fabriano, sant'anna con la vergine bambina, san gioacchino e san giuseppe, 01" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Astano-San-Pietro-innen-2.jpg&width=400", artist:"Unbekannt", title:"Astano-San-Pietro-innen-2" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/At_Mus%C3%A9e_de_Grenoble_2025_239_(Joseph).jpg&width=400", artist:"Unbekannt", title:"At Musée de Grenoble 2025 239 (Joseph)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/At_Mus%C3%A9e_de_Grenoble_2025_239.jpg&width=400", artist:"Unbekannt", title:"At Musée de Grenoble 2025 239" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Basilica_of_Saint_Joseph_Proto-Cathedral_(Bardstown,_Kentucky),_interior,_ceiling_mural_of_Saint_Joseph.jpg&width=400", artist:"Unbekannt", title:"Basilica of Saint Joseph Proto-Cathedral (Bardstown, Kentucky), interior, ceiling mural of Saint Joseph" },
+    ]
+  },
+  {
+    saint: "Hl. Joachim",
+    attributes: ["Hirtenstab","Älterer Mann","Begegnung an der Goldenen Pforte","Lamm"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Carlo_Maratta_-_The_Vision_of_Joachim_and_Anne.jpg&width=400", artist:"Carlo Maratta", title:"The Vision of Joachim and Anne" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/2014_L%C4%85dek-Zdr%C3%B3j,_kaplica_NMP_%E2%80%9ENa_Pustkowiu%E2%80%9D_17.JPG&width=400", artist:"Unbekannt", title:"2014 Lądek-Zdrój, kaplica NMP „Na Pustkowiu” 17" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anna_%26_Joachim_(parents_of_Christian_Holy_Mary)_at_Kunstmuseum_Basel_Switzerland.jpg&width=400", artist:"Unbekannt", title:"Anna & Joachim (parents of Christian Holy Mary) at Kunstmuseum Basel Switzerland" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Annunciation_to_Joachim_~1520,_basilica,_Dobre_Miasto.jpg&width=400", artist:"Unbekannt", title:"Annunciation to Joachim ~1520, basilica, Dobre Miasto" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Antonio_da_fabriano,_sant%27anna_con_la_vergine_bambina,_san_gioacchino_e_san_giuseppe,_01.jpg&width=400", artist:"Unbekannt", title:"Antonio da fabriano, sant'anna con la vergine bambina, san gioacchino e san giuseppe, 01" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bad_Leonfelden_Maria_Br%C3%BCndl_-_Altar_Joachim_1.jpg&width=400", artist:"Bad Leonfelden Maria Bründl", title:"Altar Joachim 1" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bad_Leonfelden_Maria_Br%C3%BCndl_-_Altar_Joachim_2.jpg&width=400", artist:"Bad Leonfelden Maria Bründl", title:"Altar Joachim 2" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bartolo_di_Fredi_-_The_Annunciation_to_Joachim_-_WGA01327.jpg&width=400", artist:"Bartolo di Fredi", title:"The Annunciation to Joachim" },
+    ]
+  },
+  {
+    saint: "Hl. Elisabeth (Mutter Johannes' d. Täufers)",
+    attributes: ["Älterer Frauenkopf","Johannesknabe","Heimsuchung Mariens","Schwanger"],
+    difficulty: 2,
+    paintings: [
+    ]
+  },
+  {
     saint: "Hl. Petrus",
     attributes: ["Schlüssel","Hahn","Umgekehrtes Kreuz","Fisch","Papsttiara"],
     difficulty: 1,
     paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Peter_Paul_Rubens_-_Saint_Peter_-_Google_Art_Project.jpg&width=400", artist:"Peter Paul Rubens", title:"Hl. Petrus", year:"um 1610–12", museum:"Museo del Prado, Madrid" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Caravaggio_-_Martirio_di_San_Pietro.jpg&width=400", artist:"Caravaggio", title:"Kreuzigung Petri", year:"1601", museum:"Santa Maria del Popolo, Rom" },
     ]
   },
   {
@@ -346,231 +404,14 @@ const SAINTS_DATA = [
     attributes: ["Schwert","Buch / Briefe","Hohe Stirnglatze","Langer Bart","Schriftrolle","Pferd (Bekehrung vor Damaskus)"],
     difficulty: 1,
     paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Albrecht_D%C3%BCrer_-_The_Four_Apostles%2C_Saints_Mark_and_Paul.jpg&width=300", artist:"Albrecht Dürer", title:"Die vier Apostel (Markus und Paulus)", year:"1526", museum:"Alte Pinakothek, München" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Conversion_on_the_Way_to_Damascus-Caravaggio_%28c.1600-1%29.jpg&width=400", artist:"Caravaggio", title:"Bekehrung des Paulus", year:"1601", museum:"Santa Maria del Popolo, Rom" },
-    ]
-  },
-  {
-    saint: "Hl. Sebastian",
-    attributes: ["Pfeile","An Baum/Säule gebunden","Halbnackt (Lendentuch)","Palme","Märtyrerkrone"],
-    difficulty: 1,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Andrea_Mantegna_-_St._Sebastian_-_Google_Art_Project.jpg&width=300", artist:"Andrea Mantegna", title:"Hl. Sebastian", year:"um 1457–59", museum:"KHM, Wien" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Giovanni_Bellini_-_Saint_Sebastian_-_72.PA.26_-_J._Paul_Getty_Museum.jpg&width=300", artist:"Giovanni Bellini", title:"Hl. Sebastian", year:"um 1464", museum:"Getty Museum, LA" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Antonello_da_Messina_-_St._Sebastian_-_Google_Art_Project.jpg&width=300", artist:"Antonello da Messina", title:"Hl. Sebastian", year:"um 1478", museum:"Gemäldegalerie, Dresden" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/El_Greco_-_Saint_Sebastian_-_Google_Art_Project.jpg&width=250", artist:"El Greco", title:"Hl. Sebastian", year:"um 1577–78", museum:"Catedral de Palencia" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Andrea_del_Castagno_-_Saint_Sebastian_-_Walters_371044.jpg&width=250", artist:"Andrea del Castagno", title:"Hl. Sebastian", year:"um 1450", museum:"Walters Art Museum, Baltimore" },
-    ]
-  },
-  {
-    saint: "Hl. Hieronymus",
-    attributes: ["Löwe","Kardinalstracht","Totenkopf","Stein","Buch","Kruzifix"],
-    difficulty: 1,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Antonello_da_Messina_-_St_Jerome_in_his_study_-_National_Gallery_London.jpg&width=400", artist:"Antonello da Messina", title:"Hl. Hieronymus im Gehäuse", year:"um 1475", museum:"National Gallery, London" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Albrecht_D%C3%BCrer_-_Saint_Jerome_in_His_Study_%281514%29_-_Google_Art_Project.jpg&width=400", artist:"Albrecht Dürer", title:"Der hl. Hieronymus im Gehäus", year:"1514", museum:"Kupferstich" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_d.%C3%84._-_Kardinal_Albrecht_von_Brandenburg_als_Hl._Hieronymus_im_Geh%C3%A4us_%28Gem%C3%A4ldegalerie_Berlin%29.jpg&width=350", artist:"Lucas Cranach d. Ä.", title:"Kardinal Albrecht als Hl. Hieronymus", year:"1527", museum:"Gemäldegalerie, Berlin" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Marinus_Claesz._van_Reymerswaele_-_Saint_Jerome_-_Google_Art_Project.jpg&width=350", artist:"Marinus van Reymerswaele", title:"Hl. Hieronymus", year:"um 1545", museum:"Museo del Prado, Madrid" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Albrecht_D%C3%BCrer_-_Saint_Jerome_-_Google_Art_Project.jpg&width=300", artist:"Albrecht Dürer", title:"Büßender Hl. Hieronymus", year:"um 1497", museum:"National Gallery, London" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Colantonio_-_St_Jerome_in_His_Study_-_WGA05115.jpg&width=300", artist:"Colantonio", title:"Hl. Hieronymus im Studierzimmer", year:"um 1445", museum:"Museo di Capodimonte, Neapel" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Joos_Van_Cleve_-_Saint_Jerome_in_His_Study_-_Google_Art_Project.jpg&width=350", artist:"Joos van Cleve", title:"Hl. Hieronymus im Studierzimmer", year:"um 1525", museum:"Princeton University Art Museum" },
-    ]
-  },
-  {
-    saint: "Hl. Georg",
-    attributes: ["Drache","Ritterrüstung","Lanze","Weißes Pferd","Kreuzfahne","Prinzessin"],
-    difficulty: 1,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Raffaello_Sanzio_-_St._George_Fighting_the_Dragon_-_Google_Art_Project.jpg&width=350", artist:"Raffael", title:"Hl. Georg im Kampf mit dem Drachen", year:"um 1505", museum:"NGA, Washington" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Albrecht_Altdorfer_-_Saint_George_and_the_Dragon_-_Google_Art_Project.jpg&width=300", artist:"Albrecht Altdorfer", title:"Hl. Georg im Wald", year:"1510", museum:"Alte Pinakothek, München" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Rogier_van_der_Weyden_-_Saint_George_and_the_Dragon_-_Google_Art_Project.jpg&width=300", artist:"Rogier van der Weyden", title:"Hl. Georg und der Drache", year:"um 1432", museum:"NGA, Washington" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_d.%C3%84._-_Der_heilige_Georg_als_Drachent%C3%B6ter.jpg&width=250", artist:"Lucas Cranach d. Ä.", title:"Hl. Georg als Drachentöter", year:"um 1514", museum:"Alte Pinakothek, München" },
-    ]
-  },
-  {
-    saint: "Hl. Katharina von Alexandrien",
-    attributes: ["Rad (zerbrochen)","Schwert","Krone","Buch","Ring","Palme"],
-    difficulty: 1,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Caravaggio_-_Saint_Catherine_of_Alexandria_-_Google_Art_Project.jpg&width=350", artist:"Caravaggio", title:"Hl. Katharina von Alexandrien", year:"1598", museum:"Thyssen-Bornemisza, Madrid" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Raphael_-_Saint_Catherine_of_Alexandria_-_Google_Art_Project.jpg&width=300", artist:"Raffael", title:"Hl. Katharina von Alexandrien", year:"um 1507", museum:"National Gallery, London" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hans_Memling_-_The_Mystic_Marriage_of_St_Catherine_-_WGA14861.jpg&width=400", artist:"Hans Memling", title:"Mystische Vermählung der Hl. Katharina", year:"um 1480", museum:"Metropolitan Museum, New York" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_d._%C3%84._-_The_Martyrdom_of_St_Catherine_-_WGA05651.jpg&width=350", artist:"Lucas Cranach d. Ä.", title:"Martyrium der Hl. Katharina", year:"um 1506", museum:"Ráday-Bibliothek, Budapest" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_d.%C3%84._-_The_Mystic_Marriage_of_St_Catherine_%28detail%29_-_WGA05663.jpg&width=350", artist:"Lucas Cranach d. Ä.", title:"Mystische Vermählung der Hl. Katharina (Detail)", year:"um 1516", museum:"Museum der bildenden Künste, Budapest" },
-    ]
-  },
-  {
-    saint: "Hl. Barbara",
-    attributes: ["Turm mit drei Fenstern","Kelch mit Hostie","Krone","Schwert","Palme"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jan_van_Eyck_-_Sainte_Barbe_-_1437.jpg&width=300", artist:"Jan van Eyck", title:"Hl. Barbara", year:"1437", museum:"KMSKA, Antwerpen" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Robert_Campin_-_The_Werl_Altarpiece_%28right_panel%29_-_Google_Art_Project.jpg&width=300", artist:"Robert Campin", title:"Hl. Barbara (Werl-Altar)", year:"1438", museum:"Museo del Prado, Madrid" },
-    ]
-  },
-  {
-    saint: "Hl. Maria Magdalena",
-    attributes: ["Salbgefäß","Offenes langes Haar","Totenkopf","Kruzifix","Rotes Gewand"],
-    difficulty: 1,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Rogier_van_der_Weyden_-_The_Magdalene_Reading_-_WGA25721.jpg&width=300", artist:"Rogier van der Weyden", title:"Lesende Magdalena", year:"um 1435", museum:"National Gallery, London" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Tizian_094.jpg&width=300", artist:"Tizian", title:"Büßende Magdalena", year:"um 1533", museum:"Palazzo Pitti, Florenz" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Georges_de_La_Tour_-_The_Magdalen_with_the_Smoking_Flame_-_Google_Art_Project.jpg&width=350", artist:"Georges de La Tour", title:"Magdalena mit der Flamme", year:"um 1640", museum:"LACMA, Los Angeles" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Quentin_Matsys_-_Mary_Magdalene_-_WGA14325.jpg&width=250", artist:"Quentin Massys", title:"Maria Magdalena", year:"um 1520–25", museum:"Philadelphia Museum of Art" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Carlo_Crivelli_-_Mary_Magdalen_-_WGA5791.jpg&width=200", artist:"Carlo Crivelli", title:"Maria Magdalena", year:"um 1480", museum:"Rijksmuseum, Amsterdam" },
-    ]
-  },
-  {
-    saint: "Hl. Franziskus von Assisi",
-    attributes: ["Stigmata","Braune Kutte","Strickgürtel","Kruzifix","Tiere (Vögel)","Totenkopf"],
-    difficulty: 1,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Giovanni_Bellini_-_Saint_Francis_in_the_Desert_-_Google_Art_Project.jpg&width=400", artist:"Giovanni Bellini", title:"Hl. Franziskus in Ekstase", year:"um 1480", museum:"Frick Collection, New York" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Saint_Francis_of_Assisi_by_Jusepe_de_Ribera.jpg&width=300", artist:"Jusepe de Ribera", title:"Hl. Franziskus von Assisi", year:"1643", museum:"Museo Soumaya, Mexiko-Stadt" },
-    ]
-  },
-  {
-    saint: "Hl. Laurentius",
-    attributes: ["Bratrost","Dalmatika","Palme","Geldbeutel","Weihrauchgefäß"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fra_Angelico_-_Saint_Lawrence_Receiving_the_Treasures_of_the_Church_from_Pope_Sixtus_II_-_WGA00504.jpg&width=400", artist:"Fra Angelico", title:"Hl. Laurentius empfängt die Schätze", year:"um 1449", museum:"Cappella Niccolina, Vatikan" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Peter_Paul_Rubens_-_The_Martyrdom_of_St_Lawrence_-_WGA20224.jpg&width=300", artist:"Peter Paul Rubens", title:"Martyrium des Hl. Laurentius", year:"um 1614", museum:"Alte Pinakothek, München" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bernardo_Strozzi_-_St_Lawrence_Distributing_the_Treasures_of_the_Church_-_WGA21908.jpg&width=350", artist:"Bernardo Strozzi", title:"Hl. Laurentius verteilt die Kirchenschätze", year:"um 1625", museum:"Church of San Nicola, Genua" },
-    ]
-  },
-  {
-    saint: "Hl. Antonius der Große",
-    attributes: ["Schwein","Tau-Kreuz (T)","Flammen","Glocke","Dämonen","Mönchsgewand"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hieronymus_Bosch_-_Triptych_of_Temptation_of_St_Anthony_-_WGA2585.jpg&width=400", artist:"Hieronymus Bosch", title:"Versuchung des Hl. Antonius", year:"um 1501", museum:"Museu Nacional, Lissabon" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Isenheimer_Altar_%28Versuchung_des_Hl._Antonius%29.jpg&width=400", artist:"Matthias Grünewald", title:"Versuchung des Hl. Antonius (Isenheimer Altar)", year:"um 1512–16", museum:"Musée Unterlinden, Colmar" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Schongauer_Anthony.jpg&width=300", artist:"Martin Schongauer", title:"Peinigung des Hl. Antonius", year:"um 1470–75", museum:"Kupferstich" },
-    ]
-  },
-  {
-    saint: "Hl. Martin von Tours",
-    attributes: ["Geteilter Mantel","Pferd","Bettler","Gans","Bischofsstab"],
-    difficulty: 1,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/El_Greco_-_Saint_Martin_and_the_Beggar_-_Google_Art_Project.jpg&width=300", artist:"El Greco", title:"Hl. Martin und der Bettler", year:"1597–99", museum:"NGA, Washington" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Simone_Martini_-_St_Martin_is_Knighted_-_WGA21392.jpg&width=400", artist:"Simone Martini", title:"Hl. Martin wird zum Ritter geschlagen", year:"um 1317", museum:"San Francesco, Assisi" },
-    ]
-  },
-  {
-    saint: "Hl. Nikolaus von Myra",
-    attributes: ["Drei Goldkugeln","Bischofsstab","Mitra","Drei Kinder im Bottich","Buch"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fra_Angelico_-_St_Nicholas_saves_the_ship_%28San_Marco%29.jpg&width=400", artist:"Fra Angelico", title:"Hl. Nikolaus rettet ein Schiff", year:"um 1437", museum:"Vatikanische Pinakothek, Rom" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Gerard_David_-_Legends_of_St._Nicholas.jpg&width=350", artist:"Gerard David", title:"Legenden des Hl. Nikolaus", year:"um 1500", museum:"NG Scotland, Edinburgh" },
-    ]
-  },
-  {
-    saint: "Hl. Christophorus",
-    attributes: ["Jesuskind auf der Schulter","Baumstamm als Stab","Fluss","Riesengröße","Eremitenlampe am Ufer"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hieronymus_Bosch_-_Saint_Christopher_-_WGA02558.jpg&width=300", artist:"Hieronymus Bosch", title:"Hl. Christophorus", year:"um 1500", museum:"Museum Boijmans, Rotterdam" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Konrad_Witz_-_Saint_Christophe_-_Kunstmuseum_Basel%2C_Inv._656_-_derivative_work.png&width=300", artist:"Konrad Witz", title:"Hl. Christophorus", year:"um 1435", museum:"Kunstmuseum Basel" },
-    ]
-  },
-  {
-    saint: "Hl. Margareta von Antiochia",
-    attributes: ["Drache (besiegt)","Aus Drachenbauch hervorkommend","Kreuz / Kreuzstab","Palme","Krone","Perlen"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Raffael_-_Hl._Margareta_%28KHM%29.jpg&width=300", artist:"Raffael", title:"Hl. Margareta", year:"1518", museum:"KHM, Wien" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hugo_van_der_Goes_-_Sts_Margaret_and_Mary_Magdalene_with_Maria_Portinari_%28detail%29_-_WGA9714.jpg&width=300", artist:"Hugo van der Goes", title:"Hll. Margareta und Maria Magdalena (Portinari-Altar)", year:"um 1477", museum:"Uffizien, Florenz" },
-    ]
-  },
-  {
-    saint: "Hl. Agnes",
-    attributes: ["Lamm","Schwert","Langes Haar","Palme","Ring"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Massimo_Stanzione_-_Saint_Agnes_-_WGA21654.jpg&width=300", artist:"Massimo Stanzione", title:"Hl. Agnes", year:"um 1635", museum:"Museo di Capodimonte, Neapel" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jusepe_de_Ribera_-_Saint_Agnes_in_Prison_-_WGA19360.jpg&width=300", artist:"Jusepe de Ribera", title:"Hl. Agnes im Gefängnis", year:"1641", museum:"Gemäldegalerie, Dresden" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Vicente_Masip_-_Martyrdom_of_St_Agnes_-_WGA14222.jpg&width=300", artist:"Vicente Masip", title:"Martyrium der Hl. Agnes", year:"um 1540", museum:"Museo del Prado, Madrid" },
-    ]
-  },
-  {
-    saint: "Hl. Lucia",
-    attributes: ["Augen auf Teller","Öllampe","Schwert / Dolch","Palme","Krone","Brennende Kerze"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Francesco_del_Cossa_-_Saint_Lucy_-_Google_Art_Project.jpg&width=300", artist:"Francesco del Cossa", title:"Hl. Lucia", year:"um 1473–74", museum:"NGA, Washington" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bernat_Martorell_-_Martyrdom_of_Saint_Lucy_-_Google_Art_Project.jpg&width=300", artist:"Bernat Martorell", title:"Martyrium der Hl. Lucia", year:"um 1435–40", museum:"Art Institute of Chicago" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Francisco_de_Zurbar%C3%A1n_-_Saint_Lucy_-_A94_-_Hispanic_Society_of_America.jpg&width=250", artist:"Francisco de Zurbarán", title:"Hl. Lucia", year:"um 1625–30", museum:"Hispanic Society, New York" },
-    ]
-  },
-  {
-    saint: "Hl. Ursula",
-    attributes: ["Pfeile","Krone","Kreuzfahne","Schützender Mantel","Offenes Haar"],
-    difficulty: 3,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hans_Memling_-_The_Martyrdom_of_Saint_Ursula_and_her_Companions_%28panel_from_the_Reliquary_of_Saint_Ursula%29.jpg&width=400", artist:"Hans Memling", title:"Martyrium der Hl. Ursula (Ursulaschrein)", year:"1489", museum:"Memling-Museum, Brügge" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Vittore_carpaccio%2C_Incontro_dei_fidanzati_e_partenza_dei_pellegrini.jpg&width=400", artist:"Vittore Carpaccio", title:"Begegnung der Verlobten (Ursula-Zyklus)", year:"um 1495", museum:"Gallerie dell'Accademia, Venedig" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Peter_Paul_Rubens_-_The_Martyrdom_of_St_Ursula_and_the_Eleven_Thousand_Maidens.jpg&width=300", artist:"Peter Paul Rubens", title:"Martyrium der Hl. Ursula", year:"um 1615–20", museum:"Kimbell Art Museum, Fort Worth" },
-    ]
-  },
-  {
-    saint: "Hl. Augustinus",
-    attributes: ["Flammendes Herz","Bischofsstab","Mitra","Buch","Kind mit Muschel"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Sandro_Botticelli_-_St_Augustin_dans_son_cabinet_de_travail.jpg&width=350", artist:"Sandro Botticelli", title:"Hl. Augustinus im Studierzimmer", year:"1480", museum:"Ognissanti, Florenz" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Michael_Pacher_-_Altarpiece_of_the_Church_Fathers_-_St_Augustine_-_Google_Art_Project.jpg&width=300", artist:"Michael Pacher", title:"Kirchenväteraltar – Hl. Augustinus", year:"um 1480", museum:"Alte Pinakothek, München" },
-    ]
-  },
-  {
-    saint: "Hl. Dominikus",
-    attributes: ["Hund mit brennender Fackel","Stern","Rosenkranz","Lilie","Schwarz-weißes Ordensgewand"],
-    difficulty: 3,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fra_Angelico_052.jpg&width=250", artist:"Fra Angelico", title:"Hl. Dominikus am Fuß des Kreuzes", year:"um 1440", museum:"San Marco, Florenz" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/El_Greco_-_St_Dominic_in_Prayer_-_WGA10431.jpg&width=250", artist:"El Greco", title:"Hl. Dominikus im Gebet", year:"um 1586–90", museum:"Sammlung Plácido Arango" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Claudio_Coello_-_Saint_Dominic_of_Guzm%C3%A1n_-_Google_Art_Project.jpg&width=250", artist:"Claudio Coello", title:"Hl. Dominikus von Guzmán", year:"um 1685", museum:"Museo del Prado, Madrid" },
-    ]
-  },
-  {
-    saint: "Hl. Elisabeth von Thüringen",
-    attributes: ["Rosen","Brot","Krone","Kanne","Arme / Kranke"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hans_Holbein_d._%C3%84._005.jpg&width=300", artist:"Hans Holbein d. Ä.", title:"Hl. Elisabeth", year:"um 1516", museum:"Alte Pinakothek, München" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Francisco_de_Zurbar%C3%A1n_-_Santa_Casilda_-_Google_Art_Project.jpg&width=250", artist:"Francisco de Zurbarán", title:"Hl. Casilda (verwandtes Rosenwunder-Motiv)", year:"um 1630–35", museum:"Museo Thyssen-Bornemisza, Madrid" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Simone_Martini_-_St_Elizabeth_of_Hungary_-_WGA21432.jpg&width=200", artist:"Simone Martini", title:"Hl. Elisabeth von Ungarn", year:"um 1317", museum:"Cappella di San Martino, Assisi" },
-    ]
-  },
-  {
-    saint: "Hl. Hubertus",
-    attributes: ["Hirsch mit Kreuz im Geweih","Jagdhund","Jagdhorn","Bischofsstab","Mitra","Kniende Pose (Karfreitags-Vision)"],
-    difficulty: 3,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Master_of_the_Life_of_the_Virgin_-_The_Conversion_of_Saint_Hubert_-_WGA14589.jpg&width=350", artist:"Meister des Marienlebens", title:"Bekehrung des Hl. Hubertus", year:"um 1480", museum:"National Gallery, London" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/La_Visi%C3%B3n_de_San_Huberto_por_Jan_Brueghel_el_Viejo_con_Rubens.jpg&width=400", artist:"Jan Brueghel d. Ä. / Rubens", title:"Vision des Hl. Hubertus", year:"um 1617–20", museum:"Museo del Prado, Madrid" },
-    ]
-  },
-  {
-    saint: "Hl. Florian",
-    attributes: ["Wassereimer","Brennendes Haus","Rüstung","Mühlstein","Fahne"],
-    difficulty: 3,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Albrecht_Altdorfer_-_Legende_des_Hl._Florian%2C_Szene_7_-_Auffindung_der_Leiche_des_hl._Florian.jpg&width=350", artist:"Albrecht Altdorfer", title:"Auffindung der Leiche des Hl. Florian", year:"um 1518", museum:"Germanisches Nationalmuseum, Nürnberg" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Albrecht_Altdorfer_-_The_Prayer_of_Saint_Florian_-_Sz%C3%A9pm%C5%B1v%C3%A9szeti_M%C3%BAzeum.jpg&width=300", artist:"Albrecht Altdorfer", title:"Das Gebet des Hl. Florian", year:"um 1518", museum:"Szépművészeti Múzeum, Budapest" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Francesco_del_Cossa_-_Saint_Florian_-_WGA05396.jpg&width=200", artist:"Francesco del Cossa", title:"Hl. Florian", year:"um 1473", museum:"NGA, Washington" },
-    ]
-  },
-  {
-    saint: "Hl. Stephanus",
-    attributes: ["Steine","Dalmatika (Diakontracht)","Palme","Märtyrerkrone","Buch (Evangelium)","Weihrauchgefäß"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Carlo_Crivelli_-_Hl._Stephanus_-_Google_Art_Project.jpg&width=250", artist:"Carlo Crivelli", title:"Hl. Stephanus", year:"um 1476", museum:"National Gallery, London" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Adam_Elsheimer_-_Steinigung_des_heiligen_Stephanus_%28Edinburgh%29.jpg&width=300", artist:"Adam Elsheimer", title:"Steinigung des Hl. Stephanus", year:"um 1604", museum:"NG Scotland, Edinburgh" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Giacomo_Cavedone_-_Saint_Stephen_-_WGA04630.jpg&width=250", artist:"Giacomo Cavedone", title:"Hl. Stephanus", year:"um 1620", museum:"Pinacoteca Nazionale, Bologna" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/12th_century_unknown_painters_-_Paul_Throwing_a_Snake_into_the_Fire_-_WGA19701.jpg&width=400", artist:"12th century unknown painters", title:"Paul Throwing a Snake into the Fire" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Schiavo_St._Paul.jpg&width=400", artist:"Unbekannt", title:"Schiavo St. Paul" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anonymous_Saint_Paul.jpg&width=400", artist:"Unbekannt", title:"Anonymous Saint Paul" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/2016_-_Saint_Peter%27s_Square_-_Vatican_07.jpg&width=400", artist:"2016", title:"Saint Peter's Square - Vatican 07" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/20211115_142_hosios_loukas.jpg&width=400", artist:"Unbekannt", title:"20211115 142 hosios loukas" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Abbazia_Rodengo_Pala_del_Moretto.jpg&width=400", artist:"Unbekannt", title:"Abbazia Rodengo Pala del Moretto" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Alexandr_Ivanov_077.png&width=400", artist:"Unbekannt", title:"Alexandr Ivanov 077" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Alexandria.Catedrala.4.Sf.Pavel.jpg&width=400", artist:"Unbekannt", title:"Alexandria.Catedrala.4.Sf.Pavel" },
     ]
   },
   {
@@ -578,128 +419,14 @@ const SAINTS_DATA = [
     attributes: ["Fellgewand","Lamm Gottes","Kreuzstab","Taufschale","Wüste"],
     difficulty: 1,
     paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg&width=300", artist:"Leonardo da Vinci", title:"Johannes der Täufer", year:"um 1513–16", museum:"Louvre, Paris" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Rogier_van_der_Weyden_-_St_John_the_Baptist_altarpiece_-_left_panel_-_WGA25651.jpg&width=300", artist:"Rogier van der Weyden", title:"Johannesaltar (Taufe Christi)", year:"um 1455", museum:"Gemäldegalerie, Berlin" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Caravaggio_Baptist_Galleria_Nazionale.jpg&width=300", artist:"Caravaggio", title:"Johannes der Täufer", year:"um 1604", museum:"Galleria Nazionale, Rom" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Geertgen_tot_Sint_Jans_-_John_the_Baptist_in_the_Wilderness_-_Google_Art_Project.jpg&width=300", artist:"Geertgen tot Sint Jans", title:"Johannes der Täufer in der Wildnis", year:"um 1490", museum:"Gemäldegalerie, Berlin" },
-    ]
-  },
-  {
-    saint: "Hl. Cäcilia",
-    attributes: ["Orgel","Musikinstrumente","Rosen","Palme","Krone"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Raffaello_Sanzio_-_St_Cecilia_-_Google_Art_Project.jpg&width=350", artist:"Raffael", title:"Ekstase der Hl. Cäcilia", year:"1514", museum:"Pinacoteca Nazionale, Bologna" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Carlo_Dolci_-_Saint_Cecilia_at_the_Organ_-_Google_Art_Project.jpg&width=300", artist:"Carlo Dolci", title:"Hl. Cäcilia an der Orgel", year:"um 1671", museum:"Hermitage, St. Petersburg" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Domenichino_-_Saint_Cecilia_-_Google_Art_Project.jpg&width=350", artist:"Domenichino", title:"Hl. Cäcilia", year:"um 1617–18", museum:"Louvre, Paris" },
-    ]
-  },
-  {
-    saint: "Erzengel Michael",
-    attributes: ["Flügel","Schwert / Flammenschwert","Waage (Seelenwäger)","Rüstung","Besiegter Teufel / Drache"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Guido_Reni_-_The_Archangel_Michael_defeating_Satan_-_Google_Art_Project.jpg&width=300", artist:"Guido Reni", title:"Erzengel Michael besiegt Satan", year:"1635", museum:"Santa Maria della Concezione, Rom" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Gerard_David_-_The_Archangel_Michael_-_Google_Art_Project.jpg&width=300", artist:"Gerard David", title:"Erzengel Michael", year:"um 1510", museum:"KHM, Wien" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bartolom%C3%A9_Esteban_Murillo_-_Archangel_Michael_-_Google_Art_Project.jpg&width=300", artist:"Bartolomé Esteban Murillo", title:"Erzengel Michael", year:"um 1665–68", museum:"KHM, Wien" },
-    ]
-  },
-  {
-    saint: "Hl. Apollonia",
-    attributes: ["Zange mit Zahn","Palme","Krone","Buch","Scheiterhaufen"],
-    difficulty: 3,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_the_Elder_-_Saints_Genevieve_and_Apollonia_-_Google_Art_Project.jpg&width=300", artist:"Lucas Cranach d. Ä.", title:"Hll. Genovefa und Apollonia", year:"1506", museum:"National Gallery, London" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lombard_Master_-_Saint_Apollonia_-_Google_Art_Project.jpg&width=200", artist:"Lombardischer Meister", title:"Hl. Apollonia", year:"um 1450", museum:"Google Arts & Culture" },
-    ]
-  },
-  {
-    saint: "Hl. Dorothea",
-    attributes: ["Korb mit Rosen und Äpfeln","Blumenkranz im Haar","Palme","Schwert","Krone","Engelsbote mit Blumen"],
-    difficulty: 3,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Cranach%2C_Lucas%2C_d.%C3%84._-_Die_Heilige_Dorothea%2C_Agnes_und_Kunigunde_-_1506.jpg&width=250", artist:"Lucas Cranach d. Ä.", title:"Hll. Dorothea, Agnes und Kunigunde", year:"1506", museum:"Nationalgalerie, Prag" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Francisco_de_Zurbar%C3%A1n_-_Santa_Dorotea_-_Google_Art_Project.jpg&width=250", artist:"Francisco de Zurbarán", title:"Hl. Dorothea", year:"um 1640", museum:"Museo de Bellas Artes, Sevilla" },
-    ]
-  },
-  {
-    saint: "Hl. Veronika",
-    attributes: ["Schweißtuch Christi (Vera Icon)","Abdruck des Antlitzes Christi","Begegnung am Kreuzweg","Kopftuch"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Meister_der_Heiligen_Veronika_-_Hl._Veronika_mit_dem_Schwei%C3%9Ftuch_Christi_-_Alte_Pinakothek.jpg&width=300", artist:"Meister der Hl. Veronika", title:"Hl. Veronika mit dem Schweißtuch", year:"um 1420", museum:"Alte Pinakothek, München" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hans_Memling_-_St_Veronica_-_WGA14988.jpg&width=300", artist:"Hans Memling", title:"Hl. Veronika", year:"um 1470–75", museum:"NGA, Washington" },
-    ]
-  },
-  {
-    saint: "Hl. Benedikt von Nursia",
-    attributes: ["Zerbrochenes Glas / Kelch mit Schlange","Rabe mit Brot","Ordensregel (Buch)","Abtsstab","Schwarzes Ordensgewand"],
-    difficulty: 3,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fra_Angelico_031.jpg&width=300", artist:"Fra Angelico", title:"Hl. Benedikt", year:"um 1440", museum:"San Marco, Florenz" },
-    ]
-  },
-  {
-    saint: "Hl. Antonius von Padua",
-    attributes: ["Jesuskind (auf dem Arm)","Lilie","Buch","Flamme","Franziskanerkutte"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anton_van_Dyck_-_Saint_Anthony_of_Padua_-_Google_Art_Project.jpg&width=300", artist:"Anthonis van Dyck", title:"Hl. Antonius von Padua", year:"um 1629", museum:"Alte Pinakothek, München" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Murillo_-_El_Ni%C3%B1o_Jes%C3%BAs_y_San_Antonio_de_Padua.jpg&width=300", artist:"Bartolomé Esteban Murillo", title:"Hl. Antonius von Padua mit Jesuskind", year:"um 1665", museum:"Museo de Bellas Artes, Sevilla" },
-    ]
-  },
-  {
-    saint: "Hl. Helena",
-    attributes: ["Großes Kreuz (Kreuzauffindung)","Kaiserkrone","Nägel","Hermelinmantel","Inschriftentafel INRI"],
-    difficulty: 3,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Paolo_Veronese_-_St_Helena_-_WGA24862.jpg&width=300", artist:"Paolo Veronese", title:"Vision der Hl. Helena", year:"um 1580", museum:"National Gallery, London" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_d._%C3%84._-_Die_heilige_Helena_mit_dem_Kreuz.jpg&width=250", artist:"Lucas Cranach d. Ä.", title:"Hl. Helena mit dem Kreuz", year:"um 1525", museum:"Cincinnati Art Museum" },
-    ]
-  },
-  {
-    saint: "Hl. Rochus",
-    attributes: ["Pestbeule am Oberschenkel","Hund mit Brot","Pilgerstab","Pilgermuschel","Engel"],
-    difficulty: 3,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Peter_Paul_Rubens_-_St_Roch_as_Patron_of_the_Plague-stricken_-_WGA20193.jpg&width=300", artist:"Peter Paul Rubens", title:"Hl. Rochus als Pest-Patron", year:"um 1623", museum:"Sint-Martinuskerk, Aalst" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Tintoretto_-_San_Rocco_risana_gli_appestati.jpg&width=400", artist:"Tintoretto", title:"Hl. Rochus heilt die Pestkranken", year:"1549", museum:"Scuola Grande di San Rocco, Venedig" },
-    ]
-  },
-  {
-    saint: "Hll. Cosmas und Damian",
-    attributes: ["Arztinstrumente","Salbentiegel","Mörser","Rotes Gewand","Palme"],
-    difficulty: 3,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fra_Angelico_-_Decapitation_of_Saints_Cosmas_and_Damian_-_WGA00517.jpg&width=400", artist:"Fra Angelico", title:"Enthauptung der Hll. Cosmas und Damian", year:"um 1438–40", museum:"Louvre, Paris" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fra_Angelico_-_Sts_Cosmas_and_Damian_with_their_Brothers_before_Lycias_-_WGA00515.jpg&width=400", artist:"Fra Angelico", title:"Hll. Cosmas und Damian vor dem Statthalter Lysias", year:"um 1440", museum:"Alte Pinakothek, München" },
-    ]
-  },
-  {
-    saint: "Hl. Eustachius",
-    attributes: ["Hirsch mit Kreuz im Geweih","Jägergewand","Hunde","Eherner Stier (Martyrium)","Pferd","Soldatenrüstung"],
-    difficulty: 3,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/D%C3%BCrer_-_Der_heilige_Eustachius.jpg&width=300", artist:"Albrecht Dürer", title:"Hl. Eustachius", year:"um 1501", museum:"Kupferstich" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Pisanello_024.jpg&width=350", artist:"Pisanello", title:"Vision des Hl. Eustachius", year:"um 1438–42", museum:"National Gallery, London" },
-    ]
-  },
-  {
-    saint: "Hl. Jakobus der Ältere",
-    attributes: ["Pilgermuschel","Pilgerstab","Pilgerhut","Kürbisflasche","Buch"],
-    difficulty: 2,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Guido_Reni_-_Saint_James_the_Greater_-_Google_Art_Project.jpg&width=300", artist:"Guido Reni", title:"Hl. Jakobus der Ältere", year:"um 1636–38", museum:"Museum of Fine Arts, Houston" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Andrea_Mantegna_-_St_James_Led_to_his_Execution_-_WGA13964.jpg&width=400", artist:"Andrea Mantegna", title:"Hl. Jakobus wird zur Hinrichtung geführt", year:"um 1453–57", museum:"Eremitani-Kapelle, Padua (zerstört)" },
-    ]
-  },
-  {
-    saint: "Hl. Gereon",
-    attributes: ["Ritterrüstung","Fahne","Kreuz","Schwert","Kölner Stadtpatron"],
-    difficulty: 3,
-    paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Stefan_Lochner_-_Altarpiece_of_the_Patron_Saints_of_Cologne_-_WGA13341.jpg&width=500", artist:"Stefan Lochner", title:"Altar der Kölner Stadtpatrone (Mitte)", year:"um 1442", museum:"Kölner Dom" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Meister_der_Verherrlichung_Mariae_001.jpg&width=300", artist:"Meister der Verherrlichung Mariae", title:"Hl. Gereon mit Stifter", year:"um 1480", museum:"Wallraf-Richartz-Museum, Köln" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/14th-century_painters_-_Tr%C3%A8s_Belles_Heures_of_the_Duc_the_Berry_-_WGA15873.jpg&width=400", artist:"14th-century painters", title:"Très Belles Heures of the Duc the Berry" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anonymous_Flemish_master_-_St_John_the_Baptist.jpg&width=400", artist:"Anonymous Flemish master", title:"St John the Baptist" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/24Klosterneuburg.JPG&width=400", artist:"Unbekannt", title:"24Klosterneuburg" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Altmannsdorfer_Kirche9.JPG&width=400", artist:"Unbekannt", title:"Altmannsdorfer Kirche9" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Andrea_del_Sarto_-_Saint_John_the_Baptist.jpg&width=400", artist:"Andrea del Sarto", title:"Saint John the Baptist" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/At_Mus%C3%A9e_de_Grenoble_2025_147.jpg&width=400", artist:"Unbekannt", title:"At Musée de Grenoble 2025 147" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/At_Mus%C3%A9e_de_Grenoble_2025_181.jpg&width=400", artist:"Unbekannt", title:"At Musée de Grenoble 2025 181" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/At_Mus%C3%A9e_de_Grenoble_2025_324.jpg&width=400", artist:"Unbekannt", title:"At Musée de Grenoble 2025 324" },
     ]
   },
   {
@@ -707,35 +434,544 @@ const SAINTS_DATA = [
     attributes: ["Lanze","Winkelmaß / Baumeister","Finger berührt Christuswunde","Buch","Gürtel Mariens (Mariä Himmelfahrt)"],
     difficulty: 2,
     paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/The_Incredulity_of_Saint_Thomas-Caravaggio_%281601-2%29.jpg&width=400", artist:"Caravaggio", title:"Der ungläubige Thomas", year:"um 1601–02", museum:"Sanssouci, Potsdam" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Guercino_-_The_Incredulity_of_Saint_Thomas_-_WGA10931.jpg&width=350", artist:"Guercino", title:"Der ungläubige Thomas", year:"um 1621", museum:"National Gallery, London" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Peter_Paul_Rubens_-_The_Incredulity_of_St_Thomas_-_WGA20193.jpg&width=300", artist:"Peter Paul Rubens", title:"Der ungläubige Thomas", year:"um 1614", museum:"Koninklijk Museum, Antwerpen" },
     ]
   },
   {
-    saint: "Hl. Erasmus",
-    attributes: ["Winde / Spule mit Gedärmen","Bischofstracht","Mitra","Palme","Schiff / Anker","Buch"],
-    difficulty: 3,
+    saint: "Hl. Jakobus der Ältere",
+    attributes: ["Pilgermuschel","Pilgerstab","Pilgerhut","Kürbisflasche","Buch"],
+    difficulty: 2,
     paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Matthias_Gr%C3%BCnewald_-_Meeting_of_St_Erasm_and_St_Maurice_-_WGA10765.jpg&width=300", artist:"Matthias Grünewald", title:"Begegnung des Hl. Erasmus mit dem Hl. Mauritius", year:"um 1520–24", museum:"Alte Pinakothek, München" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Dieric_Bouts_-_Martyrdom_of_St_Erasmus_%28centre_panel%29_-_WGA03011.jpg&width=350", artist:"Dieric Bouts", title:"Martyrium des Hl. Erasmus", year:"um 1458", museum:"Sint-Pieterskerk, Löwen" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Gevelsteen_St._Jacobus,_objectnr_KB_2416.jpg&width=400", artist:"Unbekannt", title:"Gevelsteen St. Jacobus, objectnr KB 2416" },
     ]
   },
   {
-    saint: "Hl. Mauritius",
-    attributes: ["Ritterrüstung","Fahne","Dunkle Hautfarbe","Lanze","Schild mit Mohrenköpfen"],
-    difficulty: 3,
+    saint: "Hl. Andreas",
+    attributes: ["Andreaskreuz (X-Kreuz)","Fisch","Buch","Strick"],
+    difficulty: 2,
     paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_d.%C3%84._-_Der_heilige_Mauritius.jpg&width=250", artist:"Lucas Cranach d. Ä.", title:"Hl. Mauritius", year:"um 1520–25", museum:"Metropolitan Museum, New York" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jacob_Jordaens_-_Study_for_the_apostle_Saint_Andrew.jpg&width=400", artist:"Jacob Jordaens", title:"Study for the apostle Saint Andrew" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jacob_Jordaens_-_Abraham_Grapheus_as_Saint_Andrew.jpg&width=400", artist:"Jacob Jordaens", title:"Abraham Grapheus as Saint Andrew" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Albrecht_Bouts_-_Saint_Andrew_and_Saint_Catherine_with_Donor.jpg&width=400", artist:"Albrecht Bouts", title:"Saint Andrew and Saint Catherine with Donor" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bernini_1627.jpg&width=400", artist:"Unbekannt", title:"Bernini 1627" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Brooklyn_Museum_-_The_Calling_of_Saint_John_and_Saint_Andrew_(Vocation_de_Saint_Jean_et_de_Saint_Andr%C3%A9)_-_James_Tissot_-_overall.jpg&width=400", artist:"Brooklyn Museum", title:"The Calling of Saint John and Saint Andrew (Vocation de Saint Jean et de Saint André) - James Tissot - overall" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Brooklyn_Museum_-_The_Calling_of_Saint_Peter_and_Saint_Andrew_(Vocation_de_Saint_Pierre_et_Saint_Andr%C3%A9)_-_James_Tissot_-_overall.jpg&width=400", artist:"Brooklyn Museum", title:"The Calling of Saint Peter and Saint Andrew (Vocation de Saint Pierre et Saint André) - James Tissot - overall" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/CallingOfAndrewAndPeter.jpg&width=400", artist:"Unbekannt", title:"CallingOfAndrewAndPeter" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Chang%C3%A9_-_%C3%A9glise_Saint-Pierre,_int%C3%A9rieur_22.jpg&width=400", artist:"Changé", title:"église Saint-Pierre, intérieur 22" },
     ]
   },
   {
-    saint: "Hl. Wolfgang von Regensburg",
-    attributes: ["Beil im Kirchendach","Kirchenmodell","Bischofsstab","Mitra","Teufel (hilft beim Hausbau)","Buch"],
+    saint: "Hl. Bartholomäus",
+    attributes: ["Eigene Haut über dem Arm","Schindermesser","Buch"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/%27Madonna_and_Child_with_Saints_Jerome,_John_the_Baptist,_Bernardino_and_Bartholomew%27,_painting_by_Sano_di_Pietro,_15th_century,_Art_Gallery_of_New_South_Wales.jpg&width=400", artist:"Unbekannt", title:"'Madonna and Child with Saints Jerome, John the Baptist, Bernardino and Bartholomew', painting by Sano di Pietro, 15th century, Art Gallery of New South Wales" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Affresco_Trinit%C3%A0_Santi_Bartolomeo_Andrea_Santuario_del_Carmine_San_Felice_del_Benaco.jpg&width=400", artist:"Unbekannt", title:"Affresco Trinità Santi Bartolomeo Andrea Santuario del Carmine San Felice del Benaco" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Andrea_da_Firenze_-_Saint_Bartholomew_-_Google_Art_Project.jpg&width=400", artist:"Andrea da Firenze", title:"Saint Bartholomew -" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Antonio_da_Venezia_-_Saint_Bartholomew_-_1965-28_-_Auckland_Art_Gallery.jpg&width=400", artist:"Antonio da Venezia", title:"Saint Bartholomew - 1965-28 - Auckland Art Gallery" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Apfeltrach_-_St._Bartholom%C3%A4us_-_Gem%C3%A4lde_Langhaus_(2).JPG&width=400", artist:"Apfeltrach", title:"St. Bartholomäus - Gemälde Langhaus (2)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Avignon,_Mus%C3%A9e_du_Petit_Palais,_Saint_Pierre%3B_Saint_Barth%C3%A9l%C3%A9my%3B_Saint_Jean_Baptiste%3B_Saint_Nicolas_(Cecco_di_Pietro,_Pise,_1386)_(42713734871).jpg&width=400", artist:"Unbekannt", title:"Avignon, Musée du Petit Palais, Saint Pierre; Saint Barthélémy; Saint Jean Baptiste; Saint Nicolas (Cecco di Pietro, Pise, 1386) (42713734871)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bartolomeo_Montagna_Madonna_in_trono_con_il_Bambino_tra_i_santi_Giovanni_Battista,_Bartolomeo,_Agostino_e_Sebastiano_e_tre_angeli_musici_Vicenza.jpg&width=400", artist:"Unbekannt", title:"Bartolomeo Montagna Madonna in trono con il Bambino tra i santi Giovanni Battista, Bartolomeo, Agostino e Sebastiano e tre angeli musici Vicenza" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bartholomew_the_Apostle_by_Pyotr_Basin.jpg&width=400", artist:"Unbekannt", title:"Bartholomew the Apostle by Pyotr Basin" },
+    ]
+  },
+  {
+    saint: "Hl. Jakobus der Jüngere",
+    attributes: ["Walkerstange","Buch","Mitra (Bischof von Jerusalem)"],
     difficulty: 3,
     paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Michael_Pacher_-_Altarpiece_of_the_Church_Fathers_-_Vision_of_St_Wolfgang_-_Google_Art_Project.jpg&width=350", artist:"Michael Pacher", title:"St. Wolfgangsaltar – Teufel und Hl. Wolfgang", year:"1471–81", museum:"St. Wolfgang, Salzkammergut" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Michael_Pacher_004.jpg&width=300", artist:"Michael Pacher", title:"Hl. Wolfgang zwingt den Teufel", year:"1471–81", museum:"St. Wolfgang, Salzkammergut" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bambini,_Niccolo_-_Die_Kommunion_des_Apostels_Jakobus_Minor_-.jpg&width=400", artist:"Bambini, Niccolo", title:"Die Kommunion des Apostels Jakobus Minor -" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Daniel_Sarrabat_-_Saint-Jacques_le_mineur.jpg&width=400", artist:"Daniel Sarrabat", title:"Saint-Jacques le mineur" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/FlottsundJakobSimon2101.jpg&width=400", artist:"Unbekannt", title:"FlottsundJakobSimon2101" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Francisco_de_Zurbar%C3%A1n_-_S%C3%A3o_Tiago_Menor.JPG&width=400", artist:"Francisco de Zurbarán", title:"São Tiago Menor" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/JF_Glocker_-_Empore_Wolfschlugen_27_Jakobus_der_J%C3%BCngere.jpg&width=400", artist:"JF Glocker", title:"Empore Wolfschlugen 27 Jakobus der Jüngere" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Michael_Willman_Opus_Magnum_2019_P07_The_Matyrdom_of_St._James_the_Younger_(1663).jpg&width=400", artist:"Unbekannt", title:"Michael Willman Opus Magnum 2019 P07 The Matyrdom of St. James the Younger (1663)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/-2021-12-31_Saint_James_the_Less,_rood_screen,_Saint_Nicholas_parish_church,_Swafield,_Norfolk.JPG&width=400", artist:"Unbekannt", title:"-2021-12-31 Saint James the Less, rood screen, Saint Nicholas parish church, Swafield, Norfolk" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Attributed_to_Charles_Fran%C3%A7ois_Poerson_Saint_James_Minor.jpg&width=400", artist:"Unbekannt", title:"Attributed to Charles François Poerson Saint James Minor" },
+    ]
+  },
+  {
+    saint: "Hl. Philippus (Apostel)",
+    attributes: ["Kreuzstab","Buch","Drache zu Füßen"],
+    difficulty: 3,
+    paintings: [
+    ]
+  },
+  {
+    saint: "Hl. Judas Thaddäus",
+    attributes: ["Keule","Schiff","Christusmedaillon","Buch"],
+    difficulty: 3,
+    paintings: [
+    ]
+  },
+  {
+    saint: "Hl. Matthäus (Evangelist)",
+    attributes: ["Engel als Beistand","Buch","Schreibfeder","Geldbeutel (vor Berufung)"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Master_of_the_Brussels_Calling_of_Saint_Matthew_-_Imaginary_view_of_Antwerp_with_scenes_from_the_life_of_Saint_Matthew.jpg&width=400", artist:"Master of the Brussels Calling of Saint Matthew", title:"Imaginary view of Antwerp with scenes from the life of Saint Matthew" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/20150506212DR_Hartmannsdorf_(Hartmannsdorf-Reichenau)_Kirche_Kanzel.jpg&width=400", artist:"Unbekannt", title:"20150506212DR Hartmannsdorf (Hartmannsdorf-Reichenau) Kirche Kanzel" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hendrick_ter_Brugghen_-_The_Calling_of_St_Matthew_-_WGA22168.jpg&width=400", artist:"Hendrick ter Brugghen", title:"The Calling of St Matthew" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jesu%C3%ADno_do_Monte_Carmelo_(atrib.)_-_S%C3%A3o_Mateus.jpg&width=400", artist:"Jesuíno do Monte Carmelo (atrib.)", title:"São Mateus" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/El_Greco_(taller)_(51382419459).jpg&width=400", artist:"Unbekannt", title:"El Greco (taller) (51382419459)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Evangelistene_Matteus,_Lukas,_Johannes_og_Markus_malt_av_tr%C3%B8ndermaleren_Petter_Kontrafeier_(4543164398).jpg&width=400", artist:"Unbekannt", title:"Evangelistene Matteus, Lukas, Johannes og Markus malt av trøndermaleren Petter Kontrafeier (4543164398)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Guido_Reni_043.png&width=400", artist:"Unbekannt", title:"Guido Reni 043" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jusepe_de_ribera,_san_matteo,_01.jpg&width=400", artist:"Unbekannt", title:"Jusepe de ribera, san matteo, 01" },
+    ]
+  },
+  {
+    saint: "Hl. Markus (Evangelist)",
+    attributes: ["Geflügelter Löwe","Buch","Schreibfeder","Tetraevangelist"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/1_Mark%E2%80%99s_Gospel_A._introduction_image_1_of_4._Mark_the_Evangelist._French_School.png&width=400", artist:"Unbekannt", title:"1 Mark’s Gospel A. introduction image 1 of 4. Mark the Evangelist. French School" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Altlerchenfelder_Kirche_-_Kuppelmalerei_Evangelist_03.JPG&width=400", artist:"Altlerchenfelder Kirche", title:"Kuppelmalerei Evangelist 03" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fra_Angelico_092.jpg&width=400", artist:"Unbekannt", title:"Fra Angelico 092" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Apostle_Mark.jpg&width=400", artist:"Unbekannt", title:"Apostle Mark" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Autor_desconhecido_-_S%C3%A3o_Marcos_Evangelista,_s%C3%A9c._XVIII.jpg&width=400", artist:"Autor desconhecido", title:"São Marcos Evangelista, séc. XVIII" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Biserica_de_lemn_din_Apatiu_(4).JPG&width=400", artist:"Unbekannt", title:"Biserica de lemn din Apatiu (4)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Biserica_de_lemn_din_Lozna126.jpg&width=400", artist:"Unbekannt", title:"Biserica de lemn din Lozna126" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Chapelle_hopital_g%C3%A9n%C3%A9ral_5.JPG&width=400", artist:"Unbekannt", title:"Chapelle hopital général 5" },
+    ]
+  },
+  {
+    saint: "Hl. Lukas (Evangelist)",
+    attributes: ["Geflügelter Stier","Buch","Maler-Attribute (Pinsel, Staffelei)","Marienikone"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ant%C3%B4nio_Joaquim_Franco_Velasco_-_S%C3%A3o_Lucas.jpg&width=400", artist:"Antônio Joaquim Franco Velasco", title:"São Lucas" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Biserica_de_lemn_din_Apatiu_(8).JPG&width=400", artist:"Unbekannt", title:"Biserica de lemn din Apatiu (8)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Biserica_de_lemn_din_Rogna121.jpg&width=400", artist:"Unbekannt", title:"Biserica de lemn din Rogna121" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bucea26.jpg&width=400", artist:"Unbekannt", title:"Bucea26" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Castello_Ursino_05_02_2020_24.jpg&width=400", artist:"Unbekannt", title:"Castello Ursino 05 02 2020 24" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Central_Ethiopia,_15th_century_-_Single_Leaf_from_a_Gospel_Book_with_a_Portrait_of_St._Luke_-_1999.212_-_Cleveland_Museum_of_Art.tif&width=400", artist:"Central Ethiopia, 15th century", title:"Single Leaf from a Gospel Book with a Portrait of St. Luke - 1999.212 - Cleveland Museum of Art" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Claude_Vignon_-_Saint_Luke_the_Evangelist.jpg&width=400", artist:"Claude Vignon", title:"Saint Luke the Evangelist" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Das_heilige_Antlitz_des_Lukas_und_die_Legende_des_Spielmanns_%E2%80%94_Mitte_15._Jhd..jpg&width=400", artist:"Unbekannt", title:"Das heilige Antlitz des Lukas und die Legende des Spielmanns — Mitte 15. Jhd." },
+    ]
+  },
+  {
+    saint: "Hl. Johannes (Evangelist)",
+    attributes: ["Adler","Kelch mit Schlange","Buch","Jugendlich-Bart-los"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/20211115_140_hosios_loukas.jpg&width=400", artist:"Unbekannt", title:"20211115 140 hosios loukas" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Altarpiece_from_Escalarre_5_DMA.jpg&width=400", artist:"Unbekannt", title:"Altarpiece from Escalarre 5 DMA" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/San_Marco,_Florence_(26073499603).jpg&width=400", artist:"Unbekannt", title:"San Marco, Florence (26073499603)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fra_Angelico_-_Crucifixion_with_the_Virgin_and_Sts_Cosmas,_John_the_Evangelist_and_Peter_Martyr_(Cell_38)_-_WGA00552.jpg&width=400", artist:"Fra Angelico", title:"Crucifixion with the Virgin and Sts Cosmas, John the Evangelist and Peter Martyr (Cell 38)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fra_Angelico_033.jpg&width=400", artist:"Unbekannt", title:"Fra Angelico 033" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Westfalia,_altare_con_la_trinit%C3%A0,_madonna_e_san_giovanni,_1250_ca._04.JPG&width=400", artist:"Unbekannt", title:"Westfalia, altare con la trinità, madonna e san giovanni, 1250 ca. 04" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Westfalia,_altare_con_la_trinit%C3%A0,_madonna_e_san_giovanni,_1250_ca._05.JPG&width=400", artist:"Unbekannt", title:"Westfalia, altare con la trinità, madonna e san giovanni, 1250 ca. 05" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Westf%C3%A4lischer_Meister_003.jpg&width=400", artist:"Unbekannt", title:"Westfälischer Meister 003" },
+    ]
+  },
+  {
+    saint: "Erzengel Michael",
+    attributes: ["Flügel","Schwert / Flammenschwert","Waage (Seelenwäger)","Rüstung","Besiegter Teufel / Drache"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Apotheke_Zum_Erzengel_Michael,_Sechshauser_Stra%C3%9Fe_16,_Vienna_(01).jpg&width=400", artist:"Unbekannt", title:"Apotheke Zum Erzengel Michael, Sechshauser Straße 16, Vienna (01)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Apotheke_Zum_Erzengel_Michael,_Sechshauser_Stra%C3%9Fe_16,_Vienna_(02).jpg&width=400", artist:"Unbekannt", title:"Apotheke Zum Erzengel Michael, Sechshauser Straße 16, Vienna (02)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Arc%C3%A1ngel_San_Miguel_Misi%C3%B3n_Santa_Mar%C3%ADa.jpg&width=400", artist:"Unbekannt", title:"Arcángel San Miguel Misión Santa María" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Catedral_de_Nossa_Senhora_do_Para%C3%ADso,_S%C3%A3o_Paulo_2.jpg&width=400", artist:"Unbekannt", title:"Catedral de Nossa Senhora do Paraíso, São Paulo 2" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fire_mark_for_Compagnie_de_Bruxelles_Societe_Anonyme_pour_l%27Assurance_a_Primes_Contre_l%27Incendie,_la_Foudre_et_les_Explosions_in_Brussels,_Belgium.jpg&width=400", artist:"Unbekannt", title:"Fire mark for Compagnie de Bruxelles Societe Anonyme pour l'Assurance a Primes Contre l'Incendie, la Foudre et les Explosions in Brussels, Belgium" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Holy_Family_Foucauld.jpg&width=400", artist:"Unbekannt", title:"Holy Family Foucauld" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Michael_fights_and_defeats_Satan.jpg&width=400", artist:"Unbekannt", title:"Michael fights and defeats Satan" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Otho_Cushing_Saint_Michel.jpg&width=400", artist:"Unbekannt", title:"Otho Cushing Saint Michel" },
+    ]
+  },
+  {
+    saint: "Erzengel Gabriel",
+    attributes: ["Flügel","Lilie","Verkündigung an Maria","Schriftrolle"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Annunciation_in_Islam.jpg&width=400", artist:"Unbekannt", title:"Annunciation in Islam" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/0122jfSaint_Gabriel_the_Archangel_Parish_Church_Santa_Maria,_Bulacanfvf_08.jpg&width=400", artist:"Unbekannt", title:"0122jfSaint Gabriel the Archangel Parish Church Santa Maria, Bulacanfvf 08" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Arcangelo_Gabriele_Cappella_della_Fusenta.jpg&width=400", artist:"Unbekannt", title:"Arcangelo Gabriele Cappella della Fusenta" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Archangelic_rosary_beads_1.jpg&width=400", artist:"Unbekannt", title:"Archangelic rosary beads 1" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Archangelic_rosary_beads_2.jpg&width=400", artist:"Unbekannt", title:"Archangelic rosary beads 2" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Archangelic_rosary_beads_3.jpg&width=400", artist:"Unbekannt", title:"Archangelic rosary beads 3" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Archangelic_rosary_beads_4.jpg&width=400", artist:"Unbekannt", title:"Archangelic rosary beads 4" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Archangelic_rosary_beads_5.jpg&width=400", artist:"Unbekannt", title:"Archangelic rosary beads 5" },
+    ]
+  },
+  {
+    saint: "Erzengel Raphael",
+    attributes: ["Flügel","Fisch","Pilgerstab","Begleiter Tobias","Wanderhut"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Angelus_raphael.jpg&width=400", artist:"Unbekannt", title:"Angelus raphael" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Belfast_St_George%27s_Church_Chancel_2018_08_24.jpg&width=400", artist:"Unbekannt", title:"Belfast St George's Church Chancel 2018 08 24" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Belfast_St_George%27s_Church_Window_W01_%E2%80%9CO_death,_where_is_thy_sting%3F_O_grave,_where_is_thy_victory%3F%E2%80%9D_2018_08_24.jpg&width=400", artist:"Unbekannt", title:"Belfast St George's Church Window W01 “O death, where is thy sting? O grave, where is thy victory?” 2018 08 24" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/William_Blake_005.jpg&width=400", artist:"Unbekannt", title:"William Blake 005" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Christ_the_King_Church,_Monterrey,_Nuevo_Leon,_Mexico01.jpg&width=400", artist:"Unbekannt", title:"Christ the King Church, Monterrey, Nuevo Leon, Mexico01" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Incoronazione_della_Vergine_tra_gli_arcangeli_Michele_e_Raffaele.jpg&width=400", artist:"Unbekannt", title:"Incoronazione della Vergine tra gli arcangeli Michele e Raffaele" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jos%C3%A9_Raphael_Aragon_-_Archangel_Saint_Raphael_(San_Raphael)_-_BF1067_-_Barnes_Foundation.jpg&width=400", artist:"José Raphael Aragon", title:"Archangel Saint Raphael (San Raphael) - BF1067 - Barnes Foundation" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Maestro_del_polittico_di_Trapani,_Incoronazione_della_Vergine_tra_gli_arcangeli_Michele_e_Raffaele,_circa_1425_-FG1.jpg&width=400", artist:"Unbekannt", title:"Maestro del polittico di Trapani, Incoronazione della Vergine tra gli arcangeli Michele e Raffaele, circa 1425 -FG1" },
+    ]
+  },
+  {
+    saint: "Hl. Hieronymus",
+    attributes: ["Löwe","Kardinalstracht","Totenkopf","Stein","Buch","Kruzifix"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Antwerpen_Maagdenhuis_Antoon_van_Dyck_St._Hieronymus_2709.jpg&width=400", artist:"Unbekannt", title:"Antwerpen Maagdenhuis Antoon van Dyck St. Hieronymus 2709" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Apote%C3%B3sis_de_San_Jer%C3%B3nimo,_por_Zurbar%C3%A1n.png&width=400", artist:"Unbekannt", title:"Apoteósis de San Jerónimo, por Zurbarán" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/At_Mus%C3%A9e_de_Grenoble_2025_238.jpg&width=400", artist:"Unbekannt", title:"At Musée de Grenoble 2025 238" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Carcassonne_-_%C3%89glise_Saint-Vincent_73.jpg&width=400", artist:"Carcassonne", title:"Église Saint-Vincent 73" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Cesi-deposizione,_San_Girolamo.jpg&width=400", artist:"Unbekannt", title:"Cesi-deposizione, San Girolamo" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Colombel_Saint_Hyacinthe_Louvre.jpg&width=400", artist:"Unbekannt", title:"Colombel Saint Hyacinthe Louvre" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Cornelis_Metsys_-_Paysage_avec_saint_J%C3%A9r%C3%B4me_-_ca_1545.jpg&width=400", artist:"Cornelis Metsys", title:"Paysage avec saint Jérôme - ca 1545" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Dijon_(C%C3%B4te-d%27Or)_-_Mus%C3%A9e_des_Beaux-Arts_-_Saint_J%C3%A9rome_et_Saint_Christophe_(14813871609).jpg&width=400", artist:"Dijon (Côte-d'Or)", title:"Musée des Beaux-Arts - Saint Jérome et Saint Christophe (14813871609)" },
+    ]
+  },
+  {
+    saint: "Hl. Augustinus",
+    attributes: ["Flammendes Herz","Bischofsstab","Mitra","Buch","Kind mit Muschel"],
+    difficulty: 2,
+    paintings: [
+    ]
+  },
+  {
+    saint: "Hl. Ambrosius von Mailand",
+    attributes: ["Bienenkorb","Bischofsstab","Mitra","Buch","Geißel"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ambrose_at_the_Embassy_Club_02.jpg&width=400", artist:"Unbekannt", title:"Ambrose at the Embassy Club 02" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ambrose_at_the_Embassy_Club.jpg&width=400", artist:"Unbekannt", title:"Ambrose at the Embassy Club" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Rogers_and_Hart_american_songwriters_in_England_1927.jpg&width=400", artist:"Unbekannt", title:"Rogers and Hart american songwriters in England 1927" },
+    ]
+  },
+  {
+    saint: "Hl. Gregor der Große",
+    attributes: ["Heiliggeisttaube am Ohr","Papsttiara","Buch","Bischofsstab"],
+    difficulty: 3,
+    paintings: [
+    ]
+  },
+  {
+    saint: "Hl. Thomas von Aquin",
+    attributes: ["Sonne auf der Brust","Dominikanerkutte","Buch","Lilie","Taube"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Allegorical_Tapestry_with_Sages_of_the_Past_MET_DP-13081-002.jpg&width=400", artist:"Unbekannt", title:"Allegorical Tapestry with Sages of the Past MET DP-13081-002" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Antonio_granata,_san_tommaso_d%27aquino,_xviii_secolo.jpg&width=400", artist:"Unbekannt", title:"Antonio granata, san tommaso d'aquino, xviii secolo" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Aquinas,_Magnus,_Scotus,_Petrarcha,_Boccatius,_Chrysoloras._Wellcome_L0002422.jpg&width=400", artist:"Unbekannt", title:"Aquinas, Magnus, Scotus, Petrarcha, Boccatius, Chrysoloras. Wellcome L0002422" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Azulejo_de_Santo_Tom%C3%A1s_de_Aquino.jpg&width=400", artist:"Unbekannt", title:"Azulejo de Santo Tomás de Aquino" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bidprentje_Adrianus_van_Dongen.JPG&width=400", artist:"Unbekannt", title:"Bidprentje Adrianus van Dongen" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Der_Heilige_Thomas_von_Aquin_in_ganzer_Figur_an_alten_Gem%C3%A4uern_sitzend_(SM_sg317z).png&width=400", artist:"Unbekannt", title:"Der Heilige Thomas von Aquin in ganzer Figur an alten Gemäuern sitzend (SM sg317z)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Giuseppe_cassioli_(dis.),_incoronazione_della_vergine,_1921-29,_10_dante,_beatrice_e_santi.jpg&width=400", artist:"Unbekannt", title:"Giuseppe cassioli (dis.), incoronazione della vergine, 1921-29, 10 dante, beatrice e santi" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Italian_-_Votive_Plaque_with_the_Virgin_and_Child_and_Saints_Dominic_and_Thomas_Aquinas_-_Walters_481377.jpg&width=400", artist:"Italian", title:"Votive Plaque with the Virgin and Child and Saints Dominic and Thomas Aquinas - Walters 481377" },
+    ]
+  },
+  {
+    saint: "Hl. Hildegard von Bingen",
+    attributes: ["Visionen-Flammen","Buch","Bischofsstab (Äbtissin)","Benediktiner-Habit"],
+    difficulty: 3,
+    paintings: [
+    ]
+  },
+  {
+    saint: "Hl. Bernhard von Clairvaux",
+    attributes: ["Zisterzienser-Habit (weiß)","Drei Mitren zu Füßen","Bienenkorb","Schreibfeder"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/13.8.19_3_Kruslov_Vcelin_25_(48535491927).jpg&width=400", artist:"Unbekannt", title:"13.8.19 3 Kruslov Vcelin 25 (48535491927)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/18th-c_painting_depicting_Saint_Bernard_of_Clairvaux%27s_visit_to_Affligem_Abbey_in_1146,_when_he_greeted_a_statue_of_the_Virgin_Mary_(Ave_Maria)_and_it_answered_him_(Salve_Bernarde).jpg&width=400", artist:"Unbekannt", title:"18th-c painting depicting Saint Bernard of Clairvaux's visit to Affligem Abbey in 1146, when he greeted a statue of the Virgin Mary (Ave Maria) and it answered him (Salve Bernarde)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/A_bibliographical,_antiquarian_and_picturesque_tour_in_France_and_Germany_(1821)_(14781002242).jpg&width=400", artist:"Unbekannt", title:"A bibliographical, antiquarian and picturesque tour in France and Germany (1821) (14781002242)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Abbaye_de_C%C3%AEteaux_174.jpg&width=400", artist:"Unbekannt", title:"Abbaye de Cîteaux 174" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Alcoba%C3%A7a.monastary_of_cos.sacristy.temptation.bernhard.jpg&width=400", artist:"Unbekannt", title:"Alcobaça.monastary of cos.sacristy.temptation.bernhard" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bernard_de_Cluny.jpg&width=400", artist:"Unbekannt", title:"Bernard de Cluny" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bernard_of_Clairvaux_-_Gutenburg_-_13206.jpg&width=400", artist:"Bernard of Clairvaux", title:"Gutenburg - 13206" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bernard_of_Clairvaux.png&width=400", artist:"Unbekannt", title:"Bernard of Clairvaux" },
+    ]
+  },
+  {
+    saint: "Hl. Franziskus von Assisi",
+    attributes: ["Stigmata","Braune Kutte","Strickgürtel","Kruzifix","Tiere (Vögel)","Totenkopf"],
+    difficulty: 1,
+    paintings: [
+    ]
+  },
+  {
+    saint: "Hl. Klara von Assisi",
+    attributes: ["Monstranz","Klarissen-Habit","Lilie","Kreuzstab"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/2017_St-Servaasbasiliek,_noordoostportaal_02.jpg&width=400", artist:"Unbekannt", title:"2017 St-Servaasbasiliek, noordoostportaal 02" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/2017_St-Servaasbasiliek,_noordoostportaal_03.jpg&width=400", artist:"Unbekannt", title:"2017 St-Servaasbasiliek, noordoostportaal 03" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Abbaye_Notre-Dame_d%27%C3%89vron_70.JPG&width=400", artist:"Unbekannt", title:"Abbaye Notre-Dame d'Évron 70" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Agostino_Veracini,_Immacolata_Concezione_fra_i_santi_Francesco_d%27Assisi_e_Chiara,_1726-30_ca._01.jpg&width=400", artist:"Unbekannt", title:"Agostino Veracini, Immacolata Concezione fra i santi Francesco d'Assisi e Chiara, 1726-30 ca. 01" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Alghero_-_San_Francesco-026.jpg&width=400", artist:"Alghero", title:"San Francesco-026" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anonimo_maestro_della_met%C3%A0_del_sec._xiv,_Sant%27Apollonia_e_Santa_Chiara.jpg&width=400", artist:"Unbekannt", title:"Anonimo maestro della metà del sec. xiv, Sant'Apollonia e Santa Chiara" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anonimo_maestro_della_met%C3%A0_del_sec._xiv,_Santa_Chiara.jpg&width=400", artist:"Unbekannt", title:"Anonimo maestro della metà del sec. xiv, Santa Chiara" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bas%C3%ADlica_de_S%C3%A3o_Francisco_das_Chagas_(Canind%C3%A9)_-_Casa_dos_Milagres_.JPG&width=400", artist:"Basílica de São Francisco das Chagas (Canindé)", title:"Casa dos Milagres" },
+    ]
+  },
+  {
+    saint: "Hl. Dominikus",
+    attributes: ["Hund mit brennender Fackel","Stern","Rosenkranz","Lilie","Schwarz-weißes Ordensgewand"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/1Saint_Dominic_de_Guzman_Parish_Church_Abucay_Bataan_32.jpg&width=400", artist:"Unbekannt", title:"1Saint Dominic de Guzman Parish Church Abucay Bataan 32" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/1Saint_Dominic_de_Guzman_Parish_Church_Abucay_Bataan_33.jpg&width=400", artist:"Unbekannt", title:"1Saint Dominic de Guzman Parish Church Abucay Bataan 33" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/30_Plaf%C3%B3_cer%C3%A0mic_de_Sant_Dom%C3%A8nec.jpg&width=400", artist:"Unbekannt", title:"30 Plafó ceràmic de Sant Domènec" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Beata_Juana_de_Aza_madre_de_Sto_Domingo_Guzman.jpg&width=400", artist:"Unbekannt", title:"Beata Juana de Aza madre de Sto Domingo Guzman" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Botticelli_Hermitage_92.jpg&width=400", artist:"Unbekannt", title:"Botticelli Hermitage 92" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Church_of_the_Whites._Saint_Dominic_Altar._-_V%C3%A1c.JPG&width=400", artist:"Church of the Whites. Saint Dominic Altar.", title:"Vác" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/DominicGuzmanOcotlan.JPG&width=400", artist:"Unbekannt", title:"DominicGuzmanOcotlan" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Filippo_Tarchiani,_san_domenico_(particolare).jpg&width=400", artist:"Unbekannt", title:"Filippo Tarchiani, san domenico (particolare)" },
+    ]
+  },
+  {
+    saint: "Hl. Benedikt von Nursia",
+    attributes: ["Zerbrochenes Glas / Kelch mit Schlange","Rabe mit Brot","Ordensregel (Buch)","Abtsstab","Schwarzes Ordensgewand"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/2013_Main_Altar_of_Saint_Benedict_church_in_P%C5%82ock_-_04.jpg&width=400", artist:"2013 Main Altar of Saint Benedict church in Płock", title:"04" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Benedict_von_Nursia.jpg&width=400", artist:"Unbekannt", title:"Benedict von Nursia" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Benedikt_Erschwil.jpeg&width=400", artist:"Unbekannt", title:"Benedikt Erschwil" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Detalhe_do_forro_da_Igreja_de_S%C3%A3o_Bento_em_Olinda.JPG&width=400", artist:"Unbekannt", title:"Detalhe do forro da Igreja de São Bento em Olinda" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Devotieprent_van_de_heilige_Benedictus_van_Nursia,_asset_T1WZ7lTkNRiNIWIVVKHqofqo.tif&width=400", artist:"Unbekannt", title:"Devotieprent van de heilige Benedictus van Nursia, asset T1WZ7lTkNRiNIWIVVKHqofqo" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Francesco_solimena,_san_benedetto_accoglie_mauro_e_placido,_1697-1708_ca.jpg&width=400", artist:"Unbekannt", title:"Francesco solimena, san benedetto accoglie mauro e placido, 1697-1708 ca" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Holy_Cross_Monastery_%E2%80%93_Interior_of_the_Church_-_10.jpg&width=400", artist:"Holy Cross Monastery – Interior of the Church", title:"10" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ir213sztb95c.jpg&width=400", artist:"Unbekannt", title:"Ir213sztb95c" },
+    ]
+  },
+  {
+    saint: "Hl. Ignatius von Loyola",
+    attributes: ["IHS-Monogramm","Jesuiten-Habit","Buch (Exerzitien)","Strahlennimbus"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Klokvormige_kop_met_een_voorstelling_van_Ignatius_de_Loyola,_AK-NM-13562-B.jpg&width=400", artist:"Unbekannt", title:"Klokvormige kop met een voorstelling van Ignatius de Loyola, AK-NM-13562-B" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Langer,_Sebastian_Sv%C3%A4t%C3%BD_Ign%C3%A1c_z_Loyoly.png&width=400", artist:"Unbekannt", title:"Langer, Sebastian Svätý Ignác z Loyoly" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Palermo_-_Casa_Professa_5269.jpg&width=400", artist:"Palermo", title:"Casa Professa 5269" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Saint_Ignace_De_Loyola_-_estampe_-_btv1b69555898.jpg&width=400", artist:"Saint Ignace De Loyola", title:"estampe - btv1b69555898" },
+    ]
+  },
+  {
+    saint: "Hl. Teresa von Ávila",
+    attributes: ["Karmeliter-Habit","Pfeil ins Herz","Heiliggeisttaube","Feder"],
+    difficulty: 3,
+    paintings: [
+    ]
+  },
+  {
+    saint: "Hl. Antonius der Große",
+    attributes: ["Schwein","Tau-Kreuz (T)","Flammen","Glocke","Dämonen","Mönchsgewand"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Kerstiaen_de_Keuninck_-_Landscape_with_the_temptation_of_St._Anthony_the_Great_of_Egypt.jpg&width=400", artist:"Kerstiaen de Keuninck", title:"Landscape with the temptation of St. Anthony the Great of Egypt" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anonimo,_vergine_incoronata_coi_ss._lorenzo_e_antonio_abate,_xii-xiii_secolo.jpg&width=400", artist:"Unbekannt", title:"Anonimo, vergine incoronata coi ss. lorenzo e antonio abate, xii-xiii secolo" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Cappella_Sant%27Agostino_(Corigliano_Calabro)01.jpg&width=400", artist:"Unbekannt", title:"Cappella Sant'Agostino (Corigliano Calabro)01" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Cappella_Sant%27Agostino_(Corigliano_Calabro)02.jpg&width=400", artist:"Unbekannt", title:"Cappella Sant'Agostino (Corigliano Calabro)02" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/David_Teniers_(II)_-_Landscape_-_WGA22093.jpg&width=400", artist:"David Teniers (II)", title:"Landscape" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fernand_khnopff,_da_falubert,_le_tentazioni_di_sant%27antonio_(la_regina_di_saba),_1883.jpg&width=400", artist:"Unbekannt", title:"Fernand khnopff, da falubert, le tentazioni di sant'antonio (la regina di saba), 1883" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Geovanni_di_Nikola_abbat_Antoniy.jpg&width=400", artist:"Unbekannt", title:"Geovanni di Nikola abbat Antoniy" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Germanicum_(saint2).jpg&width=400", artist:"Unbekannt", title:"Germanicum (saint2)" },
+    ]
+  },
+  {
+    saint: "Hl. Antonius von Padua",
+    attributes: ["Jesuskind (auf dem Arm)","Lilie","Buch","Flamme","Franziskanerkutte"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Marcello_Fogolino_Virgen_con_el_Ni%C3%B1o_y_santos_Rijksmuseum.jpg&width=400", artist:"Unbekannt", title:"Marcello Fogolino Virgen con el Niño y santos Rijksmuseum" },
+    ]
+  },
+  {
+    saint: "Hl. Sebastian",
+    attributes: ["Pfeile","An Baum/Säule gebunden","Halbnackt (Lendentuch)","Palme","Märtyrerkrone"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Aint_Sebastian_by_Gustave_Courtois_1898--then_and_now.png&width=400", artist:"Unbekannt", title:"Aint Sebastian by Gustave Courtois 1898--then and now" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Altarfl%C3%BCgel_Hl_Sebastian_Salzburg_Museum.jpg&width=400", artist:"Unbekannt", title:"Altarflügel Hl Sebastian Salzburg Museum" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anger_Pfarrkirche_hl.Sebastian.jpg&width=400", artist:"Unbekannt", title:"Anger Pfarrkirche hl.Sebastian" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Antonio_de_Bellis_Saint_S%C3%A9bastien_soign%C3%A9_par_sainte_Ir%C3%A8ne.jpg&width=400", artist:"Unbekannt", title:"Antonio de Bellis Saint Sébastien soigné par sainte Irène" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Artemisia_Gentileschi_-_Saint_Sebastian_tended_by_Saint_Irene_271N10007_B2JNL.jpg&width=400", artist:"Artemisia Gentileschi", title:"Saint Sebastian tended by Saint Irene 271N10007 B2JNL" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Augsburg_Schaezlerpalais_Mattes_2013-05-05_(36).JPG&width=400", artist:"Unbekannt", title:"Augsburg Schaezlerpalais Mattes 2013-05-05 (36)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Augustiner_Chorherrenstift_Fresko.jpg&width=400", artist:"Unbekannt", title:"Augustiner Chorherrenstift Fresko" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bad_Koetzting_Mariae_Himmelfahrt_004.JPG&width=400", artist:"Unbekannt", title:"Bad Koetzting Mariae Himmelfahrt 004" },
+    ]
+  },
+  {
+    saint: "Hl. Georg",
+    attributes: ["Drache","Ritterrüstung","Lanze","Weißes Pferd","Kreuzfahne","Prinzessin"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/0_Sc%C3%A8ne_de_la_l%C3%A9gende_de_St_Georges_-_Mus%C3%A9e_Groeninge_-_Mac%27s_1.jpg&width=400", artist:"0 Scène de la légende de St Georges", title:"Musée Groeninge - Mac's 1" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/0_Sc%C3%A8nes_de_la_l%C3%A9gende_de_St_Georges_-_Mus%C3%A9e_Groeninge_-_Mac%27s_1.jpg&width=400", artist:"0 Scènes de la légende de St Georges", title:"Musée Groeninge - Mac's 1" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/0_Sc%C3%A8nes_de_la_l%C3%A9gende_de_St_Georges_-_Mus%C3%A9e_Groeninge_-_Mac%27s_2.jpg&width=400", artist:"0 Scènes de la légende de St Georges", title:"Musée Groeninge - Mac's 2" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/0_Sc%C3%A8nes_de_la_l%C3%A9gende_de_St_Georges_-_Mus%C3%A9e_Groeninge_-_Mac%27s_3.jpg&width=400", artist:"0 Scènes de la légende de St Georges", title:"Musée Groeninge - Mac's 3" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ambrosius_Francken_-_Saint_George.jpg&width=400", artist:"Ambrosius Francken", title:"Saint George" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/16th-century_unknown_painters_-_Scenes_from_the_Legend_of_St_George_-_WGA23610.jpg&width=400", artist:"16th-century unknown painters", title:"Scenes from the Legend of St George" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Alcoy_-_mural_de_San_Jorge.jpg&width=400", artist:"Alcoy", title:"mural de San Jorge" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anton_van_Dyck_-_Martyrdom_of_St._George_-_29.446_-_Detroit_Institute_of_Arts.jpg&width=400", artist:"Anton van Dyck", title:"Martyrdom of St. George - 29.446 - Detroit Institute of Arts" },
+    ]
+  },
+  {
+    saint: "Hl. Katharina von Alexandrien",
+    attributes: ["Rad (zerbrochen)","Schwert","Krone","Buch","Ring","Palme"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/The_life_of_St._Katharine_of_Alexandria_(IA_aha2726.0001.001.umich.edu).pdf&width=400", artist:"Unbekannt", title:"The life of St. Katharine of Alexandria (IA aha2726.0001.001.umich.edu).pdf" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hl._Kreuz_Schaftlach_13.jpg&width=400", artist:"Unbekannt", title:"Hl. Kreuz Schaftlach 13" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Johann_Nikolaus_Weislinger,_%22Schutz-Schrifft%22_(1740).jpg&width=400", artist:"Unbekannt", title:"Johann Nikolaus Weislinger, \"Schutz-Schrifft\" (1740)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/The_miracles_of_Madame_Saint_Katherine_of_Fierbois%3B_(IA_miraclesofmadame00bour).pdf&width=400", artist:"Unbekannt", title:"The miracles of Madame Saint Katherine of Fierbois; (IA miraclesofmadame00bour).pdf" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Pietro_Aretino_-_Vita_di_santa_Caterina_vergine_e_martire.jpg&width=400", artist:"Pietro Aretino", title:"Vita di santa Caterina vergine e martire" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Vita_di_santa_Caterina_vergine_e_martire.tif&width=400", artist:"Unbekannt", title:"Vita di santa Caterina vergine e martire" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Wunsiedel_wunderbericht.jpg&width=400", artist:"Unbekannt", title:"Wunsiedel wunderbericht" },
+    ]
+  },
+  {
+    saint: "Hl. Maria Magdalena",
+    attributes: ["Salbgefäß","Offenes langes Haar","Totenkopf","Kruzifix","Rotes Gewand"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Master_of_the_Magdalene_Legend_-_St._Mary_Magdalene_hunting_before_her_conversion.jpg&width=400", artist:"Master of the Magdalene Legend", title:"St. Mary Magdalene hunting before her conversion" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Gustave_Vanaise_-_Magdalene_in_Christ%27s_tomb_(cropped).jpg&width=400", artist:"Gustave Vanaise", title:"Magdalene in Christ's tomb (cropped)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Gustave_Vanaise_-_Magdalene_in_Christ%27s_tomb.jpg&width=400", artist:"Gustave Vanaise", title:"Magdalene in Christ's tomb" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/4DPict.jpg&width=400", artist:"Unbekannt", title:"4DPict" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/7_Gigapixel_Mary_Magdalene-Digital_Profoundism-Demo.jpg&width=400", artist:"Unbekannt", title:"7 Gigapixel Mary Magdalene-Digital Profoundism-Demo" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/7_Gigapixel_Mary_Magdalene.gif&width=400", artist:"Unbekannt", title:"7 Gigapixel Mary Magdalene" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hl._Kreuz_Regensburg_06.jpg&width=400", artist:"Unbekannt", title:"Hl. Kreuz Regensburg 06" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Aosta_Kathedrale_-_Kapelle_Cly_Deckengem%C3%A4lde_1_Magdalena.jpg&width=400", artist:"Aosta Kathedrale", title:"Kapelle Cly Deckengemälde 1 Magdalena" },
+    ]
+  },
+  {
+    saint: "Hl. Martin von Tours",
+    attributes: ["Geteilter Mantel","Pferd","Bettler","Gans","Bischofsstab"],
+    difficulty: 1,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Banner_within_St_Martin%27s,_Bladon_(2)_-_geograph.org.uk_-_1460784.jpg&width=400", artist:"Banner within St Martin's, Bladon (2)", title:"geograph.org.uk - 1460784" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/St._Martin%27s_Church,_Bladon_16.jpg&width=400", artist:"Unbekannt", title:"St. Martin's Church, Bladon 16" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Cellar_12._Listed_ID_14846._Saint_Martin_-_Kossuth_St.,_Budajen%C5%91,_Hungary.JPG&width=400", artist:"Cellar 12. Listed ID 14846. Saint Martin", title:"Kossuth St., Budajenő, Hungary" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Chiesa_di_San_Bellino_Vescovo_e_Martire,_interno,_altare_maggiore,_settembre_2022_(San_Bellino)_04.jpg&width=400", artist:"Unbekannt", title:"Chiesa di San Bellino Vescovo e Martire, interno, altare maggiore, settembre 2022 (San Bellino) 04" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Chiesa_San_Martino_di_Padula.jpg&width=400", artist:"Unbekannt", title:"Chiesa San Martino di Padula" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/De_goede_Sinte_Marten_001.jpg&width=400", artist:"Unbekannt", title:"De goede Sinte Marten 001" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/De_goede_Sinte_Marten_002.jpg&width=400", artist:"Unbekannt", title:"De goede Sinte Marten 002" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/De_goede_Sinte_Marten_003.jpg&width=400", artist:"Unbekannt", title:"De goede Sinte Marten 003" },
+    ]
+  },
+  {
+    saint: "Hl. Barbara",
+    attributes: ["Turm mit drei Fenstern","Kelch mit Hostie","Krone","Schwert","Palme"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/-2021-09-02_Saint_Barbara_panel_on_the_rood_screen,_St_John_the_Baptist_church,_Trimingham,_Norfolk.JPG&width=400", artist:"Unbekannt", title:"-2021-09-02 Saint Barbara panel on the rood screen, St John the Baptist church, Trimingham, Norfolk" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Cornelis_de_Vos_-_Barbara_Kegeleers_with_St_Barbara_of_Nicodemia.jpg&width=400", artist:"Cornelis de Vos", title:"Barbara Kegeleers with St Barbara of Nicodemia" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Pieter_van_Lint_-_Saint_Barbara.jpg&width=400", artist:"Pieter van Lint", title:"Saint Barbara" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anonym_18_Jh_Hl_Barbara.jpg&width=400", artist:"Unbekannt", title:"Anonym 18 Jh Hl Barbara" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Baldung_2.b.jpg&width=400", artist:"Unbekannt", title:"Baldung 2.b" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/BIC_297r.jpg&width=400", artist:"Unbekannt", title:"BIC 297r" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_(I)_-_Die_Heilige_Barbara_(Olomouc_Museum_of_Art)_(cropped).jpg&width=400", artist:"Lucas Cranach (I)", title:"Die Heilige Barbara (Olomouc Museum of Art) (cropped)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_(I)_-_Die_Heiligen_Katharina_und_Barbara_(Olomouc_Museum_of_Art).jpg&width=400", artist:"Lucas Cranach (I)", title:"Die Heiligen Katharina und Barbara (Olomouc Museum of Art)" },
+    ]
+  },
+  {
+    saint: "Hl. Laurentius",
+    attributes: ["Bratrost","Dalmatika","Palme","Geldbeutel","Weihrauchgefäß"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Chroniques_nuremberg_laurent.png&width=400", artist:"Unbekannt", title:"Chroniques nuremberg laurent" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ingres_-_MI.867.4242,_Saint_diacre.jpg&width=400", artist:"Ingres", title:"MI.867.4242, Saint diacre" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Legendari_di_sancti_istoriado_uulgar,_1497_%E2%80%93_(san_Lorenzo_martire)_-_BEIC_IE4411206.jpg&width=400", artist:"Legendari di sancti istoriado uulgar, 1497 – (san Lorenzo martire)", title:"BEIC IE4411206" },
+    ]
+  },
+  {
+    saint: "Hl. Nikolaus von Myra",
+    attributes: ["Drei Goldkugeln","Bischofsstab","Mitra","Drei Kinder im Bottich","Buch"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/St_Nicholas_of_Bari_presents_the_Rovelli_students_to_Madonna_and_Child,_by_Moretto_da_Brescia.jpg&width=400", artist:"Unbekannt", title:"St Nicholas of Bari presents the Rovelli students to Madonna and Child, by Moretto da Brescia" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/1754_Gro%C3%9Faitingen_Nikolaus_und_Walburga_als_F%C3%BCrsprecher_jpg.jpg&width=400", artist:"Unbekannt", title:"1754 Großaitingen Nikolaus und Walburga als Fürsprecher jpg" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Altar_of_Saint_Nicholas_17th_c.,_Nowe_Miasto_Lubawskie.jpg&width=400", artist:"Unbekannt", title:"Altar of Saint Nicholas 17th c., Nowe Miasto Lubawskie" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Andrea_Lilio_001.jpg&width=400", artist:"Unbekannt", title:"Andrea Lilio 001" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anonymous_-_Reisaltaar_van_drieluik_met_gezicht_op_Jeruzalem,_geboorte_en_aanbidding_der_wijzen_-_S00437_-_Fries_Museum.jpg&width=400", artist:"Anonymous", title:"Reisaltaar van drieluik met gezicht op Jeruzalem, geboorte en aanbidding der wijzen - S00437 - Fries Museum" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Atri_2011_by-RaBoe_079.jpg&width=400", artist:"Unbekannt", title:"Atri 2011 by-RaBoe 079" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Biserica_de_lemn_din_Sanmihaiu_Almasului126.jpg&width=400", artist:"Unbekannt", title:"Biserica de lemn din Sanmihaiu Almasului126" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bozzetto_Apotheose_des_heiligen_Nikolaus.jpg&width=400", artist:"Unbekannt", title:"Bozzetto Apotheose des heiligen Nikolaus" },
+    ]
+  },
+  {
+    saint: "Hl. Christophorus",
+    attributes: ["Jesuskind auf der Schulter","Baumstamm als Stab","Fluss","Riesengröße","Eremitenlampe am Ufer"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/(Treviso)_The_departure_for_Canaan_by_Arminio_Zuccato_-_Museo_civico_di_Santa_Caterina.jpg&width=400", artist:"(Treviso) The departure for Canaan by Arminio Zuccato", title:"Museo civico di Santa Caterina" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Christoforos_picture.jpg&width=400", artist:"Unbekannt", title:"Christoforos picture" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Christophorus_Gem%C3%A4lde_neu.jpg&width=400", artist:"Unbekannt", title:"Christophorus Gemälde neu" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Dijon_(C%C3%B4te-d%27Or)_-_Mus%C3%A9e_des_Beaux-Arts_-_Saint_J%C3%A9rome_et_Saint_Christophe_(14813871609).jpg&width=400", artist:"Dijon (Côte-d'Or)", title:"Musée des Beaux-Arts - Saint Jérome et Saint Christophe (14813871609)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/D%C5%AFm_%C4%8Dp._36,_Velk%C3%A9_n%C3%A1m%C4%9Bst%C3%AD,_Prachatice_04.jpg&width=400", artist:"Unbekannt", title:"Dům čp. 36, Velké náměstí, Prachatice 04" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hristofor_krst.jpg&width=400", artist:"Unbekannt", title:"Hristofor krst" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lorenzo_di_Niccol%C3%B2_(di_Martino)_-_Madonna_and_Child_Enthroned_with_Sts._Christopher,_Blaise..._-_43-1937_-_Saint_Louis_Art_Museum.jpg&width=400", artist:"Lorenzo di Niccolò (di Martino)", title:"Madonna and Child Enthroned with Sts. Christopher, Blaise... - 43-1937 - Saint Louis Art Museum" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lugos,_ortodox_Istensz%C3%BCl%C5%91_elszender%C3%BCl%C3%A9se_templom_bels%C5%91_tere_2022_04.jpg&width=400", artist:"Unbekannt", title:"Lugos, ortodox Istenszülő elszenderülése templom belső tere 2022 04" },
+    ]
+  },
+  {
+    saint: "Hl. Margareta von Antiochia",
+    attributes: ["Drache (besiegt)","Aus Drachenbauch hervorkommend","Kreuz / Kreuzstab","Palme","Krone","Perlen"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/2022-05-08_Convento_de_San_Francisco,_Margaret_of_Antioch.jpg&width=400", artist:"Unbekannt", title:"2022-05-08 Convento de San Francisco, Margaret of Antioch" },
+    ]
+  },
+  {
+    saint: "Hl. Agnes",
+    attributes: ["Lamm","Schwert","Langes Haar","Palme","Ring"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/2022-05-08_Convento_de_San_Francisco,_Agnes_of_Rome.jpg&width=400", artist:"Unbekannt", title:"2022-05-08 Convento de San Francisco, Agnes of Rome" },
+    ]
+  },
+  {
+    saint: "Hl. Lucia",
+    attributes: ["Augen auf Teller","Öllampe","Schwert / Dolch","Palme","Krone","Brennende Kerze"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Santa_Lucia_-_Furini.png&width=400", artist:"Santa Lucia", title:"Furini" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Agostino_Ciampelli_(1565-1630)_(style_of)_-_Saint_Lucia_-_LDBOA1999.171_-_College_of_Optometrists.jpg&width=400", artist:"Agostino Ciampelli (1565-1630) (style of)", title:"Saint Lucia - LDBOA1999.171 - College of Optometrists" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/15_Andrea_di_Bartolo._St_Lucia_1389-1406._Ashmolean,_Oxford.jpg&width=400", artist:"Unbekannt", title:"15 Andrea di Bartolo. St Lucia 1389-1406. Ashmolean, Oxford" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Andr%C3%A9s_de_Melgar_-_Saints_Apollonia,_Lucy_and_Barbara_and_another_Holy_Martyr_-_Google_Art_Project.jpg&width=400", artist:"Andrés de Melgar", title:"Saints Apollonia, Lucy and Barbara and another Holy Martyr -" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Carlo_Innocenzo_Carlone_(1686-1775)_-_The_Assumption_of_St_Lucy_-_PD.42-1992_-_Fitzwilliam_Museum.jpg&width=400", artist:"Carlo Innocenzo Carlone (1686-1775)", title:"The Assumption of St Lucy - PD.42-1992 - Fitzwilliam Museum" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Crema-cattedrale-picenardi-martirio-santa-lucia.jpg&width=400", artist:"Unbekannt", title:"Crema-cattedrale-picenardi-martirio-santa-lucia" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Francesco_conti,_santa_lucia.jpg&width=400", artist:"Unbekannt", title:"Francesco conti, santa lucia" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Francisco_de_Zurbar%C3%A1n_-_Saint_Lucy_-_A94_-_Hispanic_Society_of_America.jpg&width=400", artist:"Francisco de Zurbarán", title:"Saint Lucy - A94 - Hispanic Society of America" },
+    ]
+  },
+  {
+    saint: "Hl. Cäcilia",
+    attributes: ["Orgel","Musikinstrumente","Rosen","Palme","Krone"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/%27Saint_Cecilia_with_Two_Angels%27_by_Giovanni_Martinelli.jpg&width=400", artist:"Unbekannt", title:"'Saint Cecilia with Two Angels' by Giovanni Martinelli" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/-2021-09-02_Saint_Cecilia_panel_on_the_rood_screen,_St_John_the_Baptist_church,_Trimingham,_Norfolk.JPG&width=400", artist:"Unbekannt", title:"-2021-09-02 Saint Cecilia panel on the rood screen, St John the Baptist church, Trimingham, Norfolk" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Adolph_Lalyre--Sainte_C%C3%A9cile--1883.webp&width=400", artist:"Unbekannt", title:"Adolph Lalyre--Sainte Cécile--1883" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Amelie_Pourmarin_-_Sainte_Cecile_chantant_les_louanges_du_Seigneur.jpg&width=400", artist:"Amelie Pourmarin", title:"Sainte Cecile chantant les louanges du Seigneur" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ary_Scheffer_-_Portrait_de_Pauline_Viardot_en_sainte_C%C3%A9cile_-_2014.1.1_-_Mus%C3%A9e_de_la_Vie_romantique_-_2.jpg&width=400", artist:"Ary Scheffer", title:"Portrait de Pauline Viardot en sainte Cécile - 2014.1.1 - Musée de la Vie romantique - 2" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/B6_St._Cecilia_2017-09-25_903.jpg&width=400", artist:"Unbekannt", title:"B6 St. Cecilia 2017-09-25 903" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bernardino_mei,_santa_cecilia,_1650_circa.JPG&width=400", artist:"Unbekannt", title:"Bernardino mei, santa cecilia, 1650 circa" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/C.-Arpino---Santa-Cecilia.jpg&width=400", artist:"Unbekannt", title:"C.-Arpino---Santa-Cecilia" },
+    ]
+  },
+  {
+    saint: "Hl. Stephanus",
+    attributes: ["Steine","Dalmatika (Diakontracht)","Palme","Märtyrerkrone","Buch (Evangelium)","Weihrauchgefäß"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anonymous_-_Heilige_Familie_mit_Hl._Stephanus_-_GG_1089_-_Kunsthistorisches_Museum.jpg&width=400", artist:"Anonymous", title:"Heilige Familie mit Hl. Stephanus - GG 1089 - Kunsthistorisches Museum" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Autor_nieznany,_%C5%9Awi%C4%99ty_Szczepan_m%C4%99czennik._Malowid%C5%82o_%C5%9Bcienne.jpg&width=400", artist:"Unbekannt", title:"Autor nieznany, Święty Szczepan męczennik. Malowidło ścienne" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fabrizio_Santafede_-_St._Stephen_the_Martyr.jpg&width=400", artist:"Fabrizio Santafede", title:"St. Stephen the Martyr" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Gelence,_felszegi_r%C3%B3mai_katolikus_templom_karzata_2024_09.jpg&width=400", artist:"Unbekannt", title:"Gelence, felszegi római katolikus templom karzata 2024 09" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/I_Santi_Protettori_di_Santo_Stefano_Quisquina.jpg&width=400", artist:"Unbekannt", title:"I Santi Protettori di Santo Stefano Quisquina" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/I_tre_Santi_Protettori.jpg&width=400", artist:"Unbekannt", title:"I tre Santi Protettori" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Kottensdorf_Pfarrkirche_-_Predella_1_Stefan.jpg&width=400", artist:"Kottensdorf Pfarrkirche", title:"Predella 1 Stefan" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Max_F%C3%BCrst_Hl_Stephan_1873.jpg&width=400", artist:"Unbekannt", title:"Max Fürst Hl Stephan 1873" },
+    ]
+  },
+  {
+    saint: "Hl. Elisabeth von Thüringen",
+    attributes: ["Rosen","Brot","Krone","Kanne","Arme / Kranke"],
+    difficulty: 2,
+    paintings: [
     ]
   },
   {
@@ -743,8 +979,236 @@ const SAINTS_DATA = [
     attributes: ["Maria und Jesuskind (Anna Selbdritt)","Buch","Grünes / rotes Gewand","Kopftuch","Lehrt Maria das Lesen","Goldene Pforte (Begegnung mit Joachim)"],
     difficulty: 2,
     paintings: [
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Leonardo_da_Vinci_-_Virgin_and_Child_with_St_Anne_C2RMF_retouched.jpg&width=300", artist:"Leonardo da Vinci", title:"Anna Selbdritt", year:"um 1508–19", museum:"Louvre, Paris" },
-      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Albrecht_D%C3%BCrer_-_Virgin_and_Child_with_Saint_Anne_-_Google_Art_Project.jpg&width=300", artist:"Albrecht Dürer", title:"Anna Selbdritt", year:"1519", museum:"Metropolitan Museum, New York" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Th%C3%A9ophile_Lybaert_-_Saint_Anne.jpg&width=400", artist:"Théophile Lybaert", title:"Saint Anne" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Biserica_de_lemn_din_Sanmihaiu_Almasului113.jpg&width=400", artist:"Unbekannt", title:"Biserica de lemn din Sanmihaiu Almasului113" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Camillo_Procaccini,_Nativit%C3%A0_Beata_Vergine,_chiesa_a_Brinzio_(VA).jpg&width=400", artist:"Unbekannt", title:"Camillo Procaccini, Natività Beata Vergine, chiesa a Brinzio (VA)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Christ_the_King_Church,_Monterrey,_Nuevo_Leon,_Mexico06.jpg&width=400", artist:"Unbekannt", title:"Christ the King Church, Monterrey, Nuevo Leon, Mexico06" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Church_of_the_Visitation_IMG_0722.JPG&width=400", artist:"Unbekannt", title:"Church of the Visitation IMG 0722" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Werkstatt_Lucas_Cranach_d.%C3%84._-_St._Anna_nach_der_Geburt_der_Jungfrau.jpg&width=400", artist:"Werkstatt Lucas Cranach d.Ä.", title:"St. Anna nach der Geburt der Jungfrau" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Die%C3%9Fen-Romenthal_Kapelle_StAnna_008.jpg&width=400", artist:"Unbekannt", title:"Dießen-Romenthal Kapelle StAnna 008" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Francesco_Melzi_-_St_Anne_with_the_Virgin_and_the_Child_Embracing_a_Lamb_-_WGA14796.jpg&width=400", artist:"Francesco Melzi", title:"St Anne with the Virgin and the Child Embracing a Lamb" },
+    ]
+  },
+  {
+    saint: "Hl. Veronika",
+    attributes: ["Schweißtuch Christi (Vera Icon)","Abdruck des Antlitzes Christi","Begegnung am Kreuzweg","Kopftuch"],
+    difficulty: 2,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Theophile_Lybaert_-_Veronica_wipes_the_face_of_Jesus.jpg&width=400", artist:"Theophile Lybaert", title:"Veronica wipes the face of Jesus" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Leyden_Bearing_of_the_Cross.jpg&width=400", artist:"Unbekannt", title:"Leyden Bearing of the Cross" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Stalbemt_Bearing_of_the_Cross.jpg&width=400", artist:"Unbekannt", title:"Stalbemt Bearing of the Cross" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Gaspar_de_Crayer_(1582-1669)_Veronica_en_de_kruisdraging_van_Christus_-_Sint-Janskerk_(Mechelen)_13-09-2018.jpg&width=400", artist:"Gaspar de Crayer (1582-1669) Veronica en de kruisdraging van Christus", title:"Sint-Janskerk (Mechelen) 13-09-2018" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hieronymus_Francken_(III)_(Attr.)_-_Jesus_and_Saint_Veronica.jpg&width=400", artist:"Hieronymus Francken (III) (Attr.)", title:"Jesus and Saint Veronica" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jan_Jozef_Verhaghen_-_Veronica_wipes_the_face_of_Jesus.jpg&width=400", artist:"Jan Jozef Verhaghen", title:"Veronica wipes the face of Jesus" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ahrweiler_Laurentiuskirche_Veronika.jpg&width=400", artist:"Unbekannt", title:"Ahrweiler Laurentiuskirche Veronika" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Artgate_Fondazione_Cariplo_-_Zandrino_Adelina,_La_Veronica.jpg&width=400", artist:"Artgate Fondazione Cariplo", title:"Zandrino Adelina, La Veronica" },
+    ]
+  },
+  {
+    saint: "Hl. Ursula",
+    attributes: ["Pfeile","Krone","Kreuzfahne","Schützender Mantel","Offenes Haar"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Master_of_Go%C5%9Bcieszowice_Polyptych_St._Ursula.JPG&width=400", artist:"Unbekannt", title:"Master of Gościeszowice Polyptych St. Ursula" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Altare_maggiore_della_chiesa_di_Sant%27Orsola,_Mantova.jpg&width=400", artist:"Unbekannt", title:"Altare maggiore della chiesa di Sant'Orsola, Mantova" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Altar_des_Kranenkonvents_-_1470s_-_St._Annen_Museum_L%C3%BCbeck_-_linker_Aussenfl%C3%BCgel.jpg&width=400", artist:"Altar des Kranenkonvents", title:"1470s - St. Annen Museum Lübeck - linker Aussenflügel" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/H%C3%BCttener_Altar.JPG&width=400", artist:"Unbekannt", title:"Hüttener Altar" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Antonello_da_Messina_008.jpg&width=400", artist:"Unbekannt", title:"Antonello da Messina 008" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Artgate_Fondazione_Cariplo_-_(Scuola_lombarda_-_XVIII),_Santa_Orsola.jpg&width=400", artist:"Artgate Fondazione Cariplo", title:"(Scuola lombarda - XVIII), Santa Orsola" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Attributed_to_the_Second_Master_of_Bierge_-_Panel_of_Saint_Ursula_-_Google_Art_Project.jpg&width=400", artist:"Attributed to the Second Master of Bierge", title:"Panel of Saint Ursula -" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bernardo_daddi,_arrivo_di_sant%27orsola_a_colonia,_1330_ca..JPG&width=400", artist:"Unbekannt", title:"Bernardo daddi, arrivo di sant'orsola a colonia, 1330 ca." },
+    ]
+  },
+  {
+    saint: "Hl. Apollonia",
+    attributes: ["Zange mit Zahn","Palme","Krone","Buch","Scheiterhaufen"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/110525_Pinerolo_Duomo_di_Pinerolo_CS_(117).JPG&width=400", artist:"Unbekannt", title:"110525 Pinerolo Duomo di Pinerolo CS (117)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Angarano,_chiesa_della_Santissima_Trinit%C3%A0_-_San_Michele_e_sant%27Apollonia,_di_Girolamo_Bernardoni.jpg&width=400", artist:"Angarano, chiesa della Santissima Trinità", title:"San Michele e sant'Apollonia, di Girolamo Bernardoni" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Barton_Turf,_Screen,_Saint_Appolonia_and_Saint_Zita_with_Angels.jpg&width=400", artist:"Unbekannt", title:"Barton Turf, Screen, Saint Appolonia and Saint Zita with Angels" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Camponogara,_chiesa_di_Santa_Maria_Assunta_e_San_Prosdocimo_-_Dipinto_02.jpg&width=400", artist:"Camponogara, chiesa di Santa Maria Assunta e San Prosdocimo", title:"Dipinto 02" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Castello_il_bergamasco_La_virgen_se_aparece_a_las_santas_Catalina_y_Apolonia.jpg&width=400", artist:"Unbekannt", title:"Castello il bergamasco La virgen se aparece a las santas Catalina y Apolonia" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Chiesa_di_Santa_Sofia_(Gravina_in_Puglia)13.jpg&width=400", artist:"Unbekannt", title:"Chiesa di Santa Sofia (Gravina in Puglia)13" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_(I)_-_Katharinenaltar,_die_Heiligen_Genoveva_und_Apollonia_(NGL).jpg&width=400", artist:"Lucas Cranach (I)", title:"Katharinenaltar, die Heiligen Genoveva und Apollonia (NGL)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_the_Elder_-_Saints_Genevieve_and_Apollonia_-_Google_Art_Project.jpg&width=400", artist:"Lucas Cranach the Elder", title:"Saints Genevieve and Apollonia -" },
+    ]
+  },
+  {
+    saint: "Hl. Dorothea",
+    attributes: ["Korb mit Rosen und Äpfeln","Blumenkranz im Haar","Palme","Schwert","Krone","Engelsbote mit Blumen"],
+    difficulty: 3,
+    paintings: [
+    ]
+  },
+  {
+    saint: "Hl. Helena",
+    attributes: ["Großes Kreuz (Kreuzauffindung)","Kaiserkrone","Nägel","Hermelinmantel","Inschriftentafel INRI"],
+    difficulty: 3,
+    paintings: [
+    ]
+  },
+  {
+    saint: "Hl. Rochus",
+    attributes: ["Pestbeule am Oberschenkel","Hund mit Brot","Pilgerstab","Pilgermuschel","Engel"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Dendermonde_OLV-kerk_de_Craeyer_St_Roch.jpg&width=400", artist:"Unbekannt", title:"Dendermonde OLV-kerk de Craeyer St Roch" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Domenico_Antonio_Vaccaro_-_Madonna_and_Child_with_Saints_Roch,_Sebastian_and_Francis_Xavier.jpg&width=400", artist:"Domenico Antonio Vaccaro", title:"Madonna and Child with Saints Roch, Sebastian and Francis Xavier" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/18thCenturyPaintingSanFranSanCris.JPG&width=400", artist:"Unbekannt", title:"18thCenturyPaintingSanFranSanCris" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Altar_of_St._Catherine.jpg&width=400", artist:"Unbekannt", title:"Altar of St. Catherine" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Christ_the_King_Church,_Monterrey,_Nuevo_Leon,_Mexico05.jpg&width=400", artist:"Unbekannt", title:"Christ the King Church, Monterrey, Nuevo Leon, Mexico05" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fonts_de_San_Roc_Olot_001.jpg&width=400", artist:"Unbekannt", title:"Fonts de San Roc Olot 001" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fonts_de_San_Roc_Olot_002.jpg&width=400", artist:"Unbekannt", title:"Fonts de San Roc Olot 002" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Francesco_francia_(scuola),_san_rocco,_01.JPG&width=400", artist:"Unbekannt", title:"Francesco francia (scuola), san rocco, 01" },
+    ]
+  },
+  {
+    saint: "Hl. Eustachius",
+    attributes: ["Hirsch mit Kreuz im Geweih","Jägergewand","Hunde","Eherner Stier (Martyrium)","Pferd","Soldatenrüstung"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Alexey_Markov_-_%D0%95%D0%B2%D1%81%D1%82%D0%B0%D1%84%D0%B8%D0%B9_%D0%9F%D0%BB%D0%B0%D0%BA%D0%B8%D0%B4%D0%B0_%D0%B2_%D0%9A%D0%BE%D0%BB%D0%B8%D0%B7%D0%B5%D0%B5_(1839)_%D0%93%D0%A2%D0%93.jpg&width=400", artist:"Alexey Markov", title:"Евстафий Плакида в Колизее (1839) ГТГ" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Alexey_Markov_-_%D0%95%D0%B2%D1%81%D1%82%D0%B0%D1%84%D0%B8%D0%B9_%D0%9F%D0%BB%D0%B0%D0%BA%D0%B8%D0%B4%D0%B0_%D0%B2_%D0%9A%D0%BE%D0%BB%D0%B8%D0%B7%D0%B5%D0%B5%2B_(1839)_%D0%93%D0%A2%D0%93.jpg&width=400", artist:"Alexey Markov", title:"Евстафий Плакида в Колизее+ (1839) ГТГ" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Saint_Eustache,_par_Lucas_Cranach_l%27Ancien.jpg&width=400", artist:"Unbekannt", title:"Saint Eustache, par Lucas Cranach l'Ancien" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jochberg-0017.jpg&width=400", artist:"Unbekannt", title:"Jochberg-0017" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jochberg._Pfarrkirche_St._Wolfgang._Friedhof._Bildstock_Hl._Eustachius.jpg&width=400", artist:"Unbekannt", title:"Jochberg. Pfarrkirche St. Wolfgang. Friedhof. Bildstock Hl. Eustachius" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Josef_Binder_-_Die_Bekehrung_des_heiligen_Eustachius_-_2708_-_%C3%96sterreichische_Galerie_Belvedere.jpg&width=400", artist:"Josef Binder", title:"Die Bekehrung des heiligen Eustachius - 2708 - Österreichische Galerie Belvedere" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Markov_Alexey_003_Saint_Eustace.jpeg&width=400", artist:"Unbekannt", title:"Markov Alexey 003 Saint Eustace" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Oberrohr_Filialkirche_-_Nothelfer-Altar_links_2_Bild.jpg&width=400", artist:"Oberrohr Filialkirche", title:"Nothelfer-Altar links 2 Bild" },
+    ]
+  },
+  {
+    saint: "Hl. Hubertus",
+    attributes: ["Hirsch mit Kreuz im Geweih","Jagdhund","Jagdhorn","Bischofsstab","Mitra","Kniende Pose (Karfreitags-Vision)"],
+    difficulty: 3,
+    paintings: [
+    ]
+  },
+  {
+    saint: "Hl. Florian",
+    attributes: ["Wassereimer","Brennendes Haus","Rüstung","Mühlstein","Fahne"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/2017-06-11_Wei%C3%9Fenbachler_Feuerwehrfest_2017_am_Sonntag_(07).jpg&width=400", artist:"Unbekannt", title:"2017-06-11 Weißenbachler Feuerwehrfest 2017 am Sonntag (07)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/20240527_Cabinet_Shrine_of_Saint_Florian_Upper_Silesian_Ethnographic_Park.jpg&width=400", artist:"Unbekannt", title:"20240527 Cabinet Shrine of Saint Florian Upper Silesian Ethnographic Park" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Albrecht_D%C3%BCrer_Die_Schutzheiligen_von_%C3%96sterreich_Druck_um_1625.jpg&width=400", artist:"Unbekannt", title:"Albrecht Dürer Die Schutzheiligen von Österreich Druck um 1625" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Colz_La_Val_02.jpg&width=400", artist:"Unbekannt", title:"Colz La Val 02" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Dess%C3%ABni_de_autere_de_Josef_Rifesser_1898.jpg&width=400", artist:"Unbekannt", title:"Dessëni de autere de Josef Rifesser 1898" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Dietersdorf_Kellergasse_12_a.jpg&width=400", artist:"Unbekannt", title:"Dietersdorf Kellergasse 12 a" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Gedenktafel,_Szabads%C3%A1gplatz_12,_2026_T%C3%A1pi%C3%B3szecs%C5%91.jpg&width=400", artist:"Unbekannt", title:"Gedenktafel, Szabadságplatz 12, 2026 Tápiószecső" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hl_Florian_des_Cassian_Dapoz.jpg&width=400", artist:"Unbekannt", title:"Hl Florian des Cassian Dapoz" },
+    ]
+  },
+  {
+    saint: "Hl. Gereon",
+    attributes: ["Ritterrüstung","Fahne","Kreuz","Schwert","Kölner Stadtpatron"],
+    difficulty: 3,
+    paintings: [
+    ]
+  },
+  {
+    saint: "Hl. Erasmus",
+    attributes: ["Winde / Spule mit Gedärmen","Bischofstracht","Mitra","Palme","Schiff / Anker","Buch"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/073_Habitatges_Sant_Elm,_cam%C3%AD_de_la_Pietat_(Arenys_de_Mar),_plafons_de_rajoles.jpg&width=400", artist:"Unbekannt", title:"073 Habitatges Sant Elm, camí de la Pietat (Arenys de Mar), plafons de rajoles" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Poussin_Martyrdom_of_St._Erasmus.jpg&width=400", artist:"Unbekannt", title:"Poussin Martyrdom of St. Erasmus" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Camassei_Martyrdom_of_St._Erasmus.jpg&width=400", artist:"Unbekannt", title:"Camassei Martyrdom of St. Erasmus" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anonymous_Martyrdom_of_Saint_Erasmus.jpg&width=400", artist:"Unbekannt", title:"Anonymous Martyrdom of Saint Erasmus" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/St.Blasien_Adlwang_-_Altar_Nothelfer_2.jpg&width=400", artist:"St.Blasien Adlwang", title:"Altar Nothelfer 2" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Cervo056.jpg&width=400", artist:"Unbekannt", title:"Cervo056" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Chiesa_di_San_Zeno_al_Foro_San_Erasmo_Tortelli_e_Paglia_Brescia.jpg&width=400", artist:"Unbekannt", title:"Chiesa di San Zeno al Foro San Erasmo Tortelli e Paglia Brescia" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_d._%C3%84._(Anonymer_Meister_seiner_Werkstatt)_-_Pfirtscher_Altar,_Hl._Erasmus_-_6272_-_Bavarian_State_Painting_Collections.jpg&width=400", artist:"Lucas Cranach d. Ä. (Anonymer Meister seiner Werkstatt)", title:"Pfirtscher Altar, Hl. Erasmus - 6272 - Bavarian State Painting Collections" },
+    ]
+  },
+  {
+    saint: "Hl. Mauritius",
+    attributes: ["Ritterrüstung","Fahne","Dunkle Hautfarbe","Lanze","Schild mit Mohrenköpfen"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jan_de_Herdt_-_Virgin_and_child_adored_by_St._Maurice.jpg&width=400", artist:"Jan de Herdt", title:"Virgin and child adored by St. Maurice" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Altar_aus_Katharinental_Heilige_c1490.jpg&width=400", artist:"Unbekannt", title:"Altar aus Katharinental Heilige c1490" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Anonymous_-_Hl._Mauritius_-_GG_5627_-_Kunsthistorisches_Museum.jpg&width=400", artist:"Anonymous", title:"Hl. Mauritius - GG 5627 - Kunsthistorisches Museum" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Venasque04.jpg&width=400", artist:"Unbekannt", title:"Venasque04" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Chiesa_di_Santa_Maria_della_Pace_altare_San_Maurizio_Francesco_Monti_Brescia.jpg&width=400", artist:"Unbekannt", title:"Chiesa di Santa Maria della Pace altare San Maurizio Francesco Monti Brescia" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Cranach,_Lucas_(I)_workshop_-_Pfirtscher_Altar,_Hl._Mauritius_-_Staatsgalerie_Aschaffenburg.jpg&width=400", artist:"Cranach, Lucas (I) workshop", title:"Pfirtscher Altar, Hl. Mauritius - Staatsgalerie Aschaffenburg" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lucas_Cranach_d._%C3%84._(Anonymer_Meister_seiner_Werkstatt)_-_Pfirtscher_Altar,_Hl._Mauritius_-_6263_-_Bavarian_State_Painting_Collections.jpg&width=400", artist:"Lucas Cranach d. Ä. (Anonymer Meister seiner Werkstatt)", title:"Pfirtscher Altar, Hl. Mauritius - 6263 - Bavarian State Painting Collections" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fegersheim_StMaurice06.jpg&width=400", artist:"Unbekannt", title:"Fegersheim StMaurice06" },
+    ]
+  },
+  {
+    saint: "Hl. Wolfgang von Regensburg",
+    attributes: ["Beil im Kirchendach","Kirchenmodell","Bischofsstab","Mitra","Teufel (hilft beim Hausbau)","Buch"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/2013.04.15_-_Ernsthofen_-_Kath._Filialkirche_hl._Wolfgang_-_03.jpg&width=400", artist:"2013.04.15", title:"Ernsthofen - Kath. Filialkirche hl. Wolfgang - 03" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Aggsbach_Markt_Pfarrkirche13.jpg&width=400", artist:"Unbekannt", title:"Aggsbach Markt Pfarrkirche13" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bigli_Art_Broker._Saint_Wolfgang.jpg&width=400", artist:"Unbekannt", title:"Bigli Art Broker. Saint Wolfgang" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Di%C3%B6zesanmuseum_Rottenburg-Katalog_26-0081.jpg&width=400", artist:"Unbekannt", title:"Diözesanmuseum Rottenburg-Katalog 26-0081" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fortunat_Bergant_-_Sveti_Volbenk_z_bolnikom.jpg&width=400", artist:"Fortunat Bergant", title:"Sveti Volbenk z bolnikom" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fr%C3%A4nkische_Galerie_30.JPG&width=400", artist:"Unbekannt", title:"Fränkische Galerie 30" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Furth_bei_G%C3%B6ttweig_Pfarrkirche01.jpg&width=400", artist:"Unbekannt", title:"Furth bei Göttweig Pfarrkirche01" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hallstatt_kath._Kirche_Knappenaltar_Wolfgang_und_Bischof_01.jpg&width=400", artist:"Unbekannt", title:"Hallstatt kath. Kirche Knappenaltar Wolfgang und Bischof 01" },
+    ]
+  },
+  {
+    saint: "Hll. Cosmas und Damian",
+    attributes: ["Arztinstrumente","Salbentiegel","Mörser","Rotes Gewand","Palme"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Abcoude6.JPG&width=400", artist:"Unbekannt", title:"Abcoude6" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Calle_de_San_Cosme_y_San_Dami%C3%A1n_(Madrid).jpg&width=400", artist:"Unbekannt", title:"Calle de San Cosme y San Damián (Madrid)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Enamel_plaque_depicting_St_Cosmas_anointing_the_head_of_a_pa_Wellcome_L0058241.jpg&width=400", artist:"Unbekannt", title:"Enamel plaque depicting St Cosmas anointing the head of a pa Wellcome L0058241" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Luzarches_Saint-C%C3%B4me-et-Saint-Damien_Fahne_679.JPG&width=400", artist:"Unbekannt", title:"Luzarches Saint-Côme-et-Saint-Damien Fahne 679" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Luzarches_%C3%89glise_Saint-C%C3%B4me-Saint-Damien_Banni%C3%A8re_308.jpg&width=400", artist:"Unbekannt", title:"Luzarches Église Saint-Côme-Saint-Damien Bannière 308" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Madrid_Calle_de_San_Cosme_y_San_Damian_174.jpg&width=400", artist:"Unbekannt", title:"Madrid Calle de San Cosme y San Damian 174" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/St.Cosman_%26_St.Damien_by_Maryam_Hermina_1960.jpg&width=400", artist:"Unbekannt", title:"St.Cosman & St.Damien by Maryam Hermina 1960" },
+    ]
+  },
+  {
+    saint: "Hl. Hedwig von Schlesien",
+    attributes: ["Schuhe in der Hand (Barfuß)","Madonnenstatuette","Herzogskrone","Witwentracht"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hermann_Pohl,_Hedwig_von_Schlesien-Bildstock_in_Flieden_(1986).jpg&width=400", artist:"Unbekannt", title:"Hermann Pohl, Hedwig von Schlesien-Bildstock in Flieden (1986)" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Andechs_family.jpeg&width=400", artist:"Unbekannt", title:"Andechs family" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Andechs_family2.jpeg&width=400", artist:"Unbekannt", title:"Andechs family2" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Boles%C5%82aw_Rogatka_z_babci%C4%85.jpg&width=400", artist:"Unbekannt", title:"Bolesław Rogatka z babcią" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Brzeg_summer_2016_065.JPG&width=400", artist:"Unbekannt", title:"Brzeg summer 2016 065" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Brzeg_summer_2016_066.JPG&width=400", artist:"Unbekannt", title:"Brzeg summer 2016 066" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Christus_zegent_de_Heilige_Hedwig_van_Silezi%C3%AB,_RP-P-OB-7981.jpg&width=400", artist:"Unbekannt", title:"Christus zegent de Heilige Hedwig van Silezië, RP-P-OB-7981" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Court_workshop_of_Duke_Ludwig_I_of_Liegnitz_and_Brieg_(Polish_-_Heinrich_Sleeping_and_Hedwig_Praying%3B_Heinrich_and_Hedwig_with_Their_Children_-_Google_Art_Project.jpg&width=400", artist:"Court workshop of Duke Ludwig I of Liegnitz and Brieg (Polish", title:"Heinrich Sleeping and Hedwig Praying; Heinrich and Hedwig with Their Children -" },
+    ]
+  },
+  {
+    saint: "Hl. Bonifatius",
+    attributes: ["Gefälltes Eichenbaum (Donar-Eiche)","Bischofsstab","Mitra","Buch mit Schwert (Märtyrertod)"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/20221019_St._Lorenz_Kempten_01.jpg&width=400", artist:"Unbekannt", title:"20221019 St. Lorenz Kempten 01" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bad_Erlach_Pfarrkirche_-_Altar_4.jpg&width=400", artist:"Bad Erlach Pfarrkirche", title:"Altar 4" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bannberg_-_Pfarrkirche_St._Martin_Deckenmalerei_Bonifatius_f%C3%A4llt_Eiche.jpg&width=400", artist:"Bannberg", title:"Pfarrkirche St. Martin Deckenmalerei Bonifatius fällt Eiche" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bonifatius-gregorius-aedelbertus-noordwijk.JPG&width=400", artist:"Unbekannt", title:"Bonifatius-gregorius-aedelbertus-noordwijk" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Christian_Wilhelm_Ernst_Dietrich_(1712-1774)_-_Saint_Boniface_Felling_the_Sacred_Oak_-_NG_619_-_National_Galleries_of_Scotland.jpg&width=400", artist:"Christian Wilhelm Ernst Dietrich (1712-1774)", title:"Saint Boniface Felling the Sacred Oak - NG 619 - National Galleries of Scotland" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Donareiche2.jpg&width=400", artist:"Unbekannt", title:"Donareiche2" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jacobus_van_Dijck_-_Anno_754._De_martelaarsdood_van_Bonifacius_te_Dokkum_-_SA_5116_-_Amsterdam_Museum.jpg&width=400", artist:"Jacobus van Dijck", title:"Anno 754. De martelaarsdood van Bonifacius te Dokkum - SA 5116 - Amsterdam Museum" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jan_Fransz_Verzijl_twee_schilderijen_Willibrord_Bonifatius.jpg&width=400", artist:"Unbekannt", title:"Jan Fransz Verzijl twee schilderijen Willibrord Bonifatius" },
+    ]
+  },
+  {
+    saint: "Hl. Johannes Nepomuk",
+    attributes: ["Fünf-Sterne-Nimbus","Brücke","Kruzifix in der Hand","Domherrentracht (Priester)"],
+    difficulty: 3,
+    paintings: [
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jan_Nepomuck%C3%BD.gif&width=400", artist:"Unbekannt", title:"Jan Nepomucký" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Johannes_von_Nepomuk_Hinterglasbild.jpg&width=400", artist:"Unbekannt", title:"Johannes von Nepomuk Hinterglasbild" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Mathauser,_Josef_-_Smrt_Jana_Nepomuck%C3%A9ho.jpg&width=400", artist:"Mathauser, Josef", title:"Smrt Jana Nepomuckého" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Saint_John_Nepomucen_and_his_martyrdom._Watercolour_on_vellu_Wellcome_M0005657.jpg&width=400", artist:"Unbekannt", title:"Saint John Nepomucen and his martyrdom. Watercolour on vellu Wellcome M0005657" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Saint_John_Nepomucen_and_his_martyrdom._Watercolour_on_vellu_Wellcome_V0033314.jpg&width=400", artist:"Unbekannt", title:"Saint John Nepomucen and his martyrdom. Watercolour on vellu Wellcome V0033314" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Saint_John_of_Nepomucen._Gouache_painting._Wellcome_V0032431.jpg&width=400", artist:"Unbekannt", title:"Saint John of Nepomucen. Gouache painting. Wellcome V0032431" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Saint_John_of_Nepomucen._Gouache_painting._Wellcome_V0032432.jpg&width=400", artist:"Unbekannt", title:"Saint John of Nepomucen. Gouache painting. Wellcome V0032432" },
+      { img:"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Saint_John_of_Nepomuk.jpg&width=400", artist:"Unbekannt", title:"Saint John of Nepomuk" },
     ]
   },
 ];
@@ -858,7 +1322,7 @@ function generateQuestion() {
           options, answer: saint.saint,
           saintName: saint.saint,
           shownImg: painting.img,
-          info: `${painting.artist} – ${painting.title}, ${painting.year} · ${painting.museum}`
+          info: [painting.artist + ' – ' + painting.title, painting.year, painting.museum].filter(Boolean).join(' · ')
         };
       } else {
         const allArtists = new Set();
@@ -873,7 +1337,7 @@ function generateQuestion() {
           options, answer: painting.artist,
           saintName: saint.saint,
           shownImg: painting.img,
-          info: `${painting.title} (${saint.saint}), ${painting.year} · ${painting.museum}`
+          info: [painting.title + ' (' + saint.saint + ')', painting.year, painting.museum].filter(Boolean).join(' · ')
         };
       }
     }
@@ -1028,7 +1492,7 @@ function showFeedbackImage(q, wasCorrect) {
     loading.style.display = '';
     loading.textContent = 'Bild wird geladen…';
     img.src = feedbackPainting.img;
-    info.textContent = `${feedbackPainting.artist} – ${feedbackPainting.title}, ${feedbackPainting.year}`;
+    info.textContent = [feedbackPainting.artist + ' – ' + feedbackPainting.title, feedbackPainting.year].filter(Boolean).join(', ');
     area.style.display = 'block';
   } else {
     label.textContent = wasCorrect

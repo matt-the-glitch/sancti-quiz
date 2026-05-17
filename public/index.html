@@ -1262,6 +1262,33 @@ function shuffleArray(arr) {
 
 function pickRandom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
+const KNOWN_SINGLE_ARTISTS = new Set([
+  'caravaggio','tizian','titian','tintoretto','donatello','raffael','raphael',
+  'michelangelo','leonardo','pisanello','parmigianino','pontormo','bronzino',
+  'correggio','giorgione','mantegna','masaccio','perugino','sodoma','crivelli',
+  'memling','botticelli','duccio','cimabue','giotto','rembrandt','rubens',
+  'goya','holbein','dürer','grünewald','guercino','domenichino','reni',
+  'murillo','pacher','altdorfer','schongauer','velázquez','velazquez',
+  'zurbarán','zurbaran'
+]);
+function isRealArtist(name) {
+  if (!name) return false;
+  const n = name.trim();
+  if (n.length < 3 || /^\d/.test(n)) return false;
+  const nl = n.toLowerCase();
+  if (nl === 'unbekannt' || nl.startsWith('anonymous') || nl.startsWith('unknown')) return false;
+  if (/\b\d+(st|nd|rd|th)?[-\s]+century/i.test(n)) return false;
+  const buildings = ['pfarrkirche','kathedrale','cathedral','monastery','museum',
+    'collection','chapel','altarpiece','fondazione','pinakothek','gallery',
+    'galerie','university','basilica','klosterkirche','frauenkirche'];
+  if (buildings.some(b => nl.includes(b))) return false;
+  if (n[0] !== n[0].toUpperCase()) return false;
+  if (!n.includes(' ') && !n.includes(',') && !n.includes('-')) {
+    return KNOWN_SINGLE_ARTISTS.has(nl);
+  }
+  return true;
+}
+
 function handleImageError(img) {
   document.getElementById('imgLoading').textContent = 'Bild konnte nicht geladen werden';
   document.getElementById('imgLoading').style.display = '';
@@ -1307,10 +1334,22 @@ function generateQuestion() {
 
     if (type === 'image_saint' || type === 'image_artist') {
       if (!saint.paintings || saint.paintings.length === 0) continue;
-      const painting = pickRandom(saint.paintings);
+      // Bei image_artist nur paintings mit echtem Kuenstler
+      const usable = type === 'image_artist'
+        ? saint.paintings.filter(p => isRealArtist(p.artist))
+        : saint.paintings;
+      if (usable.length === 0) continue;
+      const painting = pickRandom(usable);
       const qKey = type + ':' + painting.img;
       if (usedQuestions.has(qKey)) continue;
       usedQuestions.add(qKey);
+
+      const infoParts = [];
+      if (isRealArtist(painting.artist)) infoParts.push(painting.artist + ' – ' + painting.title);
+      else infoParts.push(painting.title);
+      if (painting.year) infoParts.push(painting.year);
+      if (painting.museum) infoParts.push(painting.museum);
+      const infoText = infoParts.filter(Boolean).join(' · ');
 
       if (type === 'image_saint') {
         const wrongs = getWrongSaints(saint.saint, 3);
@@ -1322,12 +1361,16 @@ function generateQuestion() {
           options, answer: saint.saint,
           saintName: saint.saint,
           shownImg: painting.img,
-          info: [painting.artist + ' – ' + painting.title, painting.year, painting.museum].filter(Boolean).join(' · ')
+          info: infoText
         };
       } else {
+        // image_artist: nur echte Kuenstler als wrongs
         const allArtists = new Set();
-        SAINTS_DATA.forEach(s => (s.paintings || []).forEach(p => allArtists.add(p.artist)));
+        SAINTS_DATA.forEach(s => (s.paintings || []).forEach(p => {
+          if (isRealArtist(p.artist)) allArtists.add(p.artist);
+        }));
         allArtists.delete(painting.artist);
+        if (allArtists.size < 3) continue;
         const wrongArtists = shuffleArray([...allArtists]).slice(0, 3);
         const options = shuffleArray([painting.artist, ...wrongArtists]);
         return {
@@ -1492,7 +1535,10 @@ function showFeedbackImage(q, wasCorrect) {
     loading.style.display = '';
     loading.textContent = 'Bild wird geladen…';
     img.src = feedbackPainting.img;
-    info.textContent = [feedbackPainting.artist + ' – ' + feedbackPainting.title, feedbackPainting.year].filter(Boolean).join(', ');
+    const _fbHead = isRealArtist(feedbackPainting.artist)
+      ? feedbackPainting.artist + ' – ' + feedbackPainting.title
+      : feedbackPainting.title;
+    info.textContent = [_fbHead, feedbackPainting.year].filter(Boolean).join(', ');
     area.style.display = 'block';
   } else {
     label.textContent = wasCorrect
